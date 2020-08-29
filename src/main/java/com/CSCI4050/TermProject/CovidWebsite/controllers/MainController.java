@@ -16,5 +16,11 @@ public class MainController {
             return "index";
         }
 
+        @RequestMapping(value="/login", method = RequestMethod.GET)
+        public String showLoginPage(ModelMap model){
+        return "login";
     }
+
+
+}
 
