@@ -20,5 +20,10 @@ public class MainController {
         public String showRegPage(ModelMap model){
             return "registration";
         }
+
+        @RequestMapping(value="/login", method = RequestMethod.GET)
+        public String showLoginPage(ModelMap model){
+            return "login";
+        }
 }
 
