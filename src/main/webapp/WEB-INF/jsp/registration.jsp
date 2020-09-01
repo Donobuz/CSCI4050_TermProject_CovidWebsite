@@ -1,3 +1,4 @@
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <html>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -10,43 +11,49 @@
 <head><title>Registration</title></head>
 <body>
 <h1>Registration</h1>
-<form>
+<%--@elvariable id="accountForm" type=""--%>
+<form:form method="POST" modelAttribute="accountForm">
     <div class="form-group">
-        <label for="inputFirstName">First Name</label>
-        <input type="firstName" class="form-control" id="inputFirstName" placeholder="Enter first name">
+        <form:label for="firstName" path="firstName">First Name</form:label>
+        <form:input type="text" class="form-control" id="firstName" placeholder="Enter first name" path="firstName"/>
     </div>
     <div class="form-group">
-        <label for="inputLastName">Last Name</label>
-        <input type="lastName" class="form-control" id="inputLastName" placeholder="Enter last name">
+        <form:label for="lastName" path="lastName">Last Name</form:label>
+        <form:input type="text" class="form-control" id="lastName" path="lastName" placeholder="Enter last name"/>
     </div>
     <div class="form-group">
-        <label for="inputAge">Age</label>
-        <input type="age" class="form-control" id="inputAge" placeholder="Enter age">
+        <form:label for="userName" path="userName">Username</form:label>
+        <form:input type="text" class="form-control" id="userName" placeholder="Enter a Username" path="userName"/>
+    </div>
+    <div class="form-group">
+        <form:label for="age" path="age">Age</form:label>
+        <form:input type="text" class="form-control" id="inputAge" placeholder="Enter age" path="age"/>
     </div>
     <div class="form-check">
         <label for="inputGender1">Gender</label>
         <br>
-        <input class="form-check-input" type="radio" name="gender" id="inputGender1" value="option1">
+        <input class="form-check-input" type="radio" name="gender" id="inputGender1" value="male">
         <label class="form-check-label" for="inputGender1">
             Male
         </label>
     </div>
     <div class="form-check">
-        <input class="form-check-input" type="radio" name="gender" id="inputGender2" value="option2">
+        <input class="form-check-input" type="radio" name="gender" id="inputGender2" value="female">
         <label class="form-check-label" for="inputGender2">
             Female
         </label>
     </div>
     <div class="form-group">
-        <label for="inputEmail">Email address</label>
-        <input type="email" class="form-control" id="inputEmail" placeholder="Enter email address">
+        <form:label for="email" path="email">Email address</form:label>
+        <form:input type="email" class="form-control" id="email" path="email" placeholder="Enter email address" />
     </div>
     <div class="form-group">
-        <label for="inputPassword">Password</label>
-        <input type="password" class="form-control" id="inputPassword" placeholder="Enter password">
+        <form:label for="password" path="password">Password</form:label>
+        <form:input type="password" class="form-control" id="password" placeholder="Enter password" path="password"/>
     </div>
 
-    <button type="submit" class="btn btn-primary">Submit</button>
-</form>
+    <form:button type="submit" class="btn btn-primary">Submit</form:button>
+</form:form>
 </body>
 </html>
+
