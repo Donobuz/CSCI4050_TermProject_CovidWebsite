@@ -44,7 +44,7 @@ public class MainController {
             model.addAttribute("lastName", accountForm.getLastName());
             model.addAttribute("password", accountForm.getPassword());
             model.addAttribute("age", accountForm.getAge());
-            model.addAttribute("gender", accountForm.getGender());
+            //model.addAttribute("gender", accountForm.getGender());
 
             //Try and Catch
 
