@@ -29,20 +29,6 @@
         <form:label for="age" path="age">Age</form:label>
         <form:input type="text" class="form-control" id="inputAge" placeholder="Enter age" path="age"/>
     </div>
-    <div class="form-check">
-        <label for="inputGender1">Gender</label>
-        <br>
-        <input class="form-check-input" type="radio" name="gender" id="inputGender1" value="male">
-        <label class="form-check-label" for="inputGender1">
-            Male
-        </label>
-    </div>
-    <div class="form-check">
-        <input class="form-check-input" type="radio" name="gender" id="inputGender2" value="female">
-        <label class="form-check-label" for="inputGender2">
-            Female
-        </label>
-    </div>
     <div class="form-group">
         <form:label for="email" path="email">Email address</form:label>
         <form:input type="email" class="form-control" id="email" path="email" placeholder="Enter email address" />
