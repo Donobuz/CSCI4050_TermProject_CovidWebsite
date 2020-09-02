@@ -18,7 +18,7 @@
 <!--login page-->
 
 <div class="container text-center">
-    <h1 style="color: #817ffe" class="text-center">Login Now!</h1>
+    <h1 style="color: #817ffe" class="text-center">Login</h1>
 </div>
 
 <form>
