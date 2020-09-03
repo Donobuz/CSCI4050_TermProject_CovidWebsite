@@ -13,21 +13,9 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
     <style><%@include file="/WEB-INF/css/login.css"%></style>
     <title>Login</title>
-
-    <style TYPE = "text/css">
-        h1 {
-            font-family: "Open Sans", sans-serif;
-            font-weight: bold;
-        }
-        body{
-            background-color: #bdbdd3;
-        }
-
-    </style>
-
 </head>
-<body>
 
+<body>
 <div class="form-group container text-center">
     <h1>Login</h1>
     <div class="login">

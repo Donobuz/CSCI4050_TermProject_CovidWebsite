@@ -1,6 +1,6 @@
-*{margin: 0; padding: 0;}
-body{background: #fff; font-family: 'Open Sans', sans-serif;}
-
+body{
+    background-color: #bdbdd3;
+}
 .MyForm
 {
     width: 320px;
@@ -16,13 +16,12 @@ h1
 {
     text-align: center;
     color: #817ffe;
-    font-weight: normal;
+    font-weight: bold;
+    font-family: "Open Sans", sans-serif;
     margin-bottom: 30px;
 }
 
-
-.MyInput
-{
+.MyInput{
     width: 100%;
     background: #ecf1f4;
     border: 1px solid #ecf1f4;
@@ -37,25 +36,3 @@ h1
     text-indent: 5px;
     transition: all 0.6s ease;
 }
-
-input:hover
-{
-    padding: 14px 16px;
-}
-login_button
-{
-    background: #817ffe;
-    border: 0;
-    cursor: pointer;
-    color: #f3ffff;
-    border-radius: 26px;
-    padding: 12px 118px;
-    box-sizing: border-box;
-    margin-bottom: 20px;
-    font-size: 14px;
-    font-family: 'Open Sans', sans-serif;
-
-}
-button:hover{ background: #403866; transition: .6s;}
-
-::placeholder{color: #bdbdd3;}
