@@ -16,8 +16,18 @@
 </head>
 
 <body>
-<div class="form-group container text-center">
-    <h1>Login</h1>
+<div class="form-group container" style="text-align: center">
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
     <div class="login">
         <input type="text"
                class="form-control MyInput"
@@ -35,7 +45,7 @@
                placeholder="password"/>
     </div>
 
-    <div class="MyButton text-center">
+    <div class="MyButton" style="text-align: center">
         <a href="/index"
            type="submit"
            class="btn btn-primary form-control"
@@ -52,6 +62,8 @@
            border: 0px solid transparent;
            width: 150px">Sign up</a>
     </div>
+
+
 </div>
 </body>
 </html>
