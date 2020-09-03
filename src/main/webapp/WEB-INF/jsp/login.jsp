@@ -1,3 +1,4 @@
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <html>
 <head>
 
@@ -13,33 +14,56 @@
     <style><%@include file="/WEB-INF/css/login.css"%></style>
     <title>Login</title>
 
+    <style TYPE = "text/css">
+        h1 {
+            font-family: "Open Sans", sans-serif;
+            font-weight: bold;
+        }
+        body{
+            background-color: #bdbdd3;
+        }
+
+    </style>
+
 </head>
 <body>
-<!--login page-->
 
-<div class="container text-center">
-    <h1 style="color: #817ffe" class="text-center">Login</h1>
-</div>
-
-<form>
-    <div class="form-group container text-center">
+<div class="form-group container text-center">
+    <h1>Login</h1>
+    <div class="login">
         <input type="text"
-               class="form-control"
+               class="form-control MyInput"
                id="user"
-               style="display: inline; width: 200px;" autocomplete="off" placeholder="email@example.com"/>
+               style="display: inline; width: 300px;"
+               autocomplete="off"
+               placeholder="email@example.com"/>
     </div>
-    <div class="form-group container text-center">
+    <div class="login">
         <input type="text"
-               class="form-control" id="password"
-               style="display: inline; width: 200px;" autocomplete="off" placeholder="password"/>
+               class="form-control MyInput"
+               id="password"
+               style="display: inline; width: 300px;"
+               autocomplete="off"
+               placeholder="password"/>
     </div>
 
-    <div class="form-group container text-center">
-        <a href="#" type="submit" class="btn btn-primary">Login</a>
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        <a href="/registration" class="btn btn-primary">sign up</a>
-    </div>
+    <div class="MyButton text-center">
+        <a href="/index"
+           type="submit"
+           class="btn btn-primary form-control"
+           style="background-color: #817ffe;
+           border-radius: 50px;
+           border: 0px solid transparent;
+           width: 150px">Login</a>
 
-</form>
+        <a href="/registration"
+           type="submit"
+           class="btn btn-primary form-control"
+           style="background-color: #817ffe;
+           border-radius:50px;
+           border: 0px solid transparent;
+           width: 150px">Sign up</a>
+    </div>
+</div>
 </body>
 </html>
