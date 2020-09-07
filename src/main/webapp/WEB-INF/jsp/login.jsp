@@ -14,7 +14,7 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
     <style><%@include file="/WEB-INF/css/login.css"%></style>
     <title>Login</title>
-    <script language="JavaScript">var code;
+<%--    <script language="JavaScript">var code;
     function createCode() {
         code = "";
         var codeLength = 5; //the length of the code
@@ -32,9 +32,11 @@
         document.getElementById("discode").innerHTML= code;
     }
     </script>
+    --%>
 </head>
 
-<body onload="createCode()">
+<body>
+<form:form>
 <div class="form-group container" id="positionOfLogin" style="text-align: center">
     <div>
         <input type="text"
@@ -60,7 +62,7 @@
     <span><a href="#" id="changeImg"><canvas id="canvas" width="120" height="45"></canvas>
     </a> </span>
 
-    <div class="MyButton" style="text-align: center">
+    <div class="MyButton" id="button" style="text-align: center">
         <a href="/index"
            type="submit"
            class="btn btn-primary form-control"
@@ -80,8 +82,8 @@
            width: 150px">Sign up</a>
     </div>
 
-
 </div>
+</form:form>
 </body>
 <script>
     //make a Random Number
