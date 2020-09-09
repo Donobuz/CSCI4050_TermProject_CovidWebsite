@@ -1,3 +1,4 @@
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <html>
 <head>
 
@@ -21,25 +22,27 @@
     <h1 style="color: #817ffe" class="text-center">Login</h1>
 </div>
 
-<form>
+<%--@elvariable id="accountForm" type=""--%>
+<form:form name="accountForm" method="POST" modelAttribute="accountForm">
     <div class="form-group container text-center">
-        <input type="text"
+        <form:input type="text"
                class="form-control"
-               id="user"
-               style="display: inline; width: 200px;" autocomplete="off" placeholder="email@example.com"/>
+               id="userName"
+               style="display: inline; width: 200px;" autocomplete="off" placeholder="Username" path="userName"/>
     </div>
     <div class="form-group container text-center">
-        <input type="text"
+        <form:input type="password"
                class="form-control" id="password"
-               style="display: inline; width: 200px;" autocomplete="off" placeholder="password"/>
+               style="display: inline; width: 200px;" autocomplete="off" placeholder="Password" path="password"/>
     </div>
 
     <div class="form-group container text-center">
-        <a href="#" type="submit" class="btn btn-primary">Login</a>
+        <form:button type="submit" class="from-control btn btn-primary">Submit</form:button>
         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
         <a href="/registration" class="btn btn-primary">sign up</a>
     </div>
 
-</form>
+</form:form>
 </body>
+
 </html>

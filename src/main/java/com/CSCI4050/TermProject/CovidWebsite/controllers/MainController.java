@@ -37,7 +37,6 @@ public class MainController {
                 return "error";
             }
 
-
             model.addAttribute("userName", accountForm.getUserName());
             model.addAttribute("email", accountForm.getEmail());
             model.addAttribute("firstName", accountForm.getFirstName());
@@ -56,7 +55,30 @@ public class MainController {
 
         @RequestMapping(value="/login", method = RequestMethod.GET)
         public String showLoginPage(ModelMap model){
+        model.addAttribute("accountForm", new AccountEntity());
             return "login";
         }
+
+    @RequestMapping(value="/login", method = RequestMethod.POST)
+    public String loginUser(@ModelAttribute("accountForm") AccountEntity accountForm, BindingResult bindingResult, Model model){
+
+        if (bindingResult.hasErrors()) {
+            return "error";
+        }
+
+        if (accountForm != null && accountForm.getUserName() != null && accountForm.getPassword() != null) {
+            if (accountForm.getUserName().equals("Donobuz") && accountForm.getPassword().equals("1234")) {
+                model.addAttribute("msg", accountForm.getUserName());
+                return "index";
+            } else {
+                model.addAttribute("error", "Invalid Details");
+                return "login";
+            }
+        } else {
+            model.addAttribute("error", "Please enter Details");
+            return "login";
+        }
+    }
+
 }
 
