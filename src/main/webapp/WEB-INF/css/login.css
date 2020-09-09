@@ -1,0 +1,67 @@
+html{
+    height: 100%;
+}
+#changeImg{
+    position: relative;
+    top:17px;
+}
+body{
+    background-image: url("images/imgLogin.jpg");
+    background-size: 100% 100%;
+    padding: 0;
+    margin: 0;
+}
+#positionOfLogin{
+    position: relative;
+    top: 350px;
+
+}
+.MyForm
+{
+    width: 320px;
+    padding: 40px 20px;
+    box-sizing: border-box;
+    position: fixed;
+    left: 50%;
+    top: 60%;
+    transform: translate(-50%, -50%);
+}
+.MyCheckBox{
+    text-align: center;
+    color: #817ffe;
+    font-weight: bold;
+    font-family: "Open Sans", sans-serif;
+    opacity: 0.8;
+}
+h1
+{
+    text-align: center;
+    color: #817ffe;
+    font-weight: bold;
+    font-family: "Open Sans", sans-serif;
+    margin-bottom: 30px;
+    opacity: 0.8;
+}
+
+.MyInput{
+    width: 100%;
+    background: #ecf1f4;
+    border: 1px solid #ecf1f4;
+    border-radius: 26px;
+    padding: 12px 14px;
+    box-sizing: border-box;
+    margin-bottom: 20px;
+    font-size: 14px;
+    color: black;
+    font-family: 'Open Sans', sans-serif;
+    outline: none;
+    text-indent: 5px;
+    transition: all 0.6s ease;
+}
+input:hover{
+    padding: 14px 16px;
+}
+
+
+/*whatever*/
+::placeholder{color: #bdbdd3;}
