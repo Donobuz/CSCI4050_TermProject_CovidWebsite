@@ -3,6 +3,7 @@
 <html>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
 <!-- Webjars for Bootstrap and Jquery -->
 
 <head>
@@ -38,7 +39,7 @@
     </div>
 
     <div>
-        <img src="images/reg4.png" alt="picture" height="900px" width="1500px">
+        <img src="images/reg1.png" alt="picture">
     </div>
 
 

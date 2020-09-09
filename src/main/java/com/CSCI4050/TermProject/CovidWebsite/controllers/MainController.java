@@ -58,5 +58,10 @@ public class MainController {
         public String showLoginPage(ModelMap model){
             return "login";
         }
+
+        @RequestMapping(value="/news", method = RequestMethod.GET)
+        public String showNewsPage(ModelMap model){
+        return "news";
+    }
 }
 

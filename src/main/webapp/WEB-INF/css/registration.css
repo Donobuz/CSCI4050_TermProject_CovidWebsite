@@ -7,7 +7,7 @@ body{background: #fff; font-family: 'Open Sans', sans-serif;}
     padding: 40px 20px;
     box-sizing: border-box;
     position: fixed;
-    left: 85%;
+    left: 80%;
     top: 50%;
     transform: translate(-50%, -50%);
 }
@@ -20,7 +20,22 @@ h1
     margin-bottom: 30px;
 }
 
-
+input
+{
+    width: 100%;
+    background: #ecf1f4;
+    border: 1px solid #ecf1f4;
+    border-radius: 26px;
+    padding: 12px 14px;
+    box-sizing: border-box;
+    margin-bottom: 20px;
+    font-size: 14px;
+    color: black;
+    font-family: 'Open Sans', sans-serif;
+    outline: none;
+    text-indent: 5px;
+    transition: all 0.6s ease;
+}
 
 .MyInput
 {
