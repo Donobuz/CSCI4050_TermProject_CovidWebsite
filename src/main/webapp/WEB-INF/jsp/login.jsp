@@ -14,25 +14,7 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
     <style><%@include file="/WEB-INF/css/login.css"%></style>
     <title>Login</title>
-<%--    <script language="JavaScript">var code;
-    function createCode() {
-        code = "";
-        var codeLength = 5; //the length of the code
-        var selectChar = new Array(0,1,2,3,4,5,6,7,8,9,
-            'A','B','C','D','E','F','G','H','I','J','K','L','M',
-            'N','O','P','Q','R','S','T','U','V','W','X','Y','Z');
 
-        for (var i=0; i < codeLength;i++){
-            var charIndex = Math.floor(Math.random()*36);
-            code += selectChar[charIndex];
-        }
-        document.getElementById("discode").style.fontFamily="Fixedsys";
-        document.getElementById("discode").style.letterSpacing = "3px";
-        document.getElementById("discode").style.color = "#817FFE";
-        document.getElementById("discode").innerHTML= code;
-    }
-    </script>
-    --%>
 </head>
 
 <body>
