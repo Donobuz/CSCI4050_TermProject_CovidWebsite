@@ -89,5 +89,10 @@ public class MainController {
         public String showNewsPage(ModelMap model){
         return "news";
     }
+
+        @RequestMapping(value="/welcome", method = RequestMethod.GET)
+        public String showWelcmPage(ModelMap model){
+        return "Welcome";
+    }
 }
 
