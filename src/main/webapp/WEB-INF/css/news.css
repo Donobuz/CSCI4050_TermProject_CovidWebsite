@@ -1,0 +1,12 @@
+img{
+    width:400px;
+    height:200px;
+}
+aside{
+    text-align:center;
+    border: 3px solid black;
+    margin:2px;
+    width:406px;
+    height:600px;
+    float:left;
+}
