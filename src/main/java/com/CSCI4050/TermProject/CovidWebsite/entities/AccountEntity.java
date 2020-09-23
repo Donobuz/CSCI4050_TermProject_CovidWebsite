@@ -1,11 +1,10 @@
-package com.CSCI4050.TermProject.CovidWebsite.Entities;
+package com.CSCI4050.TermProject.CovidWebsite.entities;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.management.relation.Role;
+import javax.persistence.*;
+import java.util.Set;
 
-@Entity
+@Entity (name = "user")
 public class AccountEntity {
 
     @Id

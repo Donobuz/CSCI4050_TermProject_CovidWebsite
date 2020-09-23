@@ -19,21 +19,24 @@
 </head>
 
 <body>
-<form:form>
+<%--@elvariable id="login" type=""--%>
+<form:form modelAttribute="login">
     <div class="form-group container" id="positionOfLogin" style="text-align: center">
         <div>
-            <input type="text"
+            <form:input type="email"
                    class="form-control MyInput"
-                   id="user"
+                   id="email"
                    style="display: inline; width: 300px;"
-                   placeholder="email@example.com"/>
+                   placeholder="email@example.com"
+            path="email"/>
         </div>
         <div>
-            <input type="text"
+            <form:input type="password"
                    class="form-control MyInput"
                    id="password"
                    style="display: inline; width: 300px;"
-                   placeholder="password"/>
+                   placeholder="password"
+            path="password"/>
         </div>
 
             <%--    verifivation code  --%>
@@ -45,7 +48,7 @@
         <span><a href="#" id="changeImg"><canvas id="canvas" width="120" height="45"></canvas>
     </a> </span>
 
-        <div class="MyButton" id="button" style="text-align: center">
+       <!-- <div class="MyButton" id="button" style="text-align: center">
             <a href="/index"
                type="submit"
                class="btn btn-primary form-control"
@@ -53,7 +56,9 @@
            font-weight: bold;
            border-radius: 50px;
            border: 0px solid transparent;
-           width: 150px">Login</a>
+           width: 150px">Login</a> -->
+
+            <form:button type="submit" style="text-align: center" class="form-control MyButton">Login</form:button>
 
             <a href="/registration"
                type="submit"

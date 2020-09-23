@@ -1,6 +1,6 @@
 package com.CSCI4050.TermProject.CovidWebsite.controllers;
-import com.CSCI4050.TermProject.CovidWebsite.Entities.AccountEntity;
-import com.CSCI4050.TermProject.CovidWebsite.Repository.AccountRepository;
+import com.CSCI4050.TermProject.CovidWebsite.entities.AccountEntity;
+import com.CSCI4050.TermProject.CovidWebsite.repository.AccountRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -19,10 +19,6 @@ public class MainController {
         this.accountRepo = accountRepo;
     }
 
-    @RequestMapping(value="/index", method = RequestMethod.GET)
-        public String showIndexPage(ModelMap model){
-            return "index";
-        }
 
         @RequestMapping(value="/registration", method = RequestMethod.GET)
         public String showRegPage(ModelMap model){
@@ -46,18 +42,48 @@ public class MainController {
             model.addAttribute("age", accountForm.getAge());
             //model.addAttribute("gender", accountForm.getGender());
 
+            AccountEntity emailChecker = accountRepo.findByEmail(accountForm.getEmail());
+            AccountEntity usernameChecker = accountRepo.findByUserName(accountForm.getUserName());
+
+            if(emailChecker != null || usernameChecker != null){
+                System.out.println("the email or username already exists");
+                return "redirect:registration";
+            }
+            else{
+                accountRepo.save(accountForm);
+                return "redirect:login";
+            }
             //Try and Catch
 
-
-            accountRepo.save(accountForm);
-
-        return "registration";
     }
 
         @RequestMapping(value="/login", method = RequestMethod.GET)
         public String showLoginPage(ModelMap model){
+        model.addAttribute("login", new AccountEntity());
             return "login";
         }
+
+    @RequestMapping(value="/login", method = RequestMethod.POST)
+    public String submitLoginIn(AccountEntity account){
+        AccountEntity accountFormEmail = accountRepo.findByEmail(account.getEmail());
+        AccountEntity accountFormPassword = accountRepo.findByPassword(account.getPassword());
+
+        if(account.getEmail() == null || account.getPassword() == null){
+            return "redirect:login";
+
+        }
+        else{
+            if(accountFormEmail == null || accountFormPassword == null)
+            {
+                return "redirect:login";
+            }
+            else {
+                return "redirect:registration"; //Change later
+            }
+
+        }
+
+    }
 
         @RequestMapping(value="/news", method = RequestMethod.GET)
         public String showNewsPage(ModelMap model){
