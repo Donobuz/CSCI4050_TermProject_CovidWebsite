@@ -5,9 +5,10 @@
 <head>
 
     <!-- Required MetaFiles -->
-    <meta charset="utf-8">
+    <meta name="content-type" content="text-html" charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
+    <meta name="keywords" content="keyword1, keyword2, keyword3">
+    <meta name="description" content="this is my page">
     <!-- Webjars for Bootstrap and Jquery -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
@@ -20,7 +21,7 @@
 
 <body>
 <%--@elvariable id="login" type=""--%>
-<form:form modelAttribute="login">
+<form:form modelAttribute="login" >
     <div class="form-group container" id="positionOfLogin" style="text-align: center">
         <div>
             <form:input type="email"
@@ -30,101 +31,120 @@
                    placeholder="email@example.com"
             path="email"/>
         </div>
+
         <div>
             <form:input type="password"
+                        name="password"
                    class="form-control MyInput"
                    id="password"
-                   style="display: inline; width: 300px;"
                    placeholder="password"
             path="password"/>
         </div>
 
-            <%--    verifivation code  --%>
-        <input type="text" class="form-control MyInput"
-               id="Verification_code"
-               style="display: inline; width: 180px;"
-               autocomplete="off"
-               placeholder="verification code"/>
-        <span><a href="#" id="changeImg"><canvas id="canvas" width="120" height="45"></canvas>
-    </a> </span>
+<%--        <div>--%>
+<%--            &lt;%&ndash;    verifivation code  &ndash;%&gt;--%>
+<%--        <input type="text" class="form-control MyInput"--%>
+<%--               id="Verification_code"--%>
+<%--               style="display: inline; width: 180px;"--%>
+<%--               autocomplete="off"--%>
+<%--               placeholder="verification code"/>--%>
+<%--        <span><a href="#" id="changeImg"><canvas id="canvas" width="120" height="45"></canvas>--%>
+<%--    </a> </span>--%>
+<%--        </div>--%>
 
-       <!-- <div class="MyButton" id="button" style="text-align: center">
-            <a href="/index"
-               type="submit"
-               class="btn btn-primary form-control"
-               style="background-color: #817ffe;
-           font-weight: bold;
-           border-radius: 50px;
-           border: 0px solid transparent;
-           width: 150px">Login</a> -->
-
-            <form:button type="submit" style="text-align: center" class="form-control MyButton">Login</form:button>
-
-            <a href="/registration"
-               type="submit"
-               class="btn btn-primary form-control"
-               style="background-color: #817ffe;
-           font-weight: bold;
-           border-radius:50px;
-           border: 0px solid transparent;
-           width: 150px">Sign up</a>
+        <div>
+            <form:button
+                    type="submit"
+                    class="form-control MyButton">
+                Login
+            </form:button>
         </div>
+
+
+        <div>
+            <form:button
+                    type="submit"
+                    class="form-control MyButton"
+                    formaction="/registration">
+                Sign up
+            </form:button>
+        </div>
+
+
 
     </div>
 </form:form>
+<%--<script>--%>
+<%--    function CheckPassword(inputtxt)--%>
+<%--    {--%>
+<%--        var passw = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,20}$/;--%>
+<%--        if(inputtxt.value.match(passw))--%>
+<%--        {--%>
+<%--            alert('Correct, try another...')--%>
+<%--            return true;--%>
+<%--        }--%>
+<%--        else--%>
+<%--        {--%>
+<%--            alert('Wrong...!')--%>
+<%--            return false;--%>
+<%--        }--%>
+<%--    }--%>
+
+<%--</script>--%>
 </body>
-<script>
-    //make a Random Number
-    function randomNum(min,max) {
-        return Math.floor(Math.random()*(max-min)+min);
-    }
 
-    //make a random color
-    function randomColor(min,max) {
-        var r = randomNum(min,max);
-        var g = randomNum(min,max);
-        var b = randomNum(min,max);
+<%--<script>--%>
+<%--    //make a Random Number--%>
+<%--    function randomNum(min,max) {--%>
+<%--        return Math.floor(Math.random()*(max-min)+min);--%>
+<%--    }--%>
 
-        return "rgb("+r+","+g+","+b+")";
-    }
-    drawPic();
-    document.getElementById("changeImg").onclick = function (e) {
-        e.preventDefault();
-        drawPic();
-    }
+<%--    //make a random color--%>
+<%--    function randomColor(min,max) {--%>
+<%--        var r = randomNum(min,max);--%>
+<%--        var g = randomNum(min,max);--%>
+<%--        var b = randomNum(min,max);--%>
 
-    //draw a pic of verification code
-    function drawPic() {
-        var canvas = document.getElementById("canvas");
-        var width = canvas.width;
-        var height = canvas.height;
-        var ctx = canvas.getContext('2d');
-        ctx.textBaseline = 'bottom';
+<%--        return "rgb("+r+","+g+","+b+")";--%>
+<%--    }--%>
+<%--    drawPic();--%>
+<%--    document.getElementById("changeImg").onclick = function (e) {--%>
+<%--        e.preventDefault();--%>
+<%--        drawPic();--%>
+<%--    }--%>
 
-        //draw background color
-        ctx.fillStyle = randomColor(180,240); //prevent the background color to be dark
-        ctx.fillRect(0,0,width,height);
+<%--    //draw a pic of verification code--%>
+<%--    function drawPic() {--%>
+<%--        var canvas = document.getElementById("canvas");--%>
+<%--        var width = canvas.width;--%>
+<%--        var height = canvas.height;--%>
+<%--        var ctx = canvas.getContext('2d');--%>
+<%--        ctx.textBaseline = 'bottom';--%>
 
-        //draw text
-        var str = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
-        for (var i = 0; i < 4; i++){
-            var txt = str[randomNum(0,str.length)];
-            ctx.fillStyle = randomColor(50,160); // random a string color
-            ctx.font = randomNum(15,40)+'px SimHei'; //random text size
-            var x = 10+i*25;
-            var y = randomNum(25,45);
-            var deg = randomNum(-45,45);
+<%--        //draw background color--%>
+<%--        ctx.fillStyle = randomColor(180,240); //prevent the background color to be dark--%>
+<%--        ctx.fillRect(0,0,width,height);--%>
 
-            //fix the center point and angle
-            ctx.translate(x,y);
-            ctx.rotate(deg*Math.PI/180);
-            ctx.fillText(txt,0,0);
+<%--        //draw text--%>
+<%--        var str = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';--%>
+<%--        for (var i = 0; i < 4; i++){--%>
+<%--            var txt = str[randomNum(0,str.length)];--%>
+<%--            ctx.fillStyle = randomColor(50,160); // random a string color--%>
+<%--            ctx.font = randomNum(15,40)+'px SimHei'; //random text size--%>
+<%--            var x = 10+i*25;--%>
+<%--            var y = randomNum(25,45);--%>
+<%--            var deg = randomNum(-45,45);--%>
 
-            //reverse the center point and angle
-            ctx.rotate(-deg*Math.PI/180);
-            ctx.translate(-x,-y);
-        }
-    }
+<%--            //fix the center point and angle--%>
+<%--            ctx.translate(x,y);--%>
+<%--            ctx.rotate(deg*Math.PI/180);--%>
+<%--            ctx.fillText(txt,0,0);--%>
 
-</script>
+<%--            //reverse the center point and angle--%>
+<%--            ctx.rotate(-deg*Math.PI/180);--%>
+<%--            ctx.translate(-x,-y);--%>
+<%--        }--%>
+<%--    }--%>
+
+<%--</script>--%>
 </html>

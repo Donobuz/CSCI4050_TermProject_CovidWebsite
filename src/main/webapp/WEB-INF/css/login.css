@@ -6,7 +6,7 @@ html{
     top:17px;
 }
 body{
-    background-image: url("images/imgLogin.jpg");
+    background-image: url("images/login-background.jpg");
     background-size: 100% 100%;
     padding: 0;
     margin: 0;
@@ -43,8 +43,30 @@ h1
     opacity: 0.8;
 }
 
+
+.MyButton{
+    position: center;
+    background: #817ffe;
+    border: 0px solid transparent;
+    border-radius: 50px;
+    padding: 8px 14px;
+    box-sizing: border-box;
+    margin-bottom: 20px;
+    font-size: 14px;
+    font-weight: bold;
+    color: white;
+    font-family: 'Open Sans', sans-serif;
+    outline: none;
+    text-indent: 0px;
+    transition: all 0.6s ease;
+    display: inline; width: 300px;
+}
+.MyButton:hover{
+    background: #403866;
+    transition: .6s;
+}
 .MyInput{
-    width: 100%;
+
     background: #ecf1f4;
     border: 1px solid #ecf1f4;
     border-radius: 26px;
@@ -57,6 +79,7 @@ h1
     outline: none;
     text-indent: 5px;
     transition: all 0.6s ease;
+    display: inline; width: 300px
 }
 input:hover{
     padding: 14px 16px;
