@@ -13,10 +13,10 @@
     <input type="image" src="images/nav_logo.PNG" name="nav" class="btSubmit" id="nav" />
     <nav>
         <ul id = nav__links>
-            <li><a style = 'text-decoration: none'href = > Testing Center </a> </li>
-            <li><a style = 'text-decoration: none'href = > Donation Center </a></li>
+            <li><a style = 'text-decoration: none' href = > Testing Center </a> </li>
+            <li><a style = 'text-decoration: none' href = > Donation Center </a></li>
             <li> <a style = 'text-decoration: none' href = 'https://www.youtube.com/' > Shop </a></li>
-            <li><a style = 'text-decoration: none'href = > My Profile </a></li>
+            <li><a style = 'text-decoration: none' href = "/userData"> My Profile </a></li>
         </ul>
     </nav>
 
@@ -51,7 +51,9 @@
             Already, we have made remarkable progress.
             </p>
         &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        <button class = butt3>View</button>
+        <form action="/news">
+            <input type="submit" class=butt3 value="View"/>
+        </form>
     </div>
 
     <div class = card3>
@@ -62,7 +64,9 @@
             Already, we have made remarkable progress.
         </p>
         &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        <button class = butt3>View</button>
+        <form action="/news">
+            <input type="submit" class=butt3 value="View"/>
+        </form>
 
     </div>
 
@@ -74,7 +78,9 @@
             Already, we have made remarkable progress.
         </p>
         &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        <button class = butt3 >View</button>
+        <form action="/news">
+            <input type="submit" class=butt3 value="View"/>
+        </form>
 </div>
 
     <div class = card5>
@@ -85,7 +91,9 @@
             Already, we have made remarkable progress.
         </p>
         &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        <button class = butt3>View</button>
+        <form action="/news">
+            <input type="submit" class=butt3 value="View"/>
+        </form>
     </div>
 
 </div>
