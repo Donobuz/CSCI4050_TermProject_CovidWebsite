@@ -53,24 +53,14 @@
 <%--        </div>--%>
 
         <div>
-            <form:button
-                    type="submit"
-                    class="form-control MyButton">
-                Login
-            </form:button>
+            <form:button type="submit" style="text-align: center" class="form-control MyButton">Login</form:button>
         </div>
-
 
         <div>
-            <form:button
-                    type="submit"
-                    class="form-control MyButton"
-                    formaction="/registration">
-                Sign up
-            </form:button>
+
+            <a href="/registration"
+               type="submit" class="form-control MyButton" >Sign Up</a>
         </div>
-
-
 
     </div>
 </form:form>
