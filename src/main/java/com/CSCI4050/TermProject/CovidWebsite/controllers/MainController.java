@@ -94,5 +94,15 @@ public class MainController {
         public String showWelcmPage(ModelMap model){
         return "Welcome";
     }
+
+        @RequestMapping(value="/profile", method = RequestMethod.GET)
+        public String showProfilePage(ModelMap model){
+        return "profile";
+    }
+
+        @RequestMapping(value="/profile", method = RequestMethod.POST)
+        public String showProfileVal(ModelMap model){
+        return "profile";
+    }
 }
 

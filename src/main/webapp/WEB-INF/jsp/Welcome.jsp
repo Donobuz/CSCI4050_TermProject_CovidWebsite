@@ -8,7 +8,22 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 </head>
+
+<header id = bal>
+    <input type="image" src="images/nav_logo.PNG" name="nav" class="btSubmit" id="nav" />
+    <nav>
+        <ul id = nav__links>
+            <li><a style = 'text-decoration: none'href = > Testing Center </a> </li>
+            <li><a style = 'text-decoration: none'href = > Donation Center </a></li>
+            <li> <a style = 'text-decoration: none' href = 'https://www.youtube.com/' > Shop </a></li>
+            <li><a style = 'text-decoration: none'href = > My Profile </a></li>
+        </ul>
+    </nav>
+
+
+</header>
 <body>
+
 <div class = grid>
     <div id = card1>
         <h1 class = headstuff>Welcome!</h1>
