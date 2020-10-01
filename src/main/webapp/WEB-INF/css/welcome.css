@@ -89,7 +89,7 @@ li, a
     float: right;
     margin-right: 39em;
     margin-left: 59em;
-    margin-top: -28.3em;
+    margin-top: -30.9em;
     margin-bottom: -12em;
     padding: 10px;
 }
@@ -100,7 +100,7 @@ li, a
     float: right;
     margin-right: 15em;
     margin-left: 83em;
-    margin-top: -28.18em;
+    margin-top: -30.7em;
     margin-bottom: -12em;
     padding: 10px;
 }
@@ -206,4 +206,9 @@ p
     text-indent: 10px;
     font-size: 30px;
     font-family: 'Open Sans', sans-serif;
+}
+
+form
+{
+   margin-left: 4em;
 }
