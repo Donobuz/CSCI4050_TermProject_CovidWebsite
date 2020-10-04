@@ -94,6 +94,7 @@
         <form action="/news">
             <input type="submit" class=butt3 value="View"/>
         </form>
+
     </div>
 
 </div>

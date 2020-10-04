@@ -26,18 +26,18 @@
         <th scope="row" data-field="userName" data-sortable="true" >UserName</th>
         <th scope="row" data-field="email" data-sortable="true">Email</th>
         <th scope="row" data-field="age" data-sortable="true">Age</th>
-        <th scope="row" data-field="age" data-sortable="true">Date Created</th>
+        <th scope="row" data-field="createdDate" data-sortable="true">Date Created</th>
     </tr>
     </thead>
 
-    <c:forEach items="${userForm}" var="user">
+    <c:forEach items="${accountForm}" var="account">
         <tr>
-            <td>${user.firstName}</td>
-            <td>${user.lastName}</td>
-            <td>${user.userName}</td>
-            <td>${user.email}</td>
-            <td>${user.age}</td>
-            <td>${user.createdDate}</td>
+            <td>${account.firstName}</td>
+            <td>${account.lastName}</td>
+            <td>${account.userName}</td>
+            <td>${account.email}</td>
+            <td>${account.age}</td>
+            <td>${account.createdDate}</td>
         </tr>
     </c:forEach>
 </table>

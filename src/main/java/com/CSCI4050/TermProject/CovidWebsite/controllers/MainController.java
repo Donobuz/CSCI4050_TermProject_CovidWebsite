@@ -38,7 +38,7 @@ public class MainController {
 
         @RequestMapping(value="/userData", method = RequestMethod.GET)
         public String showUserData(ModelMap model){
-            model.addAttribute("userForm", accountRepo.findAll());
+            model.addAttribute("accountForm", accountRepo.findAll());
             return "userData";
         }
 
@@ -73,9 +73,10 @@ public class MainController {
 
             //checks if an email and username are unique;
             //if email or username already exists in database, throws error // might need to change this
-            AccountEntity accountChecker = accountRepo.findByEmail(accountForm.getEmail());
+            AccountEntity emailChecker = accountRepo.findByEmail(accountForm.getEmail());
+            AccountEntity userNameChecker = accountRepo.findByUserName(accountForm.getUserName());
 
-            if(accountChecker != null){
+            if(emailChecker != null || userNameChecker != null){
                 System.out.println("The email or username already exists");
                 return "redirect:registration";
             }
@@ -89,6 +90,7 @@ public class MainController {
 
     }
 
+    // Email Verification Method
     private void sendVerificationEmail(AccountEntity accountForm, String siteURL) throws UnsupportedEncodingException, MessagingException {
         String subject = "Please verify your registration";
         String senderName = "DawgsvsCovid";
@@ -129,6 +131,29 @@ public class MainController {
             }
 
         }
+
+    @RequestMapping(value="/", method = RequestMethod.GET)
+    public String defaultLoginPage(ModelMap model){
+        model.addAttribute("login", new AccountEntity());
+        return "login";
+    }
+
+    @RequestMapping(value="/", method = RequestMethod.POST)
+    public Object defaultLoginPage(@ModelAttribute("login") AccountEntity accountForm){
+
+        AccountEntity accountInstance = accountRepo.findByEmail(accountForm.getEmail());
+
+        if(accountInstance == null || !accountInstance.getPassword().equals(accountForm.getPassword()))
+        {
+            System.out.println("Invalid Email or Password");
+            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(null);
+        }
+        else {
+            System.out.println("account exist");
+            return "redirect:welcome"; //Change later
+        }
+
+    }
 
 
         @RequestMapping(value="/news", method = RequestMethod.GET)
