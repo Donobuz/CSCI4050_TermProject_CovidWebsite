@@ -1,4 +1,4 @@
-package com.CSCI4050.TermProject.CovidWebsite.Servlets;
+package com.CSCI4050.TermProject.CovidWebsite.servlets;
 
 import javax.servlet.http.HttpServletRequest;
 

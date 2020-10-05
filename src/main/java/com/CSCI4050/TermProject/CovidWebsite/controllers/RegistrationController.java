@@ -1,19 +1,21 @@
 package com.CSCI4050.TermProject.CovidWebsite.controllers;
-import com.CSCI4050.TermProject.CovidWebsite.Servlets.Utility;
+import com.CSCI4050.TermProject.CovidWebsite.servlets.Utility;
 import com.CSCI4050.TermProject.CovidWebsite.entities.AccountEntity;
 import com.CSCI4050.TermProject.CovidWebsite.repository.AccountRepository;
 import net.bytebuddy.utility.RandomString;
+
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.repository.query.Param;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.mail.javamail.MimeMessageHelper;
+import org.springframework.security.crypto.argon2.Argon2PasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
-
 import javax.mail.MessagingException;
 import javax.mail.internet.MimeMessage;
 import javax.servlet.http.HttpServletRequest;
@@ -21,8 +23,9 @@ import java.io.UnsupportedEncodingException;
 import java.util.Date;
 
 @Controller
-@SessionAttributes("name")
-public class MainController {
+public class RegistrationController {
+
+
 
     @Autowired
     private AccountRepository accountRepo;
@@ -30,17 +33,11 @@ public class MainController {
     @Autowired
     private JavaMailSender mailSender;
 
-    public MainController(AccountRepository accountRepo) {
+
+    public RegistrationController(AccountRepository accountRepo) {
         this.accountRepo = accountRepo;
     }
 
-
-
-        @RequestMapping(value="/userData", method = RequestMethod.GET)
-        public String showUserData(ModelMap model){
-            model.addAttribute("accountForm", accountRepo.findAll());
-            return "userData";
-        }
 
         @RequestMapping(value="/registration", method = RequestMethod.GET)
         public String showRegPage(ModelMap model){
@@ -55,12 +52,28 @@ public class MainController {
                 return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(null);
             }
 
+            // Password encoder called when registration happens
+            int saltLength = 16; // salt length in bytes
+            int hashLength = 32; // hash length in bytes
+            int parallelism = 1; // currently not supported by Spring Security
+            int memory = 4096;   // memory costs
+            int iterations = 3;
+
+            Argon2PasswordEncoder argon2PasswordEncoder = new Argon2PasswordEncoder(
+                    saltLength,
+                    hashLength,
+                    parallelism,
+                    memory,
+                    iterations);
+            String encodePassword = argon2PasswordEncoder.encode(accountForm.getPassword());
+            accountForm.setPassword(encodePassword);
+
             //Grabs information from view and saves them to attribute to save to database
             model.addAttribute("userName", accountForm.getUserName());
             model.addAttribute("email", accountForm.getEmail());
             model.addAttribute("firstName", accountForm.getFirstName());
             model.addAttribute("lastName", accountForm.getLastName());
-            model.addAttribute("password", accountForm.getPassword());
+            //model.addAttribute("password", encodePassword);
             model.addAttribute("age", accountForm.getAge());
             //model.addAttribute("gender", accountForm.getGender());
 
@@ -90,7 +103,17 @@ public class MainController {
 
     }
 
-    // Email Verification Method
+    // ======================================================================================
+    // Email Verification
+
+    @GetMapping("/verify")
+    public String verifyEmail(@Param("code") String code, Model model){
+        boolean verified = verify(code);
+        String pageTitle = verified ? "Verification Succeeded!" : "Verification Failed";
+        model.addAttribute("pageTitle", pageTitle);
+        return verified ? "verifySuccess" : "verifyFail";
+    }
+
     private void sendVerificationEmail(AccountEntity accountForm, String siteURL) throws UnsupportedEncodingException, MessagingException {
         String subject = "Please verify your registration";
         String senderName = "DawgsvsCovid";
@@ -109,50 +132,17 @@ public class MainController {
 
     }
 
-    @RequestMapping(value="/login", method = RequestMethod.GET)
-        public String showLoginPage(ModelMap model){
-        model.addAttribute("login", new AccountEntity());
-            return "login";
+    public boolean verify(String verificationCode)
+    {
+        AccountEntity accountInstance = accountRepo.findByVerificationCode(verificationCode);
+        if(accountInstance == null || accountInstance.isEnabled()){
+            return false;
         }
-
-    @RequestMapping(value="/login", method = RequestMethod.POST)
-    public Object submitLoginIn(@ModelAttribute("login") AccountEntity accountForm){
-
-        AccountEntity accountInstance = accountRepo.findByEmail(accountForm.getEmail());
-
-            if(accountInstance == null || !accountInstance.getPassword().equals(accountForm.getPassword()))
-            {
-                System.out.println("Invalid Email or Password");
-                return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(null);
-            }
-            else {
-                System.out.println("account exist");
-                return "redirect:welcome"; //Change later
-            }
-
+        else{
+            accountInstance.setEnabled(true);
+            accountRepo.save(accountInstance);
+            return true;
         }
-
-    @RequestMapping(value="/", method = RequestMethod.GET)
-    public String defaultLoginPage(ModelMap model){
-        model.addAttribute("login", new AccountEntity());
-        return "login";
-    }
-
-    @RequestMapping(value="/", method = RequestMethod.POST)
-    public Object defaultLoginPage(@ModelAttribute("login") AccountEntity accountForm){
-
-        AccountEntity accountInstance = accountRepo.findByEmail(accountForm.getEmail());
-
-        if(accountInstance == null || !accountInstance.getPassword().equals(accountForm.getPassword()))
-        {
-            System.out.println("Invalid Email or Password");
-            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(null);
-        }
-        else {
-            System.out.println("account exist");
-            return "redirect:welcome"; //Change later
-        }
-
     }
 
 
