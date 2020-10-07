@@ -67,10 +67,11 @@ public class RegistrationController {
                     iterations);
             String encodePassword = argon2PasswordEncoder.encode(accountForm.getPassword());
             accountForm.setPassword(encodePassword);
+            accountForm.setEmail(accountForm.getEmail().toLowerCase());
 
             //Grabs information from view and saves them to attribute to save to database
             model.addAttribute("userName", accountForm.getUserName());
-            model.addAttribute("email", accountForm.getEmail());
+            //model.addAttribute("email", accountForm.getEmail());
             model.addAttribute("firstName", accountForm.getFirstName());
             model.addAttribute("lastName", accountForm.getLastName());
             //model.addAttribute("password", encodePassword);

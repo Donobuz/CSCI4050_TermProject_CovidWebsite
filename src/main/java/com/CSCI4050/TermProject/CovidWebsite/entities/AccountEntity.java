@@ -1,23 +1,26 @@
 package com.CSCI4050.TermProject.CovidWebsite.entities;
 
-import javax.persistence.*;
-import javax.validation.constraints.Size;
 import java.util.Date;
 
-@Entity (name = "user")
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+
+@Entity(name = "user")
 public class AccountEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
-
     private String firstName;
     private String lastName;
     private String userName;
     private String email;
     private String password;
-    //private String gender;
+    // private String gender;
     private Integer age;
     private Date createdDate;
     private boolean enabled;
@@ -25,8 +28,7 @@ public class AccountEntity {
     @Column(updatable = false)
     private String verificationCode;
 
-
-    //Getters and Setters
+    // Getters and Setters
     public void setId(Long id) {
         this.id = id;
     }
@@ -76,14 +78,10 @@ public class AccountEntity {
     }
 
     /*
-    public String getGender() {
-        return gender;
-    }
-
-    public void setGender(String gender) {
-        this.gender = gender;
-    }
-   */
+     * public String getGender() { return gender; }
+     * 
+     * public void setGender(String gender) { this.gender = gender; }
+     */
 
     public Integer getAge() {
         return age;
@@ -92,7 +90,6 @@ public class AccountEntity {
     public void setAge(Integer age) {
         this.age = age;
     }
-
 
     public String getVerificationCode() {
         return verificationCode;

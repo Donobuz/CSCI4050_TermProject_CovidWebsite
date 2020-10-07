@@ -109,11 +109,7 @@
 			<artifactId>argon2-jvm</artifactId>
 			<version>2.5</version>
 		</dependency>
-		<dependency>
-			<groupId>com.CSCI4050.TermProject</groupId>
-			<artifactId>CovidWebsite</artifactId>
-			<version>0.0.1-SNAPSHOT</version>
-		</dependency>
+
 
 
 	</dependencies>

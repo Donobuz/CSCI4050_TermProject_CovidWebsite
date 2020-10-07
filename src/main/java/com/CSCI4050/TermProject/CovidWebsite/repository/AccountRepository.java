@@ -1,15 +1,16 @@
 package com.CSCI4050.TermProject.CovidWebsite.repository;
 
-
 import com.CSCI4050.TermProject.CovidWebsite.entities.AccountEntity;
-import org.springframework.data.repository.CrudRepository;
-import org.springframework.stereotype.Repository;
 
+import org.springframework.data.repository.CrudRepository;
 
 public interface AccountRepository extends CrudRepository<AccountEntity, Long> {
-    //Optional<AccountEntity> findById(Long Id);
+    // Optional<AccountEntity> findById(Long Id);
     AccountEntity findByUserName(String userName);
-    AccountEntity findByPassword (String password);
+
+    AccountEntity findByPassword(String password);
+
     AccountEntity findByEmail(String email);
-    AccountEntity findByVerificationCode (String verificationCode);
+
+    AccountEntity findByVerificationCode(String verificationCode);
 }
