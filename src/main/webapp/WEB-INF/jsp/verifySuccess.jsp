@@ -3,7 +3,7 @@
 <head>
     <title>Verify success</title>
     <style><%@include file="/WEB-INF/css/verifySuccess.css"%></style>
-    <meta http-equiv="refresh" content="5;url=/welcome" />
+    <meta http-equiv="refresh" content="5;url=/login" />
 </head>
 <body>
 <header id="bal">
@@ -23,7 +23,7 @@
 <main>
 
 <h1>Congratulations! You have successful registered!</h1>
-<p>We will take you to <a href="/welcome">Home page</a> soon, please wait...</p>
+<p>We will take you to <a href="/login">Login</a> soon, please wait...</p>
 
 </main>
 </body>
