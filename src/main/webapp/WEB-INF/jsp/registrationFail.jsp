@@ -1,8 +1,9 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Verify fail</title>
-    <style><%@include file="/WEB-INF/css/verifyFail.css"%></style>
+    <title>Verify success</title>
+    <style><%@include file="/WEB-INF/css/registrationFail.css"%></style>
+<%--    <meta http-equiv="refresh" content="5;url=/login" />--%>
 </head>
 <body>
 <header id="bal">
@@ -21,13 +22,10 @@
 
 <main>
 
-    <h1>Sorry! Your verification is fail!</h1>
-    <p id="take_to_home_or_register">You may go to
-        <a href="/welcome" id="home">home page</a>
-        or click
-        <a href="/registration" id="here">here</a>
-        to register again.</p>
+    <h1>Sorry! You have fail to register!</h1>
+    <p>Click <a href="/registration">here</a> for register again. Back to <a href="/welcome">Home</a> page.</p>
 
 </main>
 </body>
+
 </html>

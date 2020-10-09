@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Verify fail</title>
-    <style><%@include file="/WEB-INF/css/verifyFail.css"%></style>
+    <title>Verify success</title>
+    <style><%@include file="/WEB-INF/css/registrationSuccess.css"%></style>
 </head>
 <body>
 <header id="bal">
@@ -20,14 +20,14 @@
 </header>
 
 <main>
-
-    <h1>Sorry! Your verification is fail!</h1>
-    <p id="take_to_home_or_register">You may go to
-        <a href="/welcome" id="home">home page</a>
-        or click
-        <a href="/registration" id="here">here</a>
-        to register again.</p>
+    <div>
+    <p>Thank you!</p>
+    <p>We will sent you verification soon.</p>
+    <p>Please check your E-mail.</p>
+    </div>
+    <p>Click <a href="/welcome">here</a> to the home page.</p>
 
 </main>
 </body>
+
 </html>
