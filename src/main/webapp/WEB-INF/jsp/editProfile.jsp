@@ -13,20 +13,21 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
     <style><%@include file="/WEB-INF/css/registration.css"%></style>
-    <title>EditProfile</title>
+    <title>Profile Editor</title>
 </head>
 <body>
 
+
+
 <%--@elvariable id="editProfile" type=""--%>
-<form:form method="POST" modelAttribute="accountForm">
+<form:form method="POST" modelAttribute="editProfile">
     <div class="MyForm form-group">
-        <h1>Sign Up</h1>
+        <h1>Edit Profile</h1>
 
         <form:input type="email" class="MyInput" id="email" path="email" placeholder="Enter email address" />
 
-        <form:password class="MyInput" id="password" placeholder="Enter password" path="password"/>
 
-        <form:button type="submit" class="from-control">Submit</form:button>
+         <form:button type="submit" class="from-control">Submit</form:button>
 
 
     </div>
@@ -40,4 +41,6 @@
 </form:form>
 </body>
 </html>
+
+
 

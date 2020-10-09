@@ -16,7 +16,7 @@
             <li><a style = 'text-decoration: none' href = > Testing Center </a> </li>
             <li><a style = 'text-decoration: none' href = > Donation Center </a></li>
             <li> <a style = 'text-decoration: none' href = 'https://www.youtube.com/' > Shop </a></li>
-            <li><a style = 'text-decoration: none' href = "/welcome/edit/${account.email}"> My Profile </a></li>
+            <li><a style = 'text-decoration: none' href = "/welcome/edit/${account.email}"> ${account.userName} </a></li>
         </ul>
     </nav>
 
@@ -26,7 +26,7 @@
 
 <div class = grid>
     <div id = card1>
-        <h3 class = headstuff>Welcome, ${account.firstName}!</h3>
+        <h3 class = headstuff>Welcome,<br> ${account.firstName}!</h3>
         <p id=" divider1">Practice social distancing by putting space
             between yourself and others. Continue to practice healthy habits,
             like washing your hands for at least twenty seconds and staying home if you are sick,
