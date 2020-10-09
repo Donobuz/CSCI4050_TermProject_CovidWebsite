@@ -85,13 +85,14 @@ public class RegistrationController {
 
         if (emailChecker != null || userNameChecker != null) {
             System.out.println("The email or username already exists");
-            return "redirect:registration";
+            return "/registrationFail";
         } else {
             accountForm.setCreatedDate(new Date());
             accountForm.setEnabled(false);
             accountRepo.save(accountForm);
             sendVerificationEmail(accountForm, siteURL);
-            return "redirect:login";
+//            return "redirect:register";
+            return "/registrationSuccess";
         }
 
     }
