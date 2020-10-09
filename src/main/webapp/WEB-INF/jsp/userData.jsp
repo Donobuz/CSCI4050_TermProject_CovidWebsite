@@ -23,10 +23,11 @@
     <tr>
         <th scope="row" data-field="firstName" data-sortable="true" >First Name</th>
         <th scope="row" data-field="lastName" data-sortable="true" >Last Name</th>
-        <th scope="row" data-field="userName" data-sortable="true" >UserName</th>
+        <th scope="row" data-field="userName" data-sortable="true" >Username</th>
         <th scope="row" data-field="email" data-sortable="true">Email</th>
         <th scope="row" data-field="age" data-sortable="true">Age</th>
         <th scope="row" data-field="createdDate" data-sortable="true">Date Created</th>
+        <th scope="row" data-field="delete" data-sortable="false">Delete</th>
     </tr>
     </thead>
 
@@ -38,6 +39,8 @@
             <td>${account.email}</td>
             <td>${account.age}</td>
             <td>${account.createdDate}</td>
+            <%-- <td><a href="/userData/delete/${account.email}"><button></button></a></td> --%>
+            <td><a href="/userData/delete?email=${account.email}"><button class="btn btn-primary"></button></a></td> 
         </tr>
     </c:forEach>
 </table>

@@ -22,7 +22,7 @@
 
 <main>
 
-<h1>Congratulations! You have successful registered!</h1>
+<h1>Congratulations! You have successfully verified your email!</h1>
 <p>We will take you to <a href="/login">Login</a> soon, please wait...</p>
 
 </main>

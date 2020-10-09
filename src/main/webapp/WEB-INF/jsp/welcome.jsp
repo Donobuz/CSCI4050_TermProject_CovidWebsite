@@ -23,6 +23,8 @@
 
 </header>
 <body>
+<p> Welcome, ${firstName.firstName} ${firstName.lastName}</p>
+
 <div class = grid>
     <div id = card1>
         <h1 class = headstuff>Welcome!</h1>

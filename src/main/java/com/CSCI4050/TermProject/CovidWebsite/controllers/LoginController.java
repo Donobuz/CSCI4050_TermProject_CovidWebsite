@@ -43,8 +43,8 @@ public class LoginController {
             return "login";
         } else {
             System.out.println("account exist");
-            model.addAttribute("firstName", accountRepo.findByEmail(accountForm.getEmail()));
-            return "redirect:welcome"; // Change later
+            model.addAttribute("firstName", accountInstance);
+            return "welcome";
         }
 
     }
