@@ -21,11 +21,9 @@
 
 <main>
     <div>
-    <p>Thank you!</p>
-    <p>We will sent you verification soon.</p>
-    <p>Please check your E-mail.</p>
+    <p>Thank you for registering!</p>
+    <p>Please check your E-mail to verify your email.</p>
     </div>
-    <p>Click <a href="/welcome">here</a> to the home page.</p>
 
 </main>
 </body>

@@ -22,8 +22,8 @@
 
 <main>
 
-    <h1>Sorry! You have fail to register!</h1>
-    <p>Click <a href="/registration">here</a> for register again. Back to <a href="/welcome">Home</a> page.</p>
+    <h1>Sorry! You have failed to register!</h1>
+    <p>Click <a href="/registration">here</a> to try again.
 
 </main>
 </body>

@@ -110,7 +110,8 @@ li, a
 {
     color: #817ffe;
     font-weight: bold;
-    font-size: 80px;
+    font-size: 45px;
+    /*font-size:80px;*/
     font-family: 'Open Sans', sans-serif;
     margin-bottom: .4em;
 }

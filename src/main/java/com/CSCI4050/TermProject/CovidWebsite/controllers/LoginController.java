@@ -43,7 +43,7 @@ public class LoginController {
             return "login";
         } else {
             System.out.println("account exist");
-            model.addAttribute("firstName", accountInstance);
+            model.addAttribute("account", accountInstance);
             return "welcome";
         }
 
