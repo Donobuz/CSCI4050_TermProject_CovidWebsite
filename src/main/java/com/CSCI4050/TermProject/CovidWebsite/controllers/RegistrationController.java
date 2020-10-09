@@ -142,11 +142,6 @@ public class RegistrationController {
         return "news";
     }
 
-    @RequestMapping(value = "/welcome", method = RequestMethod.GET)
-    public String showWelcmPage(ModelMap model) {
-        return "welcome";
-    }
-
     @RequestMapping(value = "/profile", method = RequestMethod.GET)
     public String showProfilePage(ModelMap model) {
         return "profile";
