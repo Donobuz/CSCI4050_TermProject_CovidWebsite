@@ -1,4 +1,5 @@
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
 <html>
 <meta charset="utf-8">
@@ -12,19 +13,34 @@
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-    <style><%@include file="/WEB-INF/css/registration.css"%></style>
+    <style><%@include file="/WEB-INF/css/profile.css"%></style>
     <title>Profile Editor</title>
 </head>
+
+<header id = bal>
+    <input type="image" src="/images/nav_logo.PNG" name="nav" class="btSubmit" id="nav" />
+<%--    <img src="<c:url value="/images/nav_logo.PNG"/>"/>--%>
+    <nav>
+        <ul id = nav__links>
+            <li><a style = 'text-decoration: none' href = > Testing Center </a> </li>
+            <li><a style = 'text-decoration: none' href = > Donation Center </a></li>
+            <li> <a style = 'text-decoration: none' href = 'https://www.youtube.com/' > Shop </a></li>
+            <li><a style = 'text-decoration: none' href = "/profile"> ${editProfile.userName} </a></li>
+        </ul>
+    </nav>
+
+</header>
 <body>
 
 
 
 <%--@elvariable id="editProfile" type=""--%>
-<form:form method="POST" modelAttribute="editProfile">
-    <div class="MyForm form-group">
+
+<form:form autocomplete="false" method="POST" modelAttribute="editProfile">
+    <div class="grid form-group">
         <h1>Edit Profile</h1>
 
-        <form:input type="email" class="MyInput" id="email" path="email" placeholder="Enter email address" />
+        <form:input type="email"  autocomplete="false" class="MyInput" id="email" path="email" path.hidden = 'true' placeholder= '${editProfile.email}' />
 
 
          <form:button type="submit" class="from-control">Submit</form:button>
@@ -32,9 +48,6 @@
 
     </div>
 
-    <div>
-        <img src="images/reg1.png" alt="picture">
-    </div>
 
 
 
