@@ -25,7 +25,7 @@
             <li><a style = 'text-decoration: none' href = > Testing Center </a> </li>
             <li><a style = 'text-decoration: none' href = > Donation Center </a></li>
             <li> <a style = 'text-decoration: none' href = 'https://www.youtube.com/' > Shop </a></li>
-            <li><a style = 'text-decoration: none' href = "/profile"> ${editProfile.userName} </a></li>
+            <li><a style = 'text-decoration: none' href = "/edit/${editProfile.email}"> ${editProfile.userName} </a></li>
         </ul>
     </nav>
 
@@ -35,12 +35,13 @@
 
 
 <%--@elvariable id="editProfile" type=""--%>
-
-<form:form autocomplete="false" method="POST" modelAttribute="editProfile">
+<form:form method="POST" modelAttribute="editProfile">
     <div class="grid form-group">
         <h1>Edit Profile</h1>
 
-        <form:input type="email"  autocomplete="false" class="MyInput" id="email" path="email" path.hidden = 'true' placeholder= '${editProfile.email}' />
+        <form:input type="email" class="MyInput" id="email" path="email" placeholder='${accountInstance.email}' />
+        <form:input type="text" class="MyInput" id="firstName" path="firstName" placeholder='${accountInstance.firstName}' />
+
 
 
          <form:button type="submit" class="from-control">Submit</form:button>

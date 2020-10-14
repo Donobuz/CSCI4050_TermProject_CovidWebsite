@@ -26,15 +26,17 @@ public class WelcomeController {
     public String getEditUserData(@PathVariable("email") String email, Model model) {
 
         AccountEntity accountInstance = accountRepo.findByEmail(email);
-        model.addAttribute("editProfile", accountInstance);
+        model.addAttribute("editProfile", new AccountEntity());
+        model.addAttribute("accountInstance", accountInstance);
 
         return "editProfile";
     }
 
     @RequestMapping(value = "edit/{email}", method = RequestMethod.POST)
-    public String enterEditUserData(@ModelAttribute("login") AccountEntity accountForm, @PathVariable("email") String email, Model model ) {
+    public String enterEditUserData(@ModelAttribute("login") AccountEntity accountForm, @PathVariable("email") String email) {
         AccountEntity accountInstance = accountRepo.findByEmail(email);
-        accountInstance.setEmail(accountForm.getEmail());
+        accountInstance.setEmail(accountForm.getEmail().toLowerCase());
+        accountInstance.setFirstName(accountForm.getFirstName());
         accountRepo.save(accountInstance);
 
         return "redirect:/login";
