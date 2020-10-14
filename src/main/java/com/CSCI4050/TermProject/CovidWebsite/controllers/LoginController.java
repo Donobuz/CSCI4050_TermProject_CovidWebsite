@@ -31,10 +31,10 @@ public class LoginController {
 
         // Password Verifier using Argon2
         Argon2PasswordEncoder argon2PasswordEncoder = new Argon2PasswordEncoder();
-        boolean passwordMatch = argon2PasswordEncoder.matches(accountForm.getPassword(), accountInstance.getPassword());
 
-        // issue where if i use caps email, throws null pointer exception
-        if (accountInstance == null || !passwordMatch) {
+
+
+        if (accountInstance == null || !argon2PasswordEncoder.matches(accountForm.getPassword(), accountInstance.getPassword())) {
             System.out.println("Invalid Email or Password");
             // return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(null);
             return "login";

@@ -22,7 +22,7 @@ public class WelcomeController {
         return "welcome";
     }
 
-    @RequestMapping(value = "welcome/edit/{email}", method = RequestMethod.GET)
+    @RequestMapping(value = "edit/{email}", method = RequestMethod.GET)
     public String getEditUserData(@PathVariable("email") String email, Model model) {
 
         AccountEntity accountInstance = accountRepo.findByEmail(email);
@@ -31,7 +31,7 @@ public class WelcomeController {
         return "editProfile";
     }
 
-    @RequestMapping(value = "welcome/edit/{email}", method = RequestMethod.POST)
+    @RequestMapping(value = "edit/{email}", method = RequestMethod.POST)
     public String enterEditUserData(@ModelAttribute("login") AccountEntity accountForm, @PathVariable("email") String email, Model model ) {
         AccountEntity accountInstance = accountRepo.findByEmail(email);
         accountInstance.setEmail(accountForm.getEmail());
