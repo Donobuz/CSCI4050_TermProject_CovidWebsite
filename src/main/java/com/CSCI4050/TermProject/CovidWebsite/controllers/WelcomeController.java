@@ -18,12 +18,12 @@ public class WelcomeController {
     AccountRepository accountRepo;
 
     @RequestMapping(value = "/welcome", method = RequestMethod.GET)
-    public String showWelcmPage(Model model, AccountEntity accountForm) {
+    public String showWelcomePage() {
         return "welcome";
     }
 
-    @RequestMapping(value = "edit/{email}", method = RequestMethod.GET)
-    public String getEditUserData(@PathVariable("email") String email, Model model) {
+    @RequestMapping(value = "edit/{emailParameter}", method = RequestMethod.GET)
+    public String getEditUserData(@PathVariable("emailParameter") String email, Model model) {
 
         AccountEntity accountInstance = accountRepo.findByEmail(email);
         model.addAttribute("editProfile", new AccountEntity());
@@ -32,8 +32,8 @@ public class WelcomeController {
         return "editProfile";
     }
 
-    @RequestMapping(value = "edit/{email}", method = RequestMethod.POST)
-    public String enterEditUserData(@ModelAttribute("login") AccountEntity accountForm, @PathVariable("email") String email) {
+    @RequestMapping(value = "edit/{emailParameter}", method = RequestMethod.POST)
+    public String enterEditUserData(@ModelAttribute("login") AccountEntity accountForm, @PathVariable("emailParameter") String email) {
         AccountEntity accountInstance = accountRepo.findByEmail(email);
         accountInstance.setEmail(accountForm.getEmail().toLowerCase());
         accountInstance.setFirstName(accountForm.getFirstName());

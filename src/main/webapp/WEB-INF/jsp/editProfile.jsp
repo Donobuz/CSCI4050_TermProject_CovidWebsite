@@ -40,6 +40,7 @@
         <h1>Edit Profile</h1>
 
         <form:input type="email" class="MyInput" id="email" path="email" placeholder='${accountInstance.email}' />
+
         <form:input type="text" class="MyInput" id="firstName" path="firstName" placeholder='${accountInstance.firstName}' />
 
 
