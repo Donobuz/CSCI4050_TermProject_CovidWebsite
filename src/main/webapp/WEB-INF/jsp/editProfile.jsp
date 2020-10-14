@@ -24,7 +24,7 @@
     <div class="MyForm form-group">
         <h1>Edit Profile</h1>
 
-        <form:input type="email" class="MyInput" id="email" path="email" placeholder="Enter email address" />
+        <form:input type="email" class="MyInput" id="email" path="email" placeholder="${editProfile.email}" />
 
          <form:button type="submit" class="from-control">Submit</form:button>
 
