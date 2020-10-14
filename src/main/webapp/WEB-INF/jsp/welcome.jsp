@@ -16,7 +16,7 @@
             <li><a style = 'text-decoration: none' href = > Testing Center </a> </li>
             <li><a style = 'text-decoration: none' href = > Donation Center </a></li>
             <li> <a style = 'text-decoration: none' href = 'https://www.youtube.com/' > Shop </a></li>
-            <li><a style = 'text-decoration: none' href = "/welcome/edit/${account.email}"> ${account.userName} </a></li>
+            <li><a style = 'text-decoration: none' href = "/edit/${account.email}"> ${account.userName} </a></li>
         </ul>
     </nav>
 
