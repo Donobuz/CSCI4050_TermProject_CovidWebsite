@@ -13,7 +13,7 @@
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-    <style><%@include file="/WEB-INF/css/profile.css"%></style>
+    <style><%@include file="/WEB-INF/css/profile1.css"%></style>
     <title>Profile Editor</title>
 </head>
 
@@ -35,23 +35,56 @@
 
 
 <%--@elvariable id="editProfile" type=""--%>
+<div class = grid >
+
+    <img id = huru src="/images/pro.png" >
+    <div id = turu>
+    <p> @${accountInstance.userName}<br> ${accountInstance.firstName} ${accountInstance.lastName} </p>
+
+    </div>
+
+    <ul id = bara>
+        <li> <span> <img class = icon src="/images/user.png" > </span> Profile</li>
+        <li>  <span> <img class = icon src="/images/privacy.png" >  </span> Privacy </li>
+        <li>  <span> <img class = icon src="/images/set.png" > </span> Settings </li>
+        <li>  <span> <img class = icon src="/images/pwd.png" > </span> Password </li>
+    </ul>
+
+</div>
+
 <form:form method="POST" modelAttribute="editProfile">
-    <div class="grid form-group">
-        <h1>Edit Profile</h1>
-
-        <form:input type="email" class="MyInput" id="email" path="email" placeholder='${accountInstance.email}' />
-
-        <form:input type="text" class="MyInput" id="firstName" path="firstName" placeholder='${accountInstance.firstName}' />
-
+    <aside class=" form-group">
+        <label for="firstName">First Name:</label><br>
+        <form:input type="text" class="MyInput" id="firstName" path="firstName" placeholder='${accountInstance.firstName}' /><br>
+        <label for="lastName">Last Name:</label><br>
+        <form:input type="text" class="MyInput" id="lastName" path="lastName" placeholder='${accountInstance.lastName}' /><br>
+        <label for="age">Age:</label><br>
+        <form:input type="text" class="MyInput" id="firstName" path="age" placeholder='${accountInstance.age}' /><br>
+        <label for="userName">User Name:</label><br>
+        <form:input type="text" class="MyInput" id="userName" path="userName" placeholder='@${accountInstance.userName}' /><br>
+        <label for="email">Email:</label><br>
+        <form:input type="email" class="MyInput" id="email" path="email" placeholder='${accountInstance.email}' /><br>
 
 
          <form:button type="submit" class="from-control">Submit</form:button>
 
 
-    </div>
+    </aside>
 
 
 
+
+<div class="grid5  form-group">
+    <label for="pwdC">Current Password:</label><br>
+    <input type="password" class="MyInput" id="pwdC"  /><br>
+
+    <label for="pwd">New Password:</label><br>
+    <form:input type="email" class="MyInput" id="pwd" path="password" /><br>
+
+    <label for="pwdCP">Confirm Password:</label><br>
+    <input type="password" class="MyInput" id="pwdCP"  /><br>
+
+</div>
 
 </form:form>
 </body>

@@ -37,6 +37,9 @@ public class WelcomeController {
         AccountEntity accountInstance = accountRepo.findByEmail(email);
         accountInstance.setEmail(accountForm.getEmail().toLowerCase());
         accountInstance.setFirstName(accountForm.getFirstName());
+        accountInstance.setLastName(accountForm.getLastName());
+        accountInstance.setAge(accountForm.getAge());
+        accountInstance.setUserName(accountForm.getUserName());
         accountRepo.save(accountInstance);
 
         return "redirect:/login";
