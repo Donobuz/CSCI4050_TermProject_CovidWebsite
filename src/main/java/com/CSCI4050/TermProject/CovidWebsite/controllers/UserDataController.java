@@ -28,7 +28,7 @@ public class UserDataController {
 
         accountRepo.delete(accountForm);
         model.addAttribute("accountForm", accountRepo.findAll());
-        return "userData";
+        return "redirect:/userData";
     }
 
     // Both methods work for deleting a user out of the database

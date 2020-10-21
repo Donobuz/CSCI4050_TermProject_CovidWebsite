@@ -33,7 +33,6 @@ public class LoginController {
         Argon2PasswordEncoder argon2PasswordEncoder = new Argon2PasswordEncoder();
 
 
-
         if (accountInstance == null || !argon2PasswordEncoder.matches(accountForm.getPassword(), accountInstance.getPassword())) {
             System.out.println("Invalid Email or Password");
             // return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(null);

@@ -11,12 +11,14 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.mail.javamail.MimeMessageHelper;
+import org.springframework.security.core.parameters.P;
 import org.springframework.security.crypto.argon2.Argon2PasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
+
 import javax.mail.MessagingException;
 import javax.mail.internet.MimeMessage;
 import javax.servlet.http.HttpServletRequest;
@@ -44,7 +46,7 @@ public class RegistrationController {
 
     @RequestMapping(value = "/registration", method = RequestMethod.POST)
     public Object registerAccount(@ModelAttribute("accountForm") AccountEntity accountForm, BindingResult bindingResult,
-            Model model, HttpServletRequest request) throws UnsupportedEncodingException, MessagingException {
+                                  Model model, HttpServletRequest request) throws UnsupportedEncodingException, MessagingException {
 
         if (bindingResult.hasErrors()) {
             return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(null);
@@ -57,10 +59,7 @@ public class RegistrationController {
         int memory = 4096; // memory costs
         int iterations = 3;
 
-        Argon2PasswordEncoder argon2PasswordEncoder = new Argon2PasswordEncoder(saltLength, hashLength, parallelism,
-                memory, iterations);
-        String encodePassword = argon2PasswordEncoder.encode(accountForm.getPassword());
-        accountForm.setPassword(encodePassword);
+
         accountForm.setEmail(accountForm.getEmail().toLowerCase());
 
         // Grabs information from view and saves them to attribute to save to database
@@ -83,10 +82,46 @@ public class RegistrationController {
         AccountEntity emailChecker = accountRepo.findByEmail(accountForm.getEmail());
         AccountEntity userNameChecker = accountRepo.findByUserName(accountForm.getUserName());
 
-        if (emailChecker != null || userNameChecker != null) {
-            System.out.println("The email or username already exists");
-            return "/registrationFail";
+        if (emailChecker != null) {
+            System.out.println("The email already exists");
+            model.addAttribute("emailExist","The email already exists");
+        }
+
+        if(userNameChecker != null) {
+            System.out.println("The username already exists");
+            model.addAttribute("usernameExist","The username already exists");
+        }
+
+        if(accountForm.getEmail().isEmpty()){
+            model.addAttribute("emailFail", "Please enter an email address");
+        }
+
+        if(accountForm.getUserName().isEmpty()){
+            model.addAttribute("usernameFail", "Please enter an username");
+        }
+
+        if (accountForm.getFirstName().isEmpty()){
+            model.addAttribute("fNameFail", "Please enter a first name");
+        }
+
+        if (accountForm.getLastName().isEmpty()){
+            model.addAttribute("lNameFail", "Please enter a last name");
+        }
+
+        if (accountForm.getAge() == null){
+            model.addAttribute("ageFail", "Please enter an age");
+        }
+
+        if (accountForm.getPassword().isEmpty()) {
+            System.out.println("Password cannot be empty");
+            model.addAttribute("passwordFail", "The password cannot be empty");
+            return "/registration";
         } else {
+            Argon2PasswordEncoder argon2PasswordEncoder = new Argon2PasswordEncoder(saltLength, hashLength, parallelism,
+                    memory, iterations);
+
+            String encodePassword = argon2PasswordEncoder.encode(accountForm.getPassword());
+            accountForm.setPassword(encodePassword);
             accountForm.setCreatedDate(new Date());
             accountForm.setEnabled(false);
             accountRepo.save(accountForm);
@@ -94,8 +129,8 @@ public class RegistrationController {
 //            return "redirect:register";
             return "/registrationSuccess";
         }
-
     }
+
 
     // ======================================================================================
     // Email Verification
