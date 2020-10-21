@@ -46,9 +46,8 @@
         </div>
 
         <div>
-
             <a href="/registration"
-               type="submit" class="form-control MyButton" >Sign Up</a>
+               type="submit" class="form-control MyButton">Sign Up</a>
         </div>
 
     </div>

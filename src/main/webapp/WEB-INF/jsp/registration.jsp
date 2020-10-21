@@ -31,7 +31,7 @@
 
         <form:input type="email" class="MyInput" id="email" path="email" placeholder="Enter email address" />
 
-        <form:password class="MyInput" id="password" placeholder="Enter password" path="password"/>
+        <form:password class="MyInput" id="password" placeholder="Enter password" autocomplete="false" path="password"/>
 
          <form:button type="submit" class="from-control">Submit</form:button>
 

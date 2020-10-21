@@ -37,3 +37,5 @@ src/main/resources/data/spring-boot-h2-db.mv.db
 *.db
 src/main/resources/data/spring-boot-h2-db.mv.db
 *.db
+src/main/resources/data/spring-boot-h2-db.mv.db
+*.db

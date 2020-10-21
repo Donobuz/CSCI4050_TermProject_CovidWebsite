@@ -18,23 +18,28 @@ public class WelcomeController {
     AccountRepository accountRepo;
 
     @RequestMapping(value = "/welcome", method = RequestMethod.GET)
-    public String showWelcmPage(Model model, AccountEntity accountForm) {
+    public String showWelcomePage() {
         return "welcome";
     }
 
-    @RequestMapping(value = "welcome/edit/{email}", method = RequestMethod.GET)
-    public String getEditUserData(@PathVariable("email") String email, Model model) {
+    @RequestMapping(value = "edit/{emailParameter}", method = RequestMethod.GET)
+    public String getEditUserData(@PathVariable("emailParameter") String email, Model model) {
 
         AccountEntity accountInstance = accountRepo.findByEmail(email);
-        model.addAttribute("editProfile", accountInstance);
+        model.addAttribute("editProfile", new AccountEntity());
+        model.addAttribute("accountInstance", accountInstance);
 
         return "editProfile";
     }
 
-    @RequestMapping(value = "welcome/edit/{email}", method = RequestMethod.POST)
-    public String enterEditUserData(@ModelAttribute("login") AccountEntity accountForm, @PathVariable("email") String email, Model model ) {
+    @RequestMapping(value = "edit/{emailParameter}", method = RequestMethod.POST)
+    public String enterEditUserData(@ModelAttribute("login") AccountEntity accountForm, @PathVariable("emailParameter") String email) {
         AccountEntity accountInstance = accountRepo.findByEmail(email);
-        accountInstance.setEmail(accountForm.getEmail());
+        accountInstance.setEmail(accountForm.getEmail().toLowerCase());
+        accountInstance.setFirstName(accountForm.getFirstName());
+        accountInstance.setLastName(accountForm.getLastName());
+        accountInstance.setAge(accountForm.getAge());
+        accountInstance.setUserName(accountForm.getUserName());
         accountRepo.save(accountInstance);
 
         return "redirect:/login";
