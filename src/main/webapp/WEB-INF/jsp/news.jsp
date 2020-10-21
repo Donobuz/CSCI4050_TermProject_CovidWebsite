@@ -12,6 +12,12 @@
 
 <h1>News</h1>
 
+<aside id="column1"></aside>
+<aside id="column2"></aside>
+<aside id="column3"></aside>
+<aside id="column4"></aside>
+
+<!--
 <aside>
     <h2><a id="source0"></a></h2>
     <a id="url0"><img id="image0">
@@ -61,6 +67,7 @@
         <h4 id="title7"></h4></a>
     <p id="description7"></p>
 </aside>
+       --!>
 <script>
 
     fetch('https://gnews.io/api/v3/search?max=8&image=required&country=us&q=coronavirus|covid-19&token=333e86a5d1adfb9bbd72331f0ee913f0')
@@ -69,7 +76,11 @@
         })
         .then(function (data) {
             var i;
+            var c=0;
             for(i=0;i<data.articleCount;i++){
+                if(c<4){c=c+1;}
+                else{c=1;}
+                document.getElementById("column"+c).innerHTML = document.getElementById("column"+c).innerHTML+"<article><h2><a id=\"source"+i+"\"></a></h2><a id=\"url"+i+"\"><img id=\"image"+i+"\"><h4 id=\"title"+i+"\"></h4></a><p id=\"description"+i+"\"></p></article>";
                 document.getElementById("source"+i).innerHTML = data.articles[i].source.name;
                 document.getElementById("source"+i).href = data.articles[i].source.url;
                 document.getElementById("url"+i).href = data.articles[i].url;

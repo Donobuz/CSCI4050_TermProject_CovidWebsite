@@ -1,13 +1,17 @@
 img{
     width:100%;
-    height:35%;
+    height:20%;
 }
-aside{
+article{
     text-align:center;
     border: 3px solid black;
     margin:0.4%;
+    width:100%;
+    float:left;
+}
+aside {
+    margin:0.4%;
     width:24%;
-    height:44%;
     float:left;
 }
 h1
