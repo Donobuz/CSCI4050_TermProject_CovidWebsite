@@ -21,25 +21,25 @@
 <form:form method="POST" modelAttribute="accountForm">
     <div class="MyForm form-group">
         <h1>Sign Up</h1>
-        <form:input type="text" class="MyInput" id="firstName" placeholder="Enter first name" path="firstName"/>
         <span>${fNameFail}</span>
+        <form:input type="text" class="MyInput" id="firstName" placeholder="Enter first name" path="firstName"/>
 
-        <form:input type="text" class="MyInput" id="lastName" path="lastName" placeholder="Enter last name"/>
         <span>${lNameFail}</span>
+        <form:input type="text" class="MyInput" id="lastName" path="lastName" placeholder="Enter last name"/>
 
-        <form:input type="text" class="MyInput" id="userName" placeholder="Enter a Username" path="userName"/>
         <span>${usernameExist}</span>
         <span>${usernameFail}</span>
+        <form:input type="text" class="MyInput" id="userName" placeholder="Enter a Username" path="userName"/>
 
-        <form:input type="number" class="MyInput" id="inputAge" placeholder="Enter age" path="age"/>
         <span>${ageFail}</span>
+        <form:input type="number" class="MyInput" id="inputAge" placeholder="Enter age" path="age"/>
 
-        <form:input type="email" class="MyInput" id="email" path="email" placeholder="Enter email address" />
         <span>${emailFail}</span>
         <span>${emailExist}</span>
+        <form:input type="email" class="MyInput" id="email" path="email" placeholder="Enter email address" />
 
-        <form:password class="MyInput" id="password" placeholder="Enter password" autocomplete="false" path="password"/>
         <span>${passwordFail}</span>
+        <form:password class="MyInput" id="password" placeholder="Enter password" autocomplete="false" path="password"/>
 
 
         <form:button type="submit" class="from-control">Submit</form:button>

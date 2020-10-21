@@ -29,7 +29,10 @@
             for(i=0;i<data.articleCount;i++){
                 if(c<4){c=c+1;}
                 else{c=1;}
-                document.getElementById("column"+c).innerHTML = document.getElementById("column"+c).innerHTML+"<article><h2><a id=\"source"+i+"\"></a></h2><a id=\"url"+i+"\"><img id=\"image"+i+"\"><h4 id=\"title"+i+"\"></h4></a><p id=\"description"+i+"\"></p></article>";
+                document.getElementById("column"+c).innerHTML = document.getElementById("column"+c).innerHTML
+                    +"<article><h2><a id=\"source"+i+"\"></a>" +
+                    "</h2><a id=\"url"+i+"\"><img id=\"image"+i+"\">" +
+                    "<h4 id=\"title"+i+"\"></h4></a><p id=\"description"+i+"\"></p></article>";
                 document.getElementById("source"+i).innerHTML = data.articles[i].source.name;
                 document.getElementById("source"+i).href = data.articles[i].source.url;
                 document.getElementById("url"+i).href = data.articles[i].url;

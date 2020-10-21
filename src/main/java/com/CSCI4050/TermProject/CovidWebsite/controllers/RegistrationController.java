@@ -82,39 +82,40 @@ public class RegistrationController {
         AccountEntity emailChecker = accountRepo.findByEmail(accountForm.getEmail());
         AccountEntity userNameChecker = accountRepo.findByUserName(accountForm.getUserName());
 
+        //email check
         if (emailChecker != null) {
-            System.out.println("The email already exists");
-            model.addAttribute("emailExist","The email already exists");
+//            System.out.println("The email already exists");
+            model.addAttribute("emailExist","*The email has been registered, try a valid email");
         }
+        if(accountForm.getEmail().isEmpty()){
+            model.addAttribute("emailFail", "*Please enter an email address");
+        }
+
 
         if(userNameChecker != null) {
-            System.out.println("The username already exists");
-            model.addAttribute("usernameExist","The username already exists");
-        }
-
-        if(accountForm.getEmail().isEmpty()){
-            model.addAttribute("emailFail", "Please enter an email address");
+//            System.out.println("The username already exists");
+            model.addAttribute("usernameExist","*The username already exists, please try another username");
         }
 
         if(accountForm.getUserName().isEmpty()){
-            model.addAttribute("usernameFail", "Please enter an username");
+            model.addAttribute("usernameFail", "*Please enter an username");
         }
 
         if (accountForm.getFirstName().isEmpty()){
-            model.addAttribute("fNameFail", "Please enter a first name");
+            model.addAttribute("fNameFail", "*Please enter a first name");
         }
 
         if (accountForm.getLastName().isEmpty()){
-            model.addAttribute("lNameFail", "Please enter a last name");
+            model.addAttribute("lNameFail", "*Please enter a last name");
         }
 
         if (accountForm.getAge() == null){
-            model.addAttribute("ageFail", "Please enter an age");
+            model.addAttribute("ageFail", "*Please enter an age");
         }
 
         if (accountForm.getPassword().isEmpty()) {
             System.out.println("Password cannot be empty");
-            model.addAttribute("passwordFail", "The password cannot be empty");
+            model.addAttribute("passwordFail", "*The password cannot be empty");
             return "/registration";
         } else {
             Argon2PasswordEncoder argon2PasswordEncoder = new Argon2PasswordEncoder(saltLength, hashLength, parallelism,
