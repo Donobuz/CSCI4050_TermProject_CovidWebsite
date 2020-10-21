@@ -82,36 +82,44 @@ public class RegistrationController {
         AccountEntity emailChecker = accountRepo.findByEmail(accountForm.getEmail());
         AccountEntity userNameChecker = accountRepo.findByUserName(accountForm.getUserName());
 
+        // Checks if the email already exists in the database
         if (emailChecker != null) {
             System.out.println("The email already exists");
-            model.addAttribute("emailExist","The email already exists");
+            model.addAttribute("emailExist", "The email already exists");
         }
 
-        if(userNameChecker != null) {
+        // Checks if the username already exists in the database
+        if (userNameChecker != null) {
             System.out.println("The username already exists");
-            model.addAttribute("usernameExist","The username already exists");
+            model.addAttribute("usernameExist", "The username already exists");
         }
 
-        if(accountForm.getEmail().isEmpty()){
+        // Checks if the email input field is empty
+        if (accountForm.getEmail().isEmpty()) {
             model.addAttribute("emailFail", "Please enter an email address");
         }
 
-        if(accountForm.getUserName().isEmpty()){
+        // Checks if the Username input field is empty
+        if (accountForm.getUserName().isEmpty()) {
             model.addAttribute("usernameFail", "Please enter an username");
         }
 
-        if (accountForm.getFirstName().isEmpty()){
+        // Checks if the first name field is empty
+        if (accountForm.getFirstName().isEmpty()) {
             model.addAttribute("fNameFail", "Please enter a first name");
         }
 
-        if (accountForm.getLastName().isEmpty()){
+        // Checks if the last name field is empty
+        if (accountForm.getLastName().isEmpty()) {
             model.addAttribute("lNameFail", "Please enter a last name");
         }
 
-        if (accountForm.getAge() == null){
+        // Checks if the age field is empty
+        if (accountForm.getAge() == null) {
             model.addAttribute("ageFail", "Please enter an age");
         }
 
+        // Checks if the password input field is empty
         if (accountForm.getPassword().isEmpty()) {
             System.out.println("Password cannot be empty");
             model.addAttribute("passwordFail", "The password cannot be empty");
