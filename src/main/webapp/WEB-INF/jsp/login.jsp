@@ -22,17 +22,19 @@
 <body>
 <%--@elvariable id="login" type=""--%>
 <form:form modelAttribute="login" >
-    <div class="form-group container" id="positionOfLogin" style="text-align: center">
+    <div class="form-group container" id="positionOfLogin">
         <div>
+            <p>${invalidEmailPassword}</p>
+            <p>${notVerified}</p>
+            <p>${emailEmpty}</p>
             <form:input type="email"
                    class="form-control MyInput"
                    id="email"
                    style="display: inline; width: 300px;"
                    placeholder="email@example.com"
             path="email"/>
-        </div>
-
         <div>
+            <p>${passwordEmpty}</p>
             <form:input type="password"
                         name="password"
                    class="form-control MyInput"
@@ -40,8 +42,6 @@
                    placeholder="password"
             path="password"/>
         </div>
-
-
 
         <div>
             <form:button type="submit" style="text-align: center" class="form-control MyButton">Login</form:button>
@@ -54,9 +54,7 @@
 
     </div>
 </form:form>
-<span>${invalidEmailPassword}</span>
-<span>${notVerified}</span>
-<span>${emailEmpty}</span>
-<span>${passwordEmpty}</span>
+
+
 </body>
 </html>
