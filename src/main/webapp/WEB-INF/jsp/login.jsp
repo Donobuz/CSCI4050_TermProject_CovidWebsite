@@ -41,6 +41,8 @@
             path="password"/>
         </div>
 
+
+
         <div>
             <form:button type="submit" style="text-align: center" class="form-control MyButton">Login</form:button>
         </div>
@@ -52,5 +54,9 @@
 
     </div>
 </form:form>
+<span>${invalidEmailPassword}</span>
+<span>${notVerified}</span>
+<span>${emailEmpty}</span>
+<span>${passwordEmpty}</span>
 </body>
 </html>

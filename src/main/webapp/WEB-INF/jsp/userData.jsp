@@ -40,7 +40,7 @@
             <td>${account.age}</td>
             <td>${account.createdDate}</td>
             <%-- <td><a href="/userData/delete/${account.email}"><button></button></a></td> --%>
-            <td><a href="/userData/delete?email=${account.email}"><button class="btn btn-primary"></button></a></td> 
+            <td><a href="/delete?email=${account.email}"><button class="btn btn-primary"></button></a></td>
         </tr>
     </c:forEach>
 </table>

@@ -22,7 +22,7 @@ public class UserDataController {
         return "userData";
     }
 
-    @RequestMapping(value = "userData/delete", method = RequestMethod.GET)
+    @RequestMapping(value = "/delete", method = RequestMethod.GET)
     public String deleteUserData(@RequestParam("email") String email, Model model) {
         AccountEntity accountForm = accountRepo.findByEmail(email);
 
