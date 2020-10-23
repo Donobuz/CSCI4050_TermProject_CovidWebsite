@@ -36,7 +36,7 @@ public class WelcomeController {
     }
 
     @RequestMapping(value = "edit/{emailParameter}", method = RequestMethod.POST)
-    public Object enterEditUserData(@ModelAttribute("login") AccountEntity accountForm, @PathVariable("emailParameter") String email) {
+    public Object enterEditUserData(@ModelAttribute("login") AccountEntity accountForm, @PathVariable("emailParameter") String email, Model model) {
 
         AccountEntity accountInstance = accountRepo.findByEmail(email); // Grabs the instance of the email specified (gets all information associated with email)
 
@@ -62,17 +62,29 @@ public class WelcomeController {
         accountInstance.setAge(accountForm.getAge());
         accountInstance.setUserName(accountForm.getUserName());
 
+        // Need to fix these conditional statements
         if (emailChecker != null || userNameChecker != null) {
             System.out.println("Email or Username already exists");
-            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(null);
-        } else if (accountForm.getPassword().isEmpty()) {
-            System.out.println("Password Cant be emtpy");
-            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(null);
-        } else {
+            model.addAttribute("editProfile", new AccountEntity());
+            model.addAttribute("accountInstance", accountInstance);
+            model.addAttribute("emailUsernameExists", "The Email or Username already exists");
+            return "editProfile";
+
+        }
+
+        if (accountForm.getPassword().isEmpty()) {
+            System.out.println("Password Cant be empty");
+            model.addAttribute("editProfile", new AccountEntity());
+            model.addAttribute("accountInstance", accountInstance);
+            model.addAttribute("passwordEmpty", "Password cannot be empty");
+            return "editProfile";
+        }
+
+        if ((emailChecker == null && userNameChecker == null) && !(accountForm.getPassword().isEmpty())) {
             accountRepo.save(accountInstance);
             return "redirect:/login";
         }
-
+        return null;
 
     }
 

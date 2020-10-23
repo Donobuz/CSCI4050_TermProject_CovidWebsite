@@ -24,9 +24,8 @@
 <form:form modelAttribute="login" >
     <div class="form-group container" id="positionOfLogin">
         <div>
-            <p>${invalidEmailPassword}</p>
-            <p>${notVerified}</p>
-            <p>${emailEmpty}</p>
+
+            <p><br>${notVerified}<br> ${invalidEmailPassword}</p>
             <form:input type="email"
                    class="form-control MyInput"
                    id="email"
@@ -34,7 +33,6 @@
                    placeholder="email@example.com"
             path="email"/>
         <div>
-            <p>${passwordEmpty}</p>
             <form:input type="password"
                         name="password"
                    class="form-control MyInput"

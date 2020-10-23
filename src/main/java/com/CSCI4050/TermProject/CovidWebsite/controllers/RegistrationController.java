@@ -124,7 +124,15 @@ public class RegistrationController {
             System.out.println("Password cannot be empty");
             model.addAttribute("passwordFail", "The password cannot be empty");
             return "/registration";
-        } else {
+        }
+        if(!(emailChecker != null) && !(userNameChecker != null) &&
+                !(accountForm.getEmail().isEmpty()) &&
+                !(accountForm.getUserName().isEmpty()) &&
+                !(accountForm.getFirstName().isEmpty()) &&
+                !(accountForm.getLastName().isEmpty()) &&
+                !(accountForm.getAge() == null) &&
+                !(accountForm.getPassword().isEmpty())){
+
             Argon2PasswordEncoder argon2PasswordEncoder = new Argon2PasswordEncoder(saltLength, hashLength, parallelism,
                     memory, iterations);
 
@@ -137,6 +145,7 @@ public class RegistrationController {
 //            return "redirect:register";
             return "/registrationSuccess";
         }
+        return null;
     }
 
 

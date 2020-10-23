@@ -33,19 +33,23 @@ public class LoginController {
         Argon2PasswordEncoder argon2PasswordEncoder = new Argon2PasswordEncoder();
 
 
-        // Checks to see if the Email input field is empty
-        if(accountForm.getEmail().isEmpty()){
-            model.addAttribute("emailEmpty", "*Please enter an email");
-        }
-
-        // Checks to see if the password input field is empty
-        if(accountForm.getPassword().isEmpty()){
-            model.addAttribute("passwordEmpty", "*Please enter a password");
-            return "/login";
-        }
+//        // Checks to see if the Email input field is empty
+//        if (accountForm.getEmail().isEmpty()) {
+//            model.addAttribute("emailEmpty", "*Please enter an email");
+//        }
+//
+//        // Checks to see if the password input field is empty
+//        if (accountForm.getPassword().isEmpty()) {
+//            model.addAttribute("passwordEmpty", "*Please enter a password");
+//            return "/login";
+//        }
 
         // Checks to see if the email exists in the database; checks to see if the password is associated with the email; if not throw an error found in jsp
-        if (accountInstance == null || !argon2PasswordEncoder.matches(accountForm.getPassword(), accountInstance.getPassword())) {
+        if (accountInstance == null ||
+                !argon2PasswordEncoder.matches(accountForm.getPassword(), accountInstance.getPassword()) ||
+                accountForm.getEmail().isEmpty() ||
+                accountForm.getPassword().isEmpty()) {
+
             System.out.println("Invalid Email or Password");
             model.addAttribute("invalidEmailPassword", "*Invalid Email or Password");
             // return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(null);
@@ -58,11 +62,17 @@ public class LoginController {
             model.addAttribute("notVerified", "*The associated email is not verified");
             return "/login";
         }
-        else {
+
+        if(!(accountInstance == null ||
+                !argon2PasswordEncoder.matches(accountForm.getPassword(), accountInstance.getPassword()) ||
+                accountForm.getEmail().isEmpty() ||
+                accountForm.getPassword().isEmpty()) && !(accountInstance.isEnabled() == false)){
+
             System.out.println("account exist");
             model.addAttribute("account", accountInstance);
             return "welcome";
         }
+        return null;
 
     }
 }

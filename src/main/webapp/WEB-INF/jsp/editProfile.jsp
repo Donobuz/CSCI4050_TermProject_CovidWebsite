@@ -60,6 +60,8 @@
 
 </div>
 
+<p>${emailUsernameExists}</p>
+<p>${passwordEmpty}</p>
 <form:form method="POST" modelAttribute="editProfile">
     <aside class=" form-group">
         <label for="firstName">First Name:</label><br>
