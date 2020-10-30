@@ -5,9 +5,10 @@ img{
 article{
     text-align:center;
     border: 3px solid black;
-    margin:0.4%;
+    margin:0.8%;
     width:100%;
     float:left;
+    background-color:white;
 }
 aside {
     margin:0.4%;
@@ -19,9 +20,9 @@ h1
     text-align: center;
     color: maroon;
     font-weight: bold;
-    margin-bottom: 30px;
+    margin-bottom: 5px;
 }
-a:link
+a:link, a:visited
 {
     color:black;
 }
