@@ -12,16 +12,17 @@
     <title>Request Form</title>
 </head>
 <body>
+<%--@elvariable id="requestForm" type=""--%>
 <form:form method="POST" modelAttribute="requestForm">
         <div class="MyForm form-group">
             <h1>New Request</h1>
             <span></span>
-            <form:input type="text" class="MyInput" id="amount" placeholder="Enter amount" path=""/>
+            <form:input type="text" class="MyInput" id="amount" placeholder="Enter amount" path="amount"/>
 
             <span></span>
-            <input type="text-area" class="MyInput" id="reason" placeholder="Explain your situation"/>
+            <form:input type="text-area" class="MyInput" id="reason" placeholder="Explain your situation" path ="reason"/>
 
-            <button type="submit" class="from-control">Submit</button>
+            <form:button type="submit" class="from-control">Submit</form:button>
 <%--            <span>${lNameFail}</span>
             <form:input type="text" class="MyInput" id="lastName" path="lastName" placeholder="Enter last name"/>
 
@@ -48,6 +49,8 @@
         <div>
             <img src="images/reg1.png" alt="picture">
         </div>
+
+</form:form>
 
 </body>
 

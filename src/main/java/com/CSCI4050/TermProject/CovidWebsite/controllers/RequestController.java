@@ -34,12 +34,16 @@ public class RequestController {
         return "requestForm";
     }
 
-    @RequestMapping(value = "/registration", method = RequestMethod.POST)
-    public Object requestInstance(@ModelAttribute("RequestForm") RequestEntity RequestForm, AccountEntity Account, BindingResult bindingResult,
-                                  Model model, HttpServletRequest request) throws UnsupportedEncodingException, MessagingException {
-        model.addAttribute("userName", Account.getUserName());
-        model.addAttribute("amount",RequestForm.getAmount());
-        model.addAttribute("reason", RequestForm.getReason());
-        model.addAttribute("date",LocalDate.now());
+    @RequestMapping(value = "/requestForm", method = RequestMethod.POST)
+    public Object requestInstance(@ModelAttribute("requestForm") RequestEntity requestForm,
+                                  BindingResult bindingResult,
+                                  Model model, HttpServletRequest request)
+            throws UnsupportedEncodingException, MessagingException {
+        model.addAttribute("amount",requestForm.getAmount());
+        model.addAttribute("reason", requestForm.getReason());
+       //model.addAttribute("date",LocalDate.now());
+        requestRepo.save(requestForm);
+        return "requestForm";
     }
+
 }

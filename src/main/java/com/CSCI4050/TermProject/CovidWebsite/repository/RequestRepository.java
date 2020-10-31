@@ -10,5 +10,4 @@ public interface RequestRepository extends CrudRepository<RequestEntity, Long> {
 
     RequestEntity findByUserName(String userName);
 
-    RequestEntity findByInstanceID(int instanceID);
 }
