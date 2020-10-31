@@ -6,7 +6,6 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import java.time.LocalDate;
 
 @Entity(name="request")
 public class RequestEntity {
@@ -16,16 +15,14 @@ public class RequestEntity {
 
     private String userName;
     private int amount;
-    private LocalDate date;
+    private Date date;
     private String reason;
 
-    public LocalDate getDate() {
+    public Date getDate() {
         return date;
     }
 
-    public void setDate(LocalDate date) {
-        this.date = date;
-    }
+    public void setDate(Date date) {this.date = date;}
 
     public Long getId() {
         return id;
@@ -46,9 +43,7 @@ public class RequestEntity {
         return amount;
     }
 
-    public void setAmount(int amount) {
-        this.amount = amount;
-    }
+    public void setAmount(int amount) {this.amount = amount;}
 
     public String getReason() {
         return reason;
