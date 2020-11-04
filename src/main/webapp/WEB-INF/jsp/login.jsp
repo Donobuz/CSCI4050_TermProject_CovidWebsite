@@ -25,7 +25,7 @@
     <div class="form-group container" id="positionOfLogin">
         <div>
 
-            <p><br>${notVerified}<br> ${invalidEmailPassword}</p>
+            <p><br>${notVerified} ${invalidEmailPassword} ${suspended}</p>
             <form:input type="email"
                    class="form-control MyInput"
                    id="email"

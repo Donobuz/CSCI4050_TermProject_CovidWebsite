@@ -63,6 +63,12 @@ public class LoginController {
             return "/login";
         }
 
+        if(accountInstance.isSuspended() == true){
+            System.out.println("This account is suspended; Please contact an administrator");
+            model.addAttribute("suspended", "*This account is suspended; Please contact an administrator");
+            return "/login";
+        }
+
         if(!(accountInstance == null ||
                 !argon2PasswordEncoder.matches(accountForm.getPassword(), accountInstance.getPassword()) ||
                 accountForm.getEmail().isEmpty() ||

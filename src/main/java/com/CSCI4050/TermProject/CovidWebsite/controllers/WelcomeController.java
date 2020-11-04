@@ -3,16 +3,23 @@ package com.CSCI4050.TermProject.CovidWebsite.controllers;
 import com.CSCI4050.TermProject.CovidWebsite.entities.AccountEntity;
 import com.CSCI4050.TermProject.CovidWebsite.repository.AccountRepository;
 
+import com.CSCI4050.TermProject.CovidWebsite.servlets.Utility;
+import net.bytebuddy.utility.RandomString;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.repository.query.Param;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.mail.javamail.JavaMailSender;
+import org.springframework.mail.javamail.MimeMessageHelper;
 import org.springframework.security.crypto.argon2.Argon2PasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.*;
+
+import javax.mail.MessagingException;
+import javax.mail.internet.MimeMessage;
+import javax.servlet.http.HttpServletRequest;
+import java.io.UnsupportedEncodingException;
 
 @Controller
 public class WelcomeController {
@@ -20,10 +27,15 @@ public class WelcomeController {
     @Autowired
     AccountRepository accountRepo;
 
+    @Autowired
+    private JavaMailSender mailSender;
+
+
     @RequestMapping(value = "/welcome", method = RequestMethod.GET)
     public String showWelcomePage() {
         return "welcome";
     }
+
 
     @RequestMapping(value = "edit/{emailParameter}", method = RequestMethod.GET)
     public String getEditUserData(@PathVariable("emailParameter") String email, Model model) {
@@ -35,13 +47,16 @@ public class WelcomeController {
         return "editProfile";
     }
 
+
     @RequestMapping(value = "edit/{emailParameter}", method = RequestMethod.POST)
-    public Object enterEditUserData(@ModelAttribute("login") AccountEntity accountForm, @PathVariable("emailParameter") String email, Model model) {
+    public Object enterEditUserData(@ModelAttribute("login") AccountEntity accountForm, @PathVariable("emailParameter") String email, Model model, HttpServletRequest request) throws UnsupportedEncodingException, MessagingException {
 
         AccountEntity accountInstance = accountRepo.findByEmail(email); // Grabs the instance of the email specified (gets all information associated with email)
 
         AccountEntity userNameChecker = accountRepo.findByUserName(accountForm.getUserName());
         AccountEntity emailChecker = accountRepo.findByEmail(accountForm.getEmail());
+
+
 
         // Password encoder called when registration happens
         int saltLength = 16; // salt length in bytes
@@ -53,14 +68,8 @@ public class WelcomeController {
         Argon2PasswordEncoder argon2PasswordEncoder = new Argon2PasswordEncoder(saltLength, hashLength, parallelism,
                 memory, iterations);
         String encodePassword = argon2PasswordEncoder.encode(accountForm.getPassword());
-        accountInstance.setPassword(encodePassword);
 
 
-        accountInstance.setEmail(accountForm.getEmail().toLowerCase());
-        accountInstance.setFirstName(accountForm.getFirstName());
-        accountInstance.setLastName(accountForm.getLastName());
-        accountInstance.setAge(accountForm.getAge());
-        accountInstance.setUserName(accountForm.getUserName());
 
         // Need to fix these conditional statements
         if (emailChecker != null || userNameChecker != null) {
@@ -68,7 +77,6 @@ public class WelcomeController {
             model.addAttribute("editProfile", new AccountEntity());
             model.addAttribute("accountInstance", accountInstance);
             model.addAttribute("emailUsernameExists", "The Email or Username already exists");
-            return "editProfile";
 
         }
 
@@ -80,12 +88,60 @@ public class WelcomeController {
             return "editProfile";
         }
 
-        if ((emailChecker == null && userNameChecker == null) && !(accountForm.getPassword().isEmpty())) {
+        if (!(emailChecker != null || userNameChecker != null) && !(accountForm.getPassword().isEmpty())) {
+            String siteURL = Utility.getSiteURL(request);
+            accountInstance.setPassword(encodePassword);
+            accountInstance.setEmail(accountForm.getEmail().toLowerCase());
+            accountInstance.setFirstName(accountForm.getFirstName());
+            accountInstance.setLastName(accountForm.getLastName());
+            accountInstance.setAge(accountForm.getAge());
+            accountInstance.setUserName(accountForm.getUserName());
+            accountInstance.setEnabled(false);
             accountRepo.save(accountInstance);
-            return "redirect:/login";
+            VerificationEmail(accountInstance, siteURL);
+            return "editProfileSuccess";
         }
-        return null;
+        return "editProfile";
 
+    }
+
+
+    @GetMapping("/verifyEditedEmail")
+    public String verifyEditedEmail(@Param("code") String code, Model model) {
+        boolean verified = verify(code);
+        String pageTitle = verified ? "Verification Succeeded!" : "Verification Failed";
+        model.addAttribute("pageTitle", pageTitle);
+        return verified ? "verifySuccess" : "verifyFail";
+    }
+
+    private void VerificationEmail(AccountEntity accountForm, String siteURL)
+            throws UnsupportedEncodingException, MessagingException {
+        String subject = "Please verify your registration";
+        String senderName = "DawgsvsCovid";
+        String mailContent = "<p>Dear " + accountForm.getFirstName() + ", </p>";
+        mailContent += "<p> Please click the link below to verify your email address</p>";
+        String verifyURL = siteURL + "/verify?code=" + accountForm.getVerificationCode();
+        mailContent += "<h3><a href=\"" + verifyURL + "\"> VERIFY </a></h3>";
+        mailContent += "<p>Thank you<br> The DawgsVsCovid Team</p>";
+        MimeMessage message = mailSender.createMimeMessage();
+        MimeMessageHelper helper = new MimeMessageHelper(message);
+        helper.setFrom("DawgsvsCovid@gmail.com", senderName);
+        helper.setTo(accountForm.getEmail());
+        helper.setSubject(subject);
+        helper.setText(mailContent, true);
+        mailSender.send(message);
+
+    }
+
+    public boolean verify(String verificationCode) {
+        AccountEntity accountInstance = accountRepo.findByVerificationCode(verificationCode);
+        if (accountInstance == null || accountInstance.isEnabled()) {
+            return false;
+        } else {
+            accountInstance.setEnabled(true);
+            accountRepo.save(accountInstance);
+            return true;
+        }
     }
 
 //    @RequestMapping(value = "editProfile", method = RequestMethod.GET)

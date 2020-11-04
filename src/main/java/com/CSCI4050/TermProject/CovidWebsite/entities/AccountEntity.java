@@ -2,11 +2,7 @@ package com.CSCI4050.TermProject.CovidWebsite.entities;
 
 import java.util.Date;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 @Entity(name = "user")
 public class AccountEntity {
@@ -24,11 +20,14 @@ public class AccountEntity {
     private Integer age;
     private Date createdDate;
     private boolean enabled;
+    private boolean suspended;
 
     @Column(updatable = false)
     private String verificationCode;
 
     // Getters and Setters
+
+
     public void setId(Long id) {
         this.id = id;
     }
@@ -114,5 +113,15 @@ public class AccountEntity {
     public void setEnabled(boolean enabled) {
         this.enabled = enabled;
     }
+
+    public boolean isSuspended() {
+        return suspended;
+    }
+
+    public void setSuspended(boolean suspended) {
+        this.suspended = suspended;
+    }
+
+
 
 }

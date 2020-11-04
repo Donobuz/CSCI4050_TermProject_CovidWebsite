@@ -27,6 +27,9 @@
         <th scope="row" data-field="email" data-sortable="true">Email</th>
         <th scope="row" data-field="age" data-sortable="true">Age</th>
         <th scope="row" data-field="createdDate" data-sortable="true">Date Created</th>
+        <th scope="row" data-field="suspended" data-sortable="true">Suspended?</th>
+        <th scope="row" data-field="suspend" data-sortable="false">Suspend User</th>
+        <th scope="row" data-field="unsuspend" data-sortable="false">Unsuspend User</th>
         <th scope="row" data-field="delete" data-sortable="false">Delete</th>
     </tr>
     </thead>
@@ -39,6 +42,9 @@
             <td>${account.email}</td>
             <td>${account.age}</td>
             <td>${account.createdDate}</td>
+            <td>${account.suspended}</td>
+            <td><a href="/suspend?email=${account.email}"><button class="btn btn-secondary"></button></a></td>
+            <td><a href="/unsuspend?email=${account.email}"><button class="btn btn-success"></button></a></td>
             <%-- <td><a href="/userData/delete/${account.email}"><button></button></a></td> --%>
             <td><a href="/delete?email=${account.email}"><button class="btn btn-primary"></button></a></td>
         </tr>

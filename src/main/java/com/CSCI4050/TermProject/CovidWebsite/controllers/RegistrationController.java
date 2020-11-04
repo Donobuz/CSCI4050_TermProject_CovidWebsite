@@ -140,6 +140,7 @@ public class RegistrationController {
             accountForm.setPassword(encodePassword);
             accountForm.setCreatedDate(new Date());
             accountForm.setEnabled(false);
+            accountForm.setSuspended(false);
             accountRepo.save(accountForm);
             sendVerificationEmail(accountForm, siteURL);
 //            return "redirect:register";

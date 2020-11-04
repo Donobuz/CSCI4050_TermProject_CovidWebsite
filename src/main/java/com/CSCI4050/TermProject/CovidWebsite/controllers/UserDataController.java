@@ -31,6 +31,26 @@ public class UserDataController {
         return "redirect:/userData";
     }
 
+    @RequestMapping(value = "/suspend", method = RequestMethod.GET)
+    public String suspendUser(@RequestParam("email") String email, Model model) {
+        AccountEntity accountForm = accountRepo.findByEmail(email);
+
+        model.addAttribute("accountForm", accountRepo.findAll());
+        accountForm.setSuspended(true);
+        accountRepo.save(accountForm);
+        return "redirect:/userData";
+    }
+
+    @RequestMapping(value = "/unsuspend", method = RequestMethod.GET)
+    public String unsuspendUser(@RequestParam("email") String email, Model model) {
+        AccountEntity accountForm = accountRepo.findByEmail(email);
+
+        model.addAttribute("accountForm", accountRepo.findAll());
+        accountForm.setSuspended(false);
+        accountRepo.save(accountForm);
+        return "redirect:/userData";
+    }
+
     // Both methods work for deleting a user out of the database
 
     // @RequestMapping(value = "/userData/delete/{email}", method =
