@@ -1,6 +1,10 @@
 package com.CSCI4050.TermProject.CovidWebsite.entities;
 
+import org.apache.coyote.Request;
+
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 import java.util.Set;
 
 import javax.persistence.*;
@@ -23,8 +27,8 @@ public class AccountEntity {
     private boolean enabled;
     private boolean suspended;
 
-    @OneToMany(mappedBy="account")
-    private Set<RequestEntity> requestEntities;
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "account")
+    List<RequestEntity> requestArray = new ArrayList<>();
 
     @Column(updatable = false)
     private String verificationCode;
@@ -80,12 +84,6 @@ public class AccountEntity {
         this.password = password;
     }
 
-    /*
-     * public String getGender() { return gender; }
-     * 
-     * public void setGender(String gender) { this.gender = gender; }
-     */
-
     public Integer getAge() {
         return age;
     }
@@ -126,6 +124,12 @@ public class AccountEntity {
         this.suspended = suspended;
     }
 
+    public List<RequestEntity> getRequestArray() {
+        return requestArray;
+    }
 
+    public void setRequestArray(List<RequestEntity> requestArray) {
+        this.requestArray = requestArray;
+    }
 
 }

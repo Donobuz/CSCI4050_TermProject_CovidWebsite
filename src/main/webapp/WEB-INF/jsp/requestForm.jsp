@@ -47,7 +47,7 @@
         </div>
 
         <div>
-            <img src="images/reg1.png" alt="picture">
+            <img src="/images/reg1.png" alt="picture">
         </div>
 
 </form:form>

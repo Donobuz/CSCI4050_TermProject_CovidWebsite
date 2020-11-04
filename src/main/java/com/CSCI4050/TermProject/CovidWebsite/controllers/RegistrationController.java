@@ -23,7 +23,10 @@ import javax.mail.MessagingException;
 import javax.mail.internet.MimeMessage;
 import javax.servlet.http.HttpServletRequest;
 import java.io.UnsupportedEncodingException;
+import java.security.SecureRandom;
 import java.util.Date;
+import java.util.Random;
+import java.lang.Math.*;
 
 @Controller
 public class RegistrationController {
@@ -58,6 +61,7 @@ public class RegistrationController {
         int parallelism = 1; // currently not supported by Spring Security
         int memory = 4096; // memory costs
         int iterations = 3;
+
 
 
         accountForm.setEmail(accountForm.getEmail().toLowerCase());

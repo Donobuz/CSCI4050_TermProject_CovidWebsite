@@ -10,12 +10,12 @@
 </head>
 
 <header id = bal>
-    <input type="image" src="images/nav_logo.PNG" name="nav" class="btSubmit" id="nav" />
+    <input type="image" src="/images/nav_logo.PNG" name="nav" class="btSubmit" id="nav" />
     <nav>
         <ul id = nav__links>
             <li><a style = 'text-decoration: none' href = > Testing Center </a> </li>
             <li><a style = 'text-decoration: none' href = > Donation Center </a></li>
-            <li> <a style = 'text-decoration: none' href = 'https://www.youtube.com/' > Shop </a></li>
+            <li> <a style = 'text-decoration: none' href = "/request/${account.userName}" > Request </a></li>
             <li><a style = 'text-decoration: none' href = "/edit/${account.email}"> ${account.userName} </a></li>
         </ul>
     </nav>
@@ -43,7 +43,7 @@
 
 <div class = grid id = g2>
     <div class = card2>
-        <img class = icon src="images/world.png" >
+        <img class = icon src="/images/world.png" >
         <h2 style = 'display: inline-block' class=" sechead"> Global News</h2>
         <p class = pnew>
             Since the beginning of the pandemic, accelerating the development of and equitable access to vaccines,
@@ -57,7 +57,7 @@
     </div>
 
     <div class = card3>
-        <img class = icon src="images/flag.png" >
+        <img class = icon src="/images/flag.png" >
         <h2 style = 'display: inline-block' class=" sechead"> US News</h2>
         <p class = pnew>Since the beginning of the pandemic, accelerating the development of and equitable access to vaccines,
             diagnostics and therapeutics for COVID-19 has been a priority for WHO.
@@ -71,7 +71,7 @@
     </div>
 
     <div class = card4>
-        <img class = icon src="images/cap.png" id = icon>
+        <img class = icon src="/images/cap.png" id = icon>
         <h2 style = 'display: inline-block' class=" sechead" id = cardt> Georgia News</h2>
         <p class = pnew id = pn>Since the beginning of the pandemic, accelerating the development of and equitable access to vaccines,
             diagnostics and therapeutics for COVID-19 has been a priority for WHO.
@@ -84,7 +84,7 @@
 </div>
 
     <div class = card5>
-        <img class = icon src="images/bulld.png" id = ic4>
+        <img class = icon src="/images/bulld.png" id = ic4>
         <h2 style = 'display: inline-block' class=" sechead" > Athens News</h2>
         <p class = pnew>Since the beginning of the pandemic, accelerating the development of and equitable access to vaccines,
             diagnostics and therapeutics for COVID-19 has been a priority for WHO.

@@ -10,12 +10,11 @@ public class RequestEntity {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
-    private String userName;
     private int amount;
     private Date date;
     private String reason;
 
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.ALL)
     private AccountEntity account;
 
     public AccountEntity getAccount() {return account;}
@@ -34,13 +33,6 @@ public class RequestEntity {
 
     public void setId(Long id) {
         this.id = id;
-    }
-    public String getUserName() {
-        return userName;
-    }
-
-    public void setUserName(String userName) {
-        this.userName = userName;
     }
 
     public int getAmount() {

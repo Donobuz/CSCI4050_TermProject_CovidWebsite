@@ -19,43 +19,43 @@ import java.util.Date;
 
 @Controller
 public class RequestController {
-    @Autowired
-    private RequestRepository requestRepo;
+
+//    @Autowired
+//    private RequestRepository requestRepo;
 
     @Autowired
     AccountRepository accountRepo;
 
-    public RequestController(RequestRepository requestRepo) {
-        this.requestRepo = requestRepo;
-    }
+//    public RequestController(RequestRepository requestRepo) {
+//        this.requestRepo = requestRepo;
+//    }
 
-    @RequestMapping(value = "/requestForm", method = RequestMethod.GET)
-    public String showRequestFormPage(ModelMap model) {
-        model.addAttribute("requestForm",new RequestEntity());
-        return "requestForm";
-    }
 
     @RequestMapping(value = "request/{userNameParameter}", method = RequestMethod.GET)
     public String getUserNameData(@PathVariable("userNameParameter") String userName, Model model) {
         AccountEntity accountInstance = accountRepo.findByUserName(userName);
 
-        model.addAttribute("requestNew", new AccountEntity());
-        model.addAttribute("reqInstance", accountInstance);
+        model.addAttribute("requestForm", new RequestEntity());
+        model.addAttribute("accountInstance", accountInstance);
 
         return "requestForm";
     }
 
-    @RequestMapping(value = "/requestForm", method = RequestMethod.POST)
-    public Object requestInstance(@ModelAttribute("requestForm") RequestEntity requestForm,
-                                  BindingResult bindingResult,
+    @RequestMapping(value = "request/{userNameParameter}", method = RequestMethod.POST)
+    public Object requestInstance(@ModelAttribute("requestForm") RequestEntity requestForm, @PathVariable("userNameParameter") String userName,                                  BindingResult bindingResult,
                                   Model model, HttpServletRequest request)
             throws UnsupportedEncodingException, MessagingException {
-        model.addAttribute("amount",requestForm.getAmount());
-        model.addAttribute("reason", requestForm.getReason());
+        AccountEntity accountInstance = accountRepo.findByUserName(userName);
+
+        requestForm.setAmount(requestForm.getAmount());
+        requestForm.setReason(requestForm.getReason());
+        requestForm.setAccount(accountInstance);
         requestForm.setDate(new Date());
-        requestForm.setUserName(requestForm.getAccount().getUserName());
-        requestRepo.save(requestForm);
-        return "requestForm";
+
+        accountInstance.getRequestArray().add(requestForm);
+        accountRepo.save(accountInstance);
+        model.addAttribute("account", accountInstance);
+        return "welcome";
     }
 
 }

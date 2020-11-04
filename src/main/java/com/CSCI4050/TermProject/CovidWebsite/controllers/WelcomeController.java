@@ -1,6 +1,7 @@
 package com.CSCI4050.TermProject.CovidWebsite.controllers;
 
 import com.CSCI4050.TermProject.CovidWebsite.entities.AccountEntity;
+import com.CSCI4050.TermProject.CovidWebsite.entities.RequestEntity;
 import com.CSCI4050.TermProject.CovidWebsite.repository.AccountRepository;
 
 import com.CSCI4050.TermProject.CovidWebsite.servlets.Utility;
@@ -14,6 +15,7 @@ import org.springframework.mail.javamail.MimeMessageHelper;
 import org.springframework.security.crypto.argon2.Argon2PasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.*;
 
 import javax.mail.MessagingException;
@@ -49,7 +51,7 @@ public class WelcomeController {
 
 
     @RequestMapping(value = "edit/{emailParameter}", method = RequestMethod.POST)
-    public Object enterEditUserData(@ModelAttribute("login") AccountEntity accountForm, @PathVariable("emailParameter") String email, Model model, HttpServletRequest request) throws UnsupportedEncodingException, MessagingException {
+    public Object enterEditUserData(@ModelAttribute("editProfile") AccountEntity accountForm, @PathVariable("emailParameter") String email, Model model, HttpServletRequest request) throws UnsupportedEncodingException, MessagingException {
 
         AccountEntity accountInstance = accountRepo.findByEmail(email); // Grabs the instance of the email specified (gets all information associated with email)
 
@@ -143,6 +145,7 @@ public class WelcomeController {
             return true;
         }
     }
+
 
 //    @RequestMapping(value = "editProfile", method = RequestMethod.GET)
 //    public String showEditProfilePage(Model model, AccountEntity accountForm) {

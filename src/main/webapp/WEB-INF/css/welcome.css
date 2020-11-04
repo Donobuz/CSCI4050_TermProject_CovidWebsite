@@ -36,7 +36,7 @@ li, a
     padding: 40px 20px;
     box-sizing: border-box;
     /* background: #ffffff; */
-    background-image: url('images/wel1.png');
+    background-image: url('/images/wel1.png');
     background-repeat: no-repeat;
     background-position: 120% 25%;
 }
