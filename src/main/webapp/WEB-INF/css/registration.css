@@ -84,3 +84,7 @@ button
 button:hover{ background: #403866; transition: .6s;}
 
 ::placeholder{color: #bdbdd3;}
+
+#reason {
+    height:300px;
+}

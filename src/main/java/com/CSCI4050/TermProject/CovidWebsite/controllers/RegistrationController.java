@@ -205,4 +205,5 @@ public class RegistrationController {
     public String showProfileVal(ModelMap model) {
         return "profile";
     }
+
 }

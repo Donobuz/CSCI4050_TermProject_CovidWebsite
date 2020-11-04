@@ -1,6 +1,7 @@
 package com.CSCI4050.TermProject.CovidWebsite.entities;
 
 import java.util.Date;
+import java.util.Set;
 
 import javax.persistence.*;
 
@@ -21,6 +22,9 @@ public class AccountEntity {
     private Date createdDate;
     private boolean enabled;
     private boolean suspended;
+
+    @OneToMany(mappedBy="account")
+    private Set<RequestEntity> requestEntities;
 
     @Column(updatable = false)
     private String verificationCode;
