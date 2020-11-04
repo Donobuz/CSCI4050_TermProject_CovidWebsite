@@ -1,12 +1,9 @@
 package com.CSCI4050.TermProject.CovidWebsite.entities;
 
 import java.util.Date;
+import java.util.Set;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 @Entity(name = "user")
 public class AccountEntity {
@@ -24,6 +21,9 @@ public class AccountEntity {
     private Integer age;
     private Date createdDate;
     private boolean enabled;
+
+    @OneToMany(mappedBy="account")
+    private Set<RequestEntity> requestEntities;
 
     @Column(updatable = false)
     private String verificationCode;

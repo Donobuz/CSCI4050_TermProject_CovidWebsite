@@ -53,6 +53,7 @@ public class RequestController {
         model.addAttribute("amount",requestForm.getAmount());
         model.addAttribute("reason", requestForm.getReason());
         requestForm.setDate(new Date());
+        requestForm.setUserName(requestForm.getAccount().getUserName());
         requestRepo.save(requestForm);
         return "requestForm";
     }

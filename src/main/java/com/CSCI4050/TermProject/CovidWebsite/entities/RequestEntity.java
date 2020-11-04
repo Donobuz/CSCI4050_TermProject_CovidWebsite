@@ -2,10 +2,7 @@ package com.CSCI4050.TermProject.CovidWebsite.entities;
 
 import java.util.Date;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 @Entity(name="request")
 public class RequestEntity {
@@ -17,6 +14,13 @@ public class RequestEntity {
     private int amount;
     private Date date;
     private String reason;
+
+    @ManyToOne
+    private AccountEntity account;
+
+    public AccountEntity getAccount() {return account;}
+
+    public void setAccount(AccountEntity account) {this.account = account;}
 
     public Date getDate() {
         return date;
