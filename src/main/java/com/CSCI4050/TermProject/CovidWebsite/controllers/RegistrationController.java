@@ -196,9 +196,7 @@ public class RegistrationController {
     }
 
     @RequestMapping(value = "/news", method = RequestMethod.GET)
-    public String showNewsPage(ModelMap model) {
-        return "news";
-    }
+    public String showNewsPage(ModelMap model) { return "news"; }
 
     @RequestMapping(value = "/profile", method = RequestMethod.GET)
     public String showProfilePage(ModelMap model) {

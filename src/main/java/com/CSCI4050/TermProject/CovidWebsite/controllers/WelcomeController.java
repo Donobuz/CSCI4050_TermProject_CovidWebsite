@@ -32,7 +32,6 @@ public class WelcomeController {
     @Autowired
     private JavaMailSender mailSender;
 
-
     @RequestMapping(value = "/welcome", method = RequestMethod.GET)
     public String showWelcomePage() {
         return "welcome";
