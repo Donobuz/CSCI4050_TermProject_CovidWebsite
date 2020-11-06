@@ -18,7 +18,9 @@
     <title>Reset your Password</title>
 
 </head>
-
+<a href="/welcome">
+    <img src="/images/nav_logo.PNG" alt="picture">
+</a>
 <body>
 <%--@elvariable id="resetPassword" type=""--%>
 <form:form modelAttribute="resetPassword" >

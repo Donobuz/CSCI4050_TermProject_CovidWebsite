@@ -27,7 +27,7 @@
 </head>
 
 <header id=bal>
-    <input type="image" src="/images/nav_logo.PNG" name="nav" class="btSubmit" id="nav"/>
+    <a href="/welcome"><input type="image" src="/images/nav_logo.PNG" name="nav" class="btSubmit" id="nav" /></a>
     <%--    <img src="<c:url value="/images/nav_logo.PNG"/>"/>--%>
     <nav>
         <ul id=nav__links>

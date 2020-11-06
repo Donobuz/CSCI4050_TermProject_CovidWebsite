@@ -18,7 +18,9 @@
     </style>
     <title>News</title>
 </head>
-
+<a href="/welcome">
+    <img src="/images/nav_logo.PNG" alt="picture">
+</a>
 <h1>News</h1>
 
 <aside id="column1"></aside>

@@ -15,6 +15,9 @@
     <style><%@include file="/WEB-INF/css/registration.css"%></style>
     <title>Registration</title>
 </head>
+<a href="/welcome">
+    <img src="/images/nav_logo.PNG" alt="picture">
+</a>
 <body>
 
 <%--@elvariable id="accountForm" type=""--%>
@@ -48,6 +51,7 @@
     </div>
 
     <div>
+
         <img src="images/reg1.png" alt="picture">
     </div>
 
