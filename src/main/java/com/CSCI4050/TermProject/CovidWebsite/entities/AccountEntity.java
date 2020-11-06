@@ -21,11 +21,12 @@ public class AccountEntity {
     private String userName;
     private String email;
     private String password;
-    // private String gender;
+    private String confirmPassword;
     private Integer age;
     private Date createdDate;
     private boolean enabled;
     private boolean suspended;
+    private String resetPasswordToken;
 
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "account")
     List<RequestEntity> requestArray = new ArrayList<>();
@@ -130,6 +131,22 @@ public class AccountEntity {
 
     public void setRequestArray(List<RequestEntity> requestArray) {
         this.requestArray = requestArray;
+    }
+
+    public String getResetPasswordToken() {
+        return resetPasswordToken;
+    }
+
+    public void setResetPasswordToken(String resetPasswordToken) {
+        this.resetPasswordToken = resetPasswordToken;
+    }
+
+    public String getConfirmPassword() {
+        return confirmPassword;
+    }
+
+    public void setConfirmPassword(String confirmPassword) {
+        this.confirmPassword = confirmPassword;
     }
 
 }

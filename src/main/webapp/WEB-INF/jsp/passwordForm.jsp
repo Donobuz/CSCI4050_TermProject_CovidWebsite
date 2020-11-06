@@ -14,47 +14,34 @@
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-    <style><%@include file="/WEB-INF/css/login.css"%></style>
-    <title>Login</title>
+    <style><%@include file="/WEB-INF/css/resetPassword.css"%></style>
+    <title>Reset your Password</title>
 
 </head>
 
 <body>
-<%--@elvariable id="login" type=""--%>
-<form:form modelAttribute="login" >
-    <div class="form-group container" id="positionOfLogin">
-        <div>
+<%--@elvariable id="resetPassword" type=""--%>
+<form:form modelAttribute="resetPassword" >
+<div class="form-group container" id="positionOfLogin">
+    <div>
+        <br>
+        <div style="color:black; font-size: 20px"><b>${title}</b></div><br>
 
-            <p><br>${notVerified} ${invalidEmailPassword} ${suspended}</p>
-            <form:input type="email"
-                   class="form-control MyInput"
-                   id="email"
-                   style="display: inline; width: 300px;"
-                   placeholder="email@example.com"
-            path="email"/>
-        <div>
-            <form:input type="password"
-                        name="password"
-                   class="form-control MyInput"
-                   id="password"
-                   placeholder="password"
-            path="password"/>
-        </div>
+        <form:password
+                    class="form-control MyInput"
+                    id="email"
+                    style="display: inline; width: 300px;"
+                    placeholder="Enter your new password"
+                    path="password"/>
+<%--        Do another form:password here with new variable i put into account Entity later--%>
 
         <div>
-            <form:button type="submit" style="text-align: center" class="form-control MyButton">Login</form:button>
+            <form:button type="submit" style="text-align: center" class="form-control MyButton">Change Password</form:button>
         </div>
 
-        <div>
-            <a href="/registration"
-               type="submit" class="form-control MyButton">Sign Up</a>
-        </div>
-            <div>
-                <a href="/send_Email">Forgot your password?</a>
-            </div>
 
     </div>
-</form:form>
+    </form:form>
 
 
 </body>
