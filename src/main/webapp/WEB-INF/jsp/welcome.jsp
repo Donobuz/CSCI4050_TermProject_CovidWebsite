@@ -14,7 +14,7 @@
     <nav>
         <ul id = nav__links>
             <li><a style = 'text-decoration: none' href = > Testing Center </a> </li>
-            <li><a style = 'text-decoration: none' href = > Donation Center </a></li>
+            <li><a style = 'text-decoration: none' href = "/donation"> Donation Center </a></li>
             <li> <a style = 'text-decoration: none' href = "/request/${account.userName}" > Request </a></li>
             <li><a style = 'text-decoration: none' href = "/edit/${account.email}"> ${account.userName} </a></li>
         </ul>
