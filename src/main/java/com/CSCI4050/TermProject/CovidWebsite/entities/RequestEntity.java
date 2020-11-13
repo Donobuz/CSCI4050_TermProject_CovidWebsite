@@ -55,7 +55,4 @@ public class RequestEntity {
 
     public void setActive(boolean active) {this.active = active;}
 
-    public List<RequestEntity> findActive(){
-        List<RequestEntity> activeList = new List<RequestEntity>;
-    }
 }

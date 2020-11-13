@@ -11,5 +11,5 @@ public interface RequestRepository extends CrudRepository<RequestEntity, Long> {
 
     Optional<RequestEntity> findById(Long Id);
 
-    List<RequestEntity> findActive();
+
 }

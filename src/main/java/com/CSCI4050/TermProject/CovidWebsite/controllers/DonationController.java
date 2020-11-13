@@ -31,7 +31,7 @@ public class DonationController {
 
         model.addAttribute("accountForm", requestRepo.findAll());
         requestForm.get().setActive(false);
-        requestRepo.save(requestForm);
+        requestRepo.save(requestForm.get());
         return "redirect:/donation";
     }
     // Both methods work for deleting a user out of the database
