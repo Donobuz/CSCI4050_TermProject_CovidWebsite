@@ -8,7 +8,9 @@
 <body>
 <header id="bal">
 
-    <input type="image" src="images/nav_logo.PNG" name="nav" class="btSubmit" id="nav" />
+    <a href="/welcome">
+        <img src="/images/nav_logo.PNG" alt="picture">
+    </a>
     <nav>
         <ul id = nav__links>
             <li><a style = 'text-decoration: none' href = > Testing Center </a> </li>
