@@ -1,5 +1,6 @@
 package com.CSCI4050.TermProject.CovidWebsite.repository;
 
+import java.util.List;
 import java.util.Optional;
 import com.CSCI4050.TermProject.CovidWebsite.entities.RequestEntity;
 import org.springframework.data.repository.CrudRepository;
@@ -10,4 +11,5 @@ public interface RequestRepository extends CrudRepository<RequestEntity, Long> {
 
     Optional<RequestEntity> findById(Long Id);
 
+    List<RequestEntity> findActive();
 }

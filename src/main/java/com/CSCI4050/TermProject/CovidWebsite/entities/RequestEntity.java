@@ -1,6 +1,7 @@
 package com.CSCI4050.TermProject.CovidWebsite.entities;
 
 import java.util.Date;
+import java.util.List;
 
 import javax.persistence.*;
 
@@ -13,6 +14,7 @@ public class RequestEntity {
     private int amount;
     private Date date;
     private String reason;
+    private boolean active;
 
     @ManyToOne(cascade = CascadeType.ALL)
     private AccountEntity account;
@@ -47,5 +49,13 @@ public class RequestEntity {
 
     public void setReason(String reason) {
         this.reason = reason;
+    }
+
+    public boolean isActive() {return active;}
+
+    public void setActive(boolean active) {this.active = active;}
+
+    public List<RequestEntity> findActive(){
+        List<RequestEntity> activeList = new List<RequestEntity>;
     }
 }

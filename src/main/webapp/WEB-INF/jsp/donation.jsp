@@ -23,6 +23,7 @@
         <th scope="row" data-field="amount" data-sortable="true" >Amount</th>
         <th scope="row" data-field="reason" data-sortable="true">Reason</th>
         <th scope="row" data-field="date" data-sortable="true">Date</th>
+        <th scope="row" data-field="donate" data-sortable="false">Donate</th>
     </tr>
     </thead>
 
@@ -32,6 +33,7 @@
             <td>${request.amount}</td>
             <td>${request.reason}</td>
             <td>${request.date}</td>
+            <td><a href="/donate?id=${request.id}"><button class="btn btn-secondary"></button></a></td>
         </tr>
     </c:forEach>
 </table>
