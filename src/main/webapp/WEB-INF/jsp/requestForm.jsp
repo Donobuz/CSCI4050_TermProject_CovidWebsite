@@ -11,9 +11,9 @@
     <style><%@include file="/WEB-INF/css/requestForm.css"%></style>
     <title>Request Form</title>
 </head>
-<a href="/welcome">
-    <img src="/images/nav_logo.PNG" alt="picture">
-</a>
+<%--<a href="/welcome">--%>
+<%--    <img src="/images/nav_logo.PNG" alt="picture">--%>
+<%--</a>--%>
 <body>
 
 <canvas id="canvas"></canvas>

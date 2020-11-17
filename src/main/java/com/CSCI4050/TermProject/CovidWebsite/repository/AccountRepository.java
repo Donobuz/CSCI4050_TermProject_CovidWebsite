@@ -21,4 +21,6 @@ public interface AccountRepository extends CrudRepository<AccountEntity, Long> {
     AccountEntity findByVerificationCode(String verificationCode);
 
     AccountEntity findByResetPasswordToken(String resetPasswordToken);
+
+
 }

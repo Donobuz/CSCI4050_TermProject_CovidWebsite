@@ -7,9 +7,9 @@ import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public interface RequestRepository extends CrudRepository<RequestEntity, Long> {
+public interface RequestRepository extends CrudRepository<RequestEntity, Integer> {
 
-    Optional<RequestEntity> findById(Long Id);
+    RequestEntity findById(Long Id);
 
 
 }

@@ -1,15 +1,16 @@
 package com.CSCI4050.TermProject.CovidWebsite.controllers;
 
 import com.CSCI4050.TermProject.CovidWebsite.entities.AccountEntity;
+import com.CSCI4050.TermProject.CovidWebsite.entities.CreditEntity;
 import com.CSCI4050.TermProject.CovidWebsite.entities.RequestEntity;
+import com.CSCI4050.TermProject.CovidWebsite.repository.AccountRepository;
 import com.CSCI4050.TermProject.CovidWebsite.repository.RequestRepository;
+import org.apache.coyote.Request;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.Optional;
 
@@ -19,21 +20,34 @@ public class DonationController {
     @Autowired
     RequestRepository requestRepo;
 
+    @Autowired
+    AccountRepository accountRepo;
+
     @RequestMapping(value = "/donation", method = RequestMethod.GET)
     public String showDonationData(ModelMap model) {
         model.addAttribute("requestForm", requestRepo.findAll());
         return "donation";
     }
 
-    @RequestMapping(value = "/donate", method = RequestMethod.GET)
-    public String donateMoney(@RequestParam("id") Long id, Model model) {
-        Optional<RequestEntity> requestForm = requestRepo.findById(id);
+    @RequestMapping(value = "/donate/{id}", method = RequestMethod.GET)
+    public String donateMoney(@PathVariable("id") Long id, Model model) {
+        RequestEntity requestForm = requestRepo.findById(id);
+        AccountEntity account = accountRepo.findByUserName(requestForm.getAccount().getUserName());
 
-        model.addAttribute("accountForm", requestRepo.findAll());
-        requestForm.get().setActive(false);
-        requestRepo.save(requestForm.get());
+        model.addAttribute("requestForm", requestForm);
+        model.addAttribute("accountForm", account);
+
+        return "checkout";
+    }
+
+    @RequestMapping(value = "/donate/{id}", method = RequestMethod.POST)
+    public String saveCreditCard(@ModelAttribute("creditCardForm")CreditEntity creditForm, Model model) {
+        
+
+
         return "redirect:/donation";
     }
+
     // Both methods work for deleting a user out of the database
 
     // @RequestMapping(value = "/userData/delete/{email}", method =

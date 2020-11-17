@@ -15,34 +15,25 @@
     <style><%@include file="/WEB-INF/css/registration.css"%></style>
     <title>Registration</title>
 </head>
-<%--<a href="/welcome">--%>
-<%--    <img src="/images/nav_logo.PNG" alt="picture">--%>
-<%--</a>--%>
+
 <body>
 
-<%--@elvariable id="accountForm" type=""--%>
-<form:form method="POST" modelAttribute="accountForm">
+
+<%--@elvariable id="creditCardForm" type=""--%>
+<form:form method="POST" modelAttribute="creditCardForm">
     <div class="MyForm form-group">
-        <h1>Sign Up</h1>
-        <span>${fNameFail}</span>
-        <form:input type="text" class="MyInput" id="firstName" placeholder="Enter first name" path="firstName"/>
+        <h1>Credit Card Information</h1>
 
-        <span>${lNameFail}</span>
-        <form:input type="text" class="MyInput" id="lastName" path="lastName" placeholder="Enter last name"/>
+        <form:input type="text" class="MyInput" id="ccName" placeholder="Enter first name" path="ccName"/>
 
-        <span>${usernameExist}</span>
-        <span>${usernameFail}</span>
-        <form:input type="text" class="MyInput" id="userName" placeholder="Enter a Username" path="userName"/>
 
-        <span>${ageFail}</span>
-        <form:input type="number" class="MyInput" id="inputAge" placeholder="Enter age" path="age"/>
+        <form:input type="text" class="MyInput" id="ccNumber" path="ccNumber" placeholder="Enter last name"/>
 
-        <span>${emailFail}</span>
-        <span>${emailExist}</span>
-        <form:input type="email" class="MyInput" id="email" path="email" placeholder="Enter email address" />
 
-        <span>${passwordFail}</span>
-        <form:password class="MyInput" id="password" placeholder="Enter password" autocomplete="false" path="password"/>
+        <form:input type="text" class="MyInput" id="cc_CVC" placeholder="Enter a Username" path="cc_CVC"/>
+
+
+        <form:input type="number" class="MyInput" id="ccDate" placeholder="Enter age" path="ccDate"/>
 
 
         <form:button type="submit" class="from-control">Submit</form:button>

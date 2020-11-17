@@ -18,9 +18,9 @@
     <title>Login</title>
 
 </head>
-<a href="/welcome">
-    <img src="/images/nav_logo.PNG" alt="picture">
-</a>
+<%--<a href="/welcome">--%>
+<%--    <img src="/images/nav_logo.PNG" alt="picture">--%>
+<%--</a>--%>
 <body>
 <%--@elvariable id="login" type=""--%>
 <form:form modelAttribute="login" >

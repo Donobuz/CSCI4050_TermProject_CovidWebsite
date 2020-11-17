@@ -34,6 +34,9 @@ public class AccountEntity {
     @Column(updatable = false)
     private String verificationCode;
 
+    @Embedded
+    private CreditEntity creditCard;
+
     // Getters and Setters
 
 
