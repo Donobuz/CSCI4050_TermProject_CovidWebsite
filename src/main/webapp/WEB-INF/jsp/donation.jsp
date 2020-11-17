@@ -1,3 +1,4 @@
+<%@ page import="com.CSCI4050.TermProject.CovidWebsite.entities.RequestEntity" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 
 <html>
@@ -29,6 +30,10 @@
     </thead>
 
     <c:forEach items="${requestForm}" var="request">
+
+
+       <c:if test = "${request.active}" >
+
         <tr>
             <td>${request.account.userName}</td>
             <td>${request.amount}</td>
@@ -36,7 +41,10 @@
             <td>${request.date}</td>
             <td><a href="/donate?id=${request.id}"><button class="btn btn-secondary"></button></a></td>
         </tr>
+
+        </c:if>
     </c:forEach>
+
 </table>
 </body>
 </html>

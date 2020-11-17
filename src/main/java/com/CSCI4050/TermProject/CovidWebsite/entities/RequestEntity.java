@@ -14,7 +14,7 @@ public class RequestEntity {
     private int amount;
     private Date date;
     private String reason;
-    private boolean active;
+    private boolean active = true;
 
     @ManyToOne(cascade = CascadeType.ALL)
     private AccountEntity account;
