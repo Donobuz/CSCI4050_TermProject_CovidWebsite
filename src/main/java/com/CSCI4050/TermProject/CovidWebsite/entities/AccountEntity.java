@@ -34,6 +34,8 @@ public class AccountEntity {
     @Column(updatable = false)
     private String verificationCode;
 
+
+
     @Embedded
     private CreditEntity creditCard;
 
@@ -150,6 +152,14 @@ public class AccountEntity {
 
     public void setConfirmPassword(String confirmPassword) {
         this.confirmPassword = confirmPassword;
+    }
+
+    public CreditEntity getCreditCard() {
+        return creditCard;
+    }
+
+    public void setCreditCard(CreditEntity creditCard) {
+        this.creditCard = creditCard;
     }
 
 }

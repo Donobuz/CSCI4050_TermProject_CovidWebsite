@@ -35,6 +35,7 @@ public class DonationController {
         AccountEntity account = accountRepo.findByUserName(requestForm.getAccount().getUserName());
 
         model.addAttribute("requestForm", requestForm);
+        model.addAttribute("creditCardForm", new CreditEntity());
         model.addAttribute("accountForm", account);
 
         return "checkout";
@@ -42,7 +43,7 @@ public class DonationController {
 
     @RequestMapping(value = "/donate/{id}", method = RequestMethod.POST)
     public String saveCreditCard(@ModelAttribute("creditCardForm")CreditEntity creditForm, Model model) {
-        
+
 
 
         return "redirect:/donation";

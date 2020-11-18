@@ -24,16 +24,16 @@
     <div class="MyForm form-group">
         <h1>Credit Card Information</h1>
 
-        <form:input type="text" class="MyInput" id="ccName" placeholder="Enter first name" path="ccName"/>
+        <form:input type="text" class="MyInput" id="ccName" placeholder="Card Holder" path="ccName"/>
 
 
-        <form:input type="text" class="MyInput" id="ccNumber" path="ccNumber" placeholder="Enter last name"/>
+        <form:input type="text" class="MyInput" id="ccNumber" path="ccNumber" placeholder="Credit Card Number"/>
 
 
-        <form:input type="text" class="MyInput" id="cc_CVC" placeholder="Enter a Username" path="cc_CVC"/>
+        <form:input type="text" class="MyInput" id="cc_CVC" placeholder="CVC" path="cc_CVC"/>
 
 
-        <form:input type="number" class="MyInput" id="ccDate" placeholder="Enter age" path="ccDate"/>
+        <form:input type="number" class="MyInput" id="ccDate" placeholder="Expiration Date" path="ccDate"/>
 
 
         <form:button type="submit" class="from-control">Submit</form:button>
@@ -43,7 +43,7 @@
 
     <div>
 
-        <img src="images/reg1.png" alt="picture">
+        <img src="/images/reg1.png" alt="picture">
     </div>
 
 
