@@ -1,3 +1,13 @@
+body{
+    background-image: url("../../images/verify.jpg");
+    margin: 0;
+    padding: 0;
+}
+#nav_link{
+    position: absolute;
+    top: 1px;
+    left: 1px;
+}
 li, a
 {
     font-family:'Open Sans', sans-serif;

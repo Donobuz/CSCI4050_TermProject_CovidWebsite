@@ -10,7 +10,7 @@
 </head>
 
 <header id = bal>
-    <a href="/welcome">
+    <a href="/welcome" id="nav_link">
         <img src="/images/nav_logo.PNG" alt="picture">
     </a>
     <nav>

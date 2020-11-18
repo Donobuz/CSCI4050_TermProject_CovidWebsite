@@ -7,8 +7,7 @@
 </head>
 <body>
 <header id="bal">
-
-    <a href="/welcome">
+    <a href="/welcome" id="nav_link">
         <img src="/images/nav_logo.PNG" alt="picture">
     </a>
     <nav>
@@ -21,11 +20,12 @@
     </nav>
 
 </header>
-
 <main>
 
-<h1>Congratulations! You have successfully verified your email!</h1>
-<p>We will take you to <a href="/login">Login</a> soon, please wait...</p>
+<h1>Verification Success</h1>
+    <p>Thank you for your support, we have successfully verified your email address.</p>
+    <p>You can now proceed to you login page.</p>
+ <a href="/login">TAKE ME LOGIN >></a>
 
 </main>
 </body>

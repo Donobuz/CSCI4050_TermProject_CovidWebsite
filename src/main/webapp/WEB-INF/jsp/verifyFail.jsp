@@ -3,11 +3,13 @@
 <head>
     <title>Verify fail</title>
     <style><%@include file="/WEB-INF/css/verifyFail.css"%></style>
+
 </head>
 <body>
 <header id="bal">
 
-    <a href="/welcome">
+
+    <a href="/welcome" id="nav_link">
         <img src="/images/nav_logo.PNG" alt="picture">
     </a>
     <nav>
@@ -23,12 +25,9 @@
 
 <main>
 
-    <h1>Sorry! Your verification is fail!</h1>
-    <p id="take_to_home_or_register">You may go to
-        <a href="/welcome" id="home">home page</a>
-        or click
-        <a href="/registration" id="here">here</a>
-        to register again.</p>
+    <h1>Sorry, verification failed!</h1>
+    <h3 id="request_new_link">Please register again!</h3>
+    <a href="/registration" id="register">Registration Page</a>
 
 </main>
 </body>

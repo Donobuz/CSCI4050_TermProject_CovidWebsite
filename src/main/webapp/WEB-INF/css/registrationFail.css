@@ -1,3 +1,8 @@
+body{
+    margin: 0;
+    padding: 0;
+    background-image: url("../../images/verify.jpg");
+}
 li, a
 {
     font-family:'Open Sans', sans-serif;

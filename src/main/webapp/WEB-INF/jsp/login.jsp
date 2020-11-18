@@ -51,7 +51,7 @@
             <a href="/registration"
                type="submit" class="form-control MyButton">Sign Up</a>
         </div>
-            <div>
+            <div id="forget_password">
                 <a href="/send_Email">Forgot your password?</a>
             </div>
 
