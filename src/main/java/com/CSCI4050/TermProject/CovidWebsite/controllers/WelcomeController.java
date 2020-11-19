@@ -37,6 +37,15 @@ public class WelcomeController {
         return "welcome";
     }
 
+    @RequestMapping(value = "/welcome/{userNameParameter}", method = RequestMethod.GET)
+    public String showWelcomePage2(@PathVariable("userNameParameter") String userName, Model model) {
+        AccountEntity accountInstance = accountRepo.findByUserName(userName);
+
+        model.addAttribute("account", accountInstance);
+
+        return "welcome";
+    }
+
 
     @RequestMapping(value = "edit/{emailParameter}", method = RequestMethod.GET)
     public String getEditUserData(@PathVariable("emailParameter") String email, Model model) {
