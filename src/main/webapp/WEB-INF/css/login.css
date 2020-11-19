@@ -1,27 +1,20 @@
-html {
-    height: 100%;
-}
-
 body{
-    background-image: url("../../images/login.png");
+    background-image: url("../../images/verify.jpg");
     background-size: 100% 100%;
-    padding: 0;
-    margin: 0;
 }
 
 #positionOfLogin{
     position: relative;
-    top: 350px;
+    top: 200px;
     text-align: center;
-    border: 2px solid #bdbdd3;
     background-color: #bdbdd3;
-    width: 350px;
-    border-radius: 25px;
-    opacity: 80%;
+    width: 500px;
+    border-radius: 10px;
+    opacity: 70%;
 }
 
 .MyInput{
-    border-radius: 25px;
+    border-radius: 10px;
     padding: 12px 14px;
     margin-bottom: 20px;
     font-size: 14px;
@@ -45,12 +38,17 @@ p{
     margin-left: 1.5em;
     font-size: 10pt;
 }
-
+#register_page{
+    color: cornflowerblue;
+    text-align: center;
+    font-size: 12pt;
+    padding-bottom: 20px;
+}
 .MyButton{
     text-align: center;
-    background: #817ffe;
+    background: cornflowerblue;
     border: 0px solid transparent;
-    border-radius: 25px;
+    border-radius: 10px;
     padding: 8px 14px;
     /*box-sizing: border-box;*/
     margin-bottom: 20px;
@@ -63,6 +61,12 @@ p{
     transition: all 0.6s ease;
     display: inline;
     width: 300px;
+}
+div #forget_password a{
+    padding-right: 28px;
+    padding-bottom: 10px;
+    font-family: 'Open Sans', sans-serif;
+    color: cornflowerblue;
 }
 
 .MyButton:hover{

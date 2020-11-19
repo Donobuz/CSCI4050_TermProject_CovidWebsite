@@ -1,32 +1,34 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Verify success</title>
-    <style><%@include file="/WEB-INF/css/verifySuccess.css"%></style>
     <meta http-equiv="refresh" content="5;url=/login" />
+    <title>Verify success</title>
+    <style><%@include file="../css/verifySuccess.css"%></style>
+    <style><%@include file="../css/navBar.css"%></style>
 </head>
 <body>
-<header id="bal">
-
-    <a href="/welcome">
-        <img src="/images/nav_logo.PNG" alt="picture">
-    </a>
+<header>
+<%--    <a href="/welcome" id="nav_link">--%>
+<%--        <img src="/images/nav_logo.PNG" alt="picture">--%>
+<%--    </a>--%>
     <nav>
-        <ul id = nav__links>
-            <li><a style = 'text-decoration: none' href = > Testing Center </a> </li>
-            <li><a style = 'text-decoration: none' href = > Donation Center </a></li>
-            <li><a style = 'text-decoration: none' href = 'https://www.youtube.com/' > Shop </a></li>
-            <li><a style = 'text-decoration: none' href = "/userData"> My Profile </a></li>
+        <ul>
+            <li><a href = > Testing Center </a> </li>
+            <li><a href = "/donation"> Donation Center </a></li>
+            <li><a href = "/request/${account.userName}" > Request </a></li>
+            <li><a href = "/edit/${account.email}"> ${account.userName} </a></li>
         </ul>
     </nav>
 
 </header>
-
 <main>
-
-<h1>Congratulations! You have successfully verified your email!</h1>
-<p>We will take you to <a href="/login">Login</a> soon, please wait...</p>
-
+    <h1>Verification Success</h1>
+    <h2>Thank you for your support, we have successfully verified your email address.</h2>
+    <h2>You can now proceed to you login page.
+        <br>
+        <br>
+        <a href="/login" id="login_link">TAKE ME LOGIN >></a>
+    </h2>
 </main>
 </body>
 <script type="text/javascript">

@@ -14,8 +14,22 @@
     <script src="https://unpkg.com/bootstrap-table@1.18.0/dist/bootstrap-table.min.js"></script>
     <!-- ---------------------------------------------------- -->
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <style><%@include file="../css/navBar.css"%></style>
+    <style><%@include file="../css/donation.css"%></style>
 </head>
-<a href="/welcome"><input type="image" src="/images/nav_logo.PNG" name="nav" class="btSubmit" id="nav" /></a>
+<header>
+<%--    <a href="/welcome" id="nav_link">--%>
+<%--        <img src="/images/nav_logo.PNG" alt="picture">--%>
+<%--    </a>--%>
+    <nav>
+        <ul>
+            <li><a href = > Testing Center </a> </li>
+            <li><a href = "/donation"> Donation Center </a></li>
+<%--            <li><a href = "/request/${account.userName}" > Request </a></li>--%>
+            <li><a href = "/edit/${account.email}"> ${account.userName} </a></li>
+        </ul>
+    </nav>
+</header>
 <body>
 
 <table id="table" data-search="true" data-toggle="table" data-sort-order="desc" class="table table-striped table-hover sortable">

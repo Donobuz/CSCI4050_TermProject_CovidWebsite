@@ -20,21 +20,21 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
             integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
             crossorigin="anonymous"></script>
-    <style>
-        <%@include file="/WEB-INF/css/profile1.css" %>
-    </style>
+    <style><%@include file="../css/navBar.css"%></style>
+    <style><%@include file="../css/profile1.css" %></style>
     <title>Profile Editor</title>
 </head>
 
-<header id=bal>
-    <a href="/welcome"><input type="image" src="/images/nav_logo.PNG" name="nav" class="btSubmit" id="nav" /></a>
-    <%--    <img src="<c:url value="/images/nav_logo.PNG"/>"/>--%>
+<header>
+<%--    <a href="/welcome" id="nav_link">--%>
+<%--        <img src="/images/nav_logo.PNG" alt="picture">--%>
+<%--    </a>--%>
     <nav>
-        <ul id=nav__links>
-            <li><a style='text-decoration: none' href=> Testing Center </a></li>
-            <li><a style='text-decoration: none' href=> Donation Center </a></li>
-            <li><a style='text-decoration: none' href='https://www.youtube.com/'> Shop </a></li>
-            <li><a style='text-decoration: none' href="/edit/${accountInstance.email}"> ${accountInstance.userName} </a></li>
+        <ul>
+            <li><a href = > Testing Center </a> </li>
+            <li><a href = "/donation"> Donation Center </a></li>
+            <li><a href = "/request/${account.userName}" > Request </a></li>
+            <li><a href = "/edit/${account.email}"> ${account.userName} </a></li>
         </ul>
     </nav>
 
