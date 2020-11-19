@@ -63,6 +63,8 @@ p{
     width: 300px;
 }
 div #forget_password a{
+    padding-right: 28px;
+    padding-bottom: 10px;
     font-family: 'Open Sans', sans-serif;
     color: cornflowerblue;
 }
