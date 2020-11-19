@@ -15,10 +15,9 @@ body {
 .MyForm
 {
     width: 320px;
-    /*padding: 40px 20px;*/
     box-sizing: border-box;
     position: fixed;
-    left: 50%;
+    left: 70%;
     top: 50%;
     transform: translate(-50%, -50%);
 }

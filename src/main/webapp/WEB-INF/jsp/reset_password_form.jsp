@@ -32,7 +32,7 @@
             <li><a href="#"> Testing Center </a> </li>
             <li><a href="/donation"> Donation Center </a></li>
             <li><a href="#"> Shop </a></li>
-            <li><a href = "/editProfile"> My Profile </a></li>
+            <li><a href = "/edit/${account.email}"> ${account.userName} </a></li>
         </ul>
     </nav>
 </header>
