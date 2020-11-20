@@ -20,21 +20,21 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
             integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
             crossorigin="anonymous"></script>
-    <style>
-        <%@include file="/WEB-INF/css/profile1.css" %>
-    </style>
+    <style><%@include file="../css/navBar.css"%></style>
+    <style><%@include file="../css/profile1.css" %></style>
     <title>Profile Editor</title>
 </head>
 
-<header id=bal>
-    <a href="/welcome"><input type="image" src="/images/nav_logo.PNG" name="nav" class="btSubmit" id="nav" /></a>
-    <%--    <img src="<c:url value="/images/nav_logo.PNG"/>"/>--%>
+<header>
+<%--    <a href="/welcome" id="nav_link">--%>
+<%--        <img src="/images/nav_logo.PNG" alt="picture">--%>
+<%--    </a>--%>
     <nav>
-        <ul id=nav__links>
-            <li><a style='text-decoration: none' href=> Testing Center </a></li>
-            <li><a style='text-decoration: none' href=> Donation Center </a></li>
-            <li><a style='text-decoration: none' href='https://www.youtube.com/'> Shop </a></li>
-            <li><a style='text-decoration: none' href="/edit/${accountInstance.email}"> ${accountInstance.userName} </a></li>
+        <ul>
+            <li><a href = > Testing Center </a> </li>
+            <li><a href = "/donation"> Donation Center </a></li>
+            <li><a href = "/request/${accountInstance.userName}" > Request </a></li>
+            <li><a href = "/edit/${accountInstance.email}"> ${accountInstance.userName} </a></li>
         </ul>
     </nav>
 
@@ -60,22 +60,29 @@
 
 </div>
 
-<p>${emailUsernameExists}</p>
-<p>${passwordEmpty}</p>
+
+
+
+
 <form:form method="POST" modelAttribute="editProfile">
     <aside class=" form-group">
         <label for="firstName">First Name:</label><br>
+        <p class="error">${firstNameEmpty}</p>
         <form:input type="text" class="MyInput" id="firstName" path="firstName"
                     placeholder='${accountInstance.firstName}'/><br>
         <label for="lastName">Last Name:</label><br>
+        <p class="error">${lastNameEmpty}</p>
         <form:input type="text" class="MyInput" id="lastName" path="lastName"
                     placeholder='${accountInstance.lastName}'/><br>
         <label for="age">Age:</label><br>
+        <p class="error">${ageEmpty}</p>
         <form:input type="text" class="MyInput" id="firstName" path="age" placeholder='${accountInstance.age}'/><br>
-        <label for="userName">User Name:</label><br>
+        <label for="userName">Username:</label><br>
+        <p class="error">${userNameEmpty} ${usernameExists}</p>
         <form:input type="text" class="MyInput" id="userName" path="userName"
                     placeholder='@${accountInstance.userName}'/><br>
         <label for="email">Email:</label><br>
+        <p class="error">${emailExists} ${emailEmpty}</p>
         <form:input type="email" class="MyInput" id="email" path="email" placeholder='${accountInstance.email}'/><br>
 
 
@@ -86,14 +93,19 @@
 
 
     <div class="grid5  form-group">
-        <label for="pwdC">Current Password:</label><br>
-        <input type="password" class="MyInput" id="pwdC"/><br>
+        <label for="currentPassword">Current Password:</label><br>
+        <p class="error">${currentPasswordNoMatch}</p>
+        <p class="error">${currentPasswordEmpty}</p>
+        <form:password class="MyInput" id="currentPassword" path="currentPassword"/><br>
 
-        <label for="pwd">New Password:</label><br>
-        <form:password class="MyInput" id="pwd" path="password"/><br>
+        <label for="password">New Password:</label><br>
+        <p class="error">${passwordEmpty}</p>
+        <p class="error">${confirmPasswordNoMatch}</p>
+        <form:password class="MyInput" id="password" path="password"/><br>
 
-        <label for="pwdCP">Confirm Password:</label><br>
-        <input type="password" class="MyInput" id="pwdCP"/><br>
+        <label for="confirmPassword">Confirm Password:</label><br>
+        <p class="error">${confirmPasswordEmpty}</p>
+        <form:password class="MyInput" id="confirmPassword" path="confirmPassword"/><br>
 
     </div>
 

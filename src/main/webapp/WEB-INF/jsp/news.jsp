@@ -13,11 +13,21 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
             integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
             crossorigin="anonymous"></script>
-    <style>
-        <%@include file="/WEB-INF/css/news.css" %>
-    </style>
+    <style><%@include file="../css/news.css" %></style>
+    <style><%@include file="../css/navBar.css"%></style>
     <title>News</title>
 </head>
+<body>
+<header>
+<nav>
+    <ul>
+        <li><a href = > Testing Center </a> </li>
+        <li><a href = "/donation"> Donation Center </a></li>
+        <li><a href = "/request/${account.userName}" > Request </a></li>
+        <li><a href = "/edit/${account.email}"> ${account.userName} </a></li>
+    </ul>
+</nav>
+</header>
 
 <h1>News</h1>
 
@@ -58,5 +68,5 @@
         })
 
 </script>
-
+</body>
 </html>

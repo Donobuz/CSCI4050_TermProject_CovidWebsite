@@ -26,6 +26,9 @@ public class RequestController {
     @Autowired
     AccountRepository accountRepo;
 
+    @Autowired
+    RequestRepository requestRepo;
+
 //    public RequestController(RequestRepository requestRepo) {
 //        this.requestRepo = requestRepo;
 //    }
@@ -42,7 +45,7 @@ public class RequestController {
     }
 
     @RequestMapping(value = "request/{userNameParameter}", method = RequestMethod.POST)
-    public Object requestInstance(@ModelAttribute("requestForm") RequestEntity requestForm, @PathVariable("userNameParameter") String userName,                                  BindingResult bindingResult,
+    public Object requestInstance(@ModelAttribute("requestForm") RequestEntity requestForm, @PathVariable("userNameParameter") String userName, BindingResult bindingResult,
                                   Model model, HttpServletRequest request)
             throws UnsupportedEncodingException, MessagingException {
         AccountEntity accountInstance = accountRepo.findByUserName(userName);
@@ -50,12 +53,47 @@ public class RequestController {
         requestForm.setAmount(requestForm.getAmount());
         requestForm.setReason(requestForm.getReason());
         requestForm.setAccount(accountInstance);
+        requestForm.setActive(false);
         requestForm.setDate(new Date());
 
         accountInstance.getRequestArray().add(requestForm);
         accountRepo.save(accountInstance);
         model.addAttribute("account", accountInstance);
+        return "adminConfirmation";
+    }
+
+    @RequestMapping(value = "/adminConfirmation/{userNameParameter}", method = RequestMethod.GET)
+    public String showAdminConfirmation(ModelMap model, @PathVariable("userNameParameter") String userName) {
+        AccountEntity account = accountRepo.findByUserName(userName);
+        model.addAttribute("account", account);
         return "welcome";
+    }
+
+
+    @RequestMapping(value = "/requestData", method = RequestMethod.GET)
+    public String showAdminRequestData(ModelMap model) {
+        model.addAttribute("requestForm", requestRepo.findAll());
+        return "requestData";
+    }
+
+    @RequestMapping(value = "/activate/{idParameter}", method = RequestMethod.GET)
+    public String activateRequest(@PathVariable("idParameter") Long ID, Model model) {
+        RequestEntity requestInstance = requestRepo.findById(ID);
+
+        model.addAttribute("requestForm", requestRepo.findAll());
+        requestInstance.setActive(true);
+        requestRepo.save(requestInstance);
+        return "redirect:/requestData";
+    }
+
+    @RequestMapping(value = "/deactivate/{idParameter}", method = RequestMethod.GET)
+    public String deactivateRequest(@PathVariable("idParameter") Long ID, Model model) {
+        RequestEntity requestInstance = requestRepo.findById(ID);
+
+        model.addAttribute("requestForm", requestRepo.findAll());
+        requestInstance.setActive(false);
+        requestRepo.save(requestInstance);
+        return "redirect:/requestData";
     }
 
 }
