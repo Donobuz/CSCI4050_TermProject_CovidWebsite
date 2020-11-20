@@ -7,6 +7,7 @@ import com.CSCI4050.TermProject.CovidWebsite.repository.AccountRepository;
 import com.CSCI4050.TermProject.CovidWebsite.repository.RequestRepository;
 import org.apache.coyote.Request;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.argon2.Argon2PasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
@@ -29,23 +30,43 @@ public class DonationController {
         return "donation";
     }
 
-    @RequestMapping(value = "/donate/{id}", method = RequestMethod.GET)
-    public String donateMoney(@PathVariable("id") Long id, Model model) {
+    @RequestMapping(value = "/donate/{userNameParameter}/{id}", method = RequestMethod.GET)
+    public String donateMoney(@PathVariable("id") Long id, @PathVariable("userNameParameter") String userName, Model model) {
         RequestEntity requestForm = requestRepo.findById(id);
-        AccountEntity account = accountRepo.findByUserName(requestForm.getAccount().getUserName());
+        AccountEntity accountInstance = accountRepo.findByUserName(userName);
+
 
         model.addAttribute("requestForm", requestForm);
         model.addAttribute("creditCardForm", new CreditEntity());
-        model.addAttribute("accountForm", account);
+        model.addAttribute("account", accountInstance);
 
         return "checkout";
     }
 
-    @RequestMapping(value = "/donate/{id}", method = RequestMethod.POST)
-    public String saveCreditCard(@ModelAttribute("creditCardForm")CreditEntity creditForm, Model model) {
+    @RequestMapping(value = "/donate/{userNameParameter}/{id}", method = RequestMethod.POST)
+    public String saveCreditCard(@ModelAttribute("creditCardForm")CreditEntity creditForm, @PathVariable("id") Long id, @PathVariable("userNameParameter") String userName, Model model) {
+        AccountEntity accountInstance = accountRepo.findByUserName(userName);
+        RequestEntity request = requestRepo.findById(id);
 
 
+        int saltLength = 16; // salt length in bytes
+        int hashLength = 32; // hash length in bytes
+        int parallelism = 1; // currently not supported by Spring Security
+        int memory = 4096; // memory costs
+        int iterations = 3;
 
+        Argon2PasswordEncoder argon2PasswordEncoder = new Argon2PasswordEncoder(saltLength, hashLength, parallelism,
+                memory, iterations);
+
+        String encodeCC_Number = argon2PasswordEncoder.encode(creditForm.getCcNumber());
+        String encodeCC_CVC = argon2PasswordEncoder.encode((creditForm.getCc_CVC()));
+
+        accountInstance.setCreditCard(creditForm);
+        accountInstance.getCreditCard().setCcNumber(encodeCC_Number);
+        accountInstance.getCreditCard().setCc_CVC(encodeCC_CVC);
+        request.setActive(false);
+
+        accountRepo.save(accountInstance);
         return "redirect:/donation";
     }
 

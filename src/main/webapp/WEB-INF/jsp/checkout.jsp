@@ -14,7 +14,7 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
     <style><%@include file="../css/registration.css"%></style>
     <style><%@include file="../css/navBar.css"%></style>
-    <title>Registration</title>
+    <title>Checkout</title>
 </head>
 
 <body>
@@ -47,7 +47,7 @@
         <form:input type="text" class="MyInput" id="cc_CVC" placeholder="CVC" path="cc_CVC"/>
 
 
-        <form:input type="number" class="MyInput" id="ccDate" placeholder="Expiration Date" path="ccDate"/>
+        <form:input type="date" class="MyInput" id="ccDate" placeholder="Expiration Date" path="ccDate"/>
 
 
         <form:button type="submit" class="from-control">Submit</form:button>

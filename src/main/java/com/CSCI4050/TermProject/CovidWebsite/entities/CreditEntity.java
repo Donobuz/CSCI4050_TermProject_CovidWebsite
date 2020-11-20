@@ -11,7 +11,7 @@ public class CreditEntity {
 //    @Min(13)@Max(16)
     private String ccNumber;
 
-    private Date ccDate;
+    private String ccDate;
 
     private String cc_CVC;
 
@@ -28,11 +28,11 @@ public class CreditEntity {
         this.ccNumber = ccNumber;
     }
 
-    public Date getCcDate() {
+    public String getCcDate() {
         return ccDate;
     }
 
-    public void setCcDate(Date ccDate) {
+    public void setCcDate(String ccDate) {
         this.ccDate = ccDate;
     }
 
