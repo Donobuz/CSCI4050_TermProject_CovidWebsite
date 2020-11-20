@@ -15,6 +15,7 @@ public class RequestEntity {
     private Date date;
     private String reason;
     private boolean active;
+    private boolean completed;
 
     @ManyToOne(cascade = CascadeType.ALL)
     private AccountEntity account;
@@ -55,4 +56,7 @@ public class RequestEntity {
 
     public void setActive(boolean active) {this.active = active;}
 
+    public boolean isCompleted() {return completed;}
+
+    public void setCompleted(boolean completed) {this.completed = completed;}
 }
