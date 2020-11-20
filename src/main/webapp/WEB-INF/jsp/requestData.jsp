@@ -39,8 +39,8 @@
             <td>${request.reason}</td>
             <td>${request.date}</td>
             <td>${request.active}</td>
-            <td><a href="/activate/${request.id}"><button class="btn btn-secondary"></button></a></td>
-            <td><a href="/deactivate/${request.id}"><button class="btn btn-secondary"></button></a></td>
+            <td><a href="/activate/${request.id}"><button class="btn btn-success"></button></a></td>
+            <td><a href="/deactivate/${request.id}"><button class="btn btn-danger"></button></a></td>
         </tr>
     </c:forEach>
 </table>

@@ -1,5 +1,5 @@
 body {
-    background-image: url("../../images/img_1.jpg");
+    background-image: url("../../images/verify.jpg");
     font: 14px Microsoft YaHei;
     -webkit-text-size-adjust:100%;
     -moz-user-select: none;
@@ -58,7 +58,7 @@ input
     box-sizing: border-box;
     margin-bottom: 20px;
     font-size: 14px;
-    color: black;
+    color: white;
     font-family: 'Open Sans', sans-serif;
     outline: none;
     text-indent: 5px;

@@ -165,7 +165,7 @@ public class RegistrationController {
         return verified ? "verifySuccess" : "verifyFail";
     }
 
-    private void sendVerificationEmail(AccountEntity accountForm, String siteURL)
+    public void sendVerificationEmail(AccountEntity accountForm, String siteURL)
             throws UnsupportedEncodingException, MessagingException {
         String subject = "Please verify your registration";
         String senderName = "DawgsvsCovid";
@@ -189,6 +189,7 @@ public class RegistrationController {
         if (accountInstance == null || accountInstance.isEnabled()) {
             return false;
         } else {
+            accountInstance.setVerificationCode(null);
             accountInstance.setEnabled(true);
             accountRepo.save(accountInstance);
             return true;
@@ -198,14 +199,5 @@ public class RegistrationController {
     @RequestMapping(value = "/news", method = RequestMethod.GET)
     public String showNewsPage(ModelMap model) { return "news"; }
 
-    @RequestMapping(value = "/profile", method = RequestMethod.GET)
-    public String showProfilePage(ModelMap model) {
-        return "profile";
-    }
-
-    @RequestMapping(value = "/profile", method = RequestMethod.POST)
-    public String showProfileVal(ModelMap model) {
-        return "profile";
-    }
 
 }

@@ -22,14 +22,14 @@
 <%--    <a href="/welcome" id="nav_link">--%>
 <%--        <img src="/images/nav_logo.PNG" alt="picture">--%>
 <%--    </a>--%>
-    <nav>
-        <ul>
-            <li><a href = > Testing Center </a> </li>
-            <li><a href = "/donation"> Donation Center </a></li>
-            <li><a href = "/request/${account.userName}" > Request </a></li>
-            <li><a href = "/edit/${account.email}"> ${account.userName} </a></li>
-        </ul>
-    </nav>
+<%--    <nav>--%>
+<%--        <ul>--%>
+<%--            <li><a href = > Testing Center </a> </li>--%>
+<%--            <li><a href = "/donation"> Donation Center </a></li>--%>
+<%--            <li><a href = "/request/${account.userName}" > Request </a></li>--%>
+<%--            <li><a href = "/edit/${account.email}"> ${account.userName} </a></li>--%>
+<%--        </ul>--%>
+<%--    </nav>--%>
 </header>
 
 

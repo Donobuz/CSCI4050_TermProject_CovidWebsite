@@ -21,7 +21,13 @@ public class AccountEntity {
     private String userName;
     private String email;
     private String password;
+
+    @Transient
     private String confirmPassword;
+
+    @Transient
+    private String currentPassword;
+
     private Integer age;
     private Date createdDate;
     private boolean enabled;
@@ -31,10 +37,8 @@ public class AccountEntity {
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "account")
     List<RequestEntity> requestArray = new ArrayList<>();
 
-    @Column(updatable = false)
+    @Column
     private String verificationCode;
-
-
 
     @Embedded
     private CreditEntity creditCard;
@@ -160,6 +164,14 @@ public class AccountEntity {
 
     public void setCreditCard(CreditEntity creditCard) {
         this.creditCard = creditCard;
+    }
+
+    public String getCurrentPassword() {
+        return currentPassword;
+    }
+
+    public void setCurrentPassword(String currentPassword) {
+        this.currentPassword = currentPassword;
     }
 
 }

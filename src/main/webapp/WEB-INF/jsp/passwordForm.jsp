@@ -25,14 +25,6 @@
 <%--    <a href="/welcome" id="nav_link">--%>
 <%--        <img src="/images/nav_logo.PNG" alt="picture">--%>
 <%--    </a>--%>
-    <nav>
-        <ul>
-            <li><a href = > Testing Center </a> </li>
-            <li><a href = "/donation"> Donation Center </a></li>
-            <li><a href = "/request/${account.userName}" > Request </a></li>
-            <li><a href = "/edit/${account.email}"> ${account.userName} </a></li>
-        </ul>
-    </nav>
 </header>
 <%--@elvariable id="resetPassword" type=""--%>
 <form:form modelAttribute="resetPassword" >
@@ -41,12 +33,21 @@
         <br>
         <div style="color:black; font-size: 20px"><b>${title}</b></div><br>
 
+        <span style="color: red">${passwordNoMatch}</span><br>
+
         <form:password
                     class="form-control MyInput"
-                    id="email"
+                    id="password"
                     style="display: inline; width: 300px;"
                     placeholder="Enter your new password"
                     path="password"/>
+
+        <form:password
+                class="form-control MyInput"
+                id="confirmPassword"
+                style="display: inline; width: 300px;"
+                placeholder="Confirm your password"
+                path="confirmPassword"/>
 <%--        Do another form:password here with new variable i put into account Entity later--%>
 
         <div>

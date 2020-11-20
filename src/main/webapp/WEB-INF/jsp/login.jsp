@@ -24,21 +24,13 @@
 <%--    <a href="/welcome" id="nav_link">--%>
 <%--        <img src="/images/nav_logo.PNG" alt="picture">--%>
 <%--    </a>--%>
-    <nav>
-        <ul>
-            <li><a href = > Testing Center </a> </li>
-            <li><a href = "/donation"> Donation Center </a></li>
-<%--            <li><a href = "/request/${account.userName}" > Request </a></li>--%>
-            <li><a href = "/edit/${account.email}"> ${account.userName} </a></li>
-        </ul>
-    </nav>
 </header>
 <%--@elvariable id="login" type=""--%>
 <form:form modelAttribute="login" >
     <div class="form-group container" id="positionOfLogin">
         <div>
 
-            <p><br>${notVerified} ${invalidEmailPassword} ${suspended}</p>
+            <p style="text-align:center; margin-right:20px"><br>${notVerified} ${invalidEmailPassword} ${suspended}</p>
             <form:input type="email"
                    class="form-control MyInput"
                    id="email"

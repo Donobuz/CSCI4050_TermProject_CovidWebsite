@@ -32,6 +32,13 @@ public class WelcomeController {
     @Autowired
     private JavaMailSender mailSender;
 
+    @Autowired
+    private RegistrationController registrationController;
+
+//    public WelcomeController(RegistrationController registrationController){
+//        this.registrationController = registrationController;
+//    }
+
     @RequestMapping(value = "/welcome", method = RequestMethod.GET)
     public String showWelcomePage() {
         return "welcome";
@@ -67,7 +74,6 @@ public class WelcomeController {
         AccountEntity emailChecker = accountRepo.findByEmail(accountForm.getEmail());
 
 
-
         // Password encoder called when registration happens
         int saltLength = 16; // salt length in bytes
         int hashLength = 32; // hash length in bytes
@@ -80,25 +86,97 @@ public class WelcomeController {
         String encodePassword = argon2PasswordEncoder.encode(accountForm.getPassword());
 
 
-
         // Need to fix these conditional statements
-        if (emailChecker != null || userNameChecker != null) {
-            System.out.println("Email or Username already exists");
+        if (emailChecker != null) {
             model.addAttribute("editProfile", new AccountEntity());
             model.addAttribute("accountInstance", accountInstance);
-            model.addAttribute("emailUsernameExists", "The Email or Username already exists");
+            model.addAttribute("emailExists", "*Email already Exist");
+        }
+        if (userNameChecker != null) {
+            model.addAttribute("editProfile", new AccountEntity());
+            model.addAttribute("accountInstance", accountInstance);
+            model.addAttribute("usernameExists", "*Username already Exist");
+        }
 
+        if (accountForm.getFirstName().isEmpty()) {
+            model.addAttribute("editProfile", new AccountEntity());
+            model.addAttribute("accountInstance", accountInstance);
+            model.addAttribute("firstNameEmpty", "*Required");
+        }
+        if (accountForm.getLastName().isEmpty()) {
+            model.addAttribute("editProfile", new AccountEntity());
+            model.addAttribute("accountInstance", accountInstance);
+            model.addAttribute("lastNameEmpty", "*Required");
+        }
+        if (accountForm.getAge() == null) {
+            model.addAttribute("editProfile", new AccountEntity());
+            model.addAttribute("accountInstance", accountInstance);
+            model.addAttribute("ageEmpty", "*Required");
+        }
+        if (accountForm.getEmail().isEmpty()) {
+            model.addAttribute("editProfile", new AccountEntity());
+            model.addAttribute("accountInstance", accountInstance);
+            model.addAttribute("emailEmpty", "*Required");
+        }
+        if (accountForm.getUserName().isEmpty()) {
+            model.addAttribute("editProfile", new AccountEntity());
+            model.addAttribute("accountInstance", accountInstance);
+            model.addAttribute("userNameEmpty", "*Required");
+        }
+
+
+        if (accountForm.getConfirmPassword().isEmpty()) {
+            model.addAttribute("editProfile", new AccountEntity());
+            model.addAttribute("accountInstance", accountInstance);
+            model.addAttribute("confirmPasswordEmpty", "*Required");
         }
 
         if (accountForm.getPassword().isEmpty()) {
-            System.out.println("Password Cant be empty");
             model.addAttribute("editProfile", new AccountEntity());
             model.addAttribute("accountInstance", accountInstance);
-            model.addAttribute("passwordEmpty", "Password cannot be empty");
+            model.addAttribute("passwordEmpty", "*Required");
+        }
+
+        if (!argon2PasswordEncoder.matches(accountForm.getCurrentPassword(), accountInstance.getPassword())) {
+            if (accountForm.getCurrentPassword().isEmpty()) {
+                model.addAttribute("editProfile", new AccountEntity());
+                model.addAttribute("accountInstance", accountInstance);
+                model.addAttribute("currentPasswordEmpty", "*Required");
+
+            } else {
+                model.addAttribute("currentPasswordNoMatch", "Wrong account password");
+                model.addAttribute("editProfile", new AccountEntity());
+                model.addAttribute("accountInstance", accountInstance);
+            }
+//            return "editProfile";
+
+
+        }
+
+        if (!accountForm.getPassword().matches(accountForm.getConfirmPassword())) {
+
+            model.addAttribute("confirmPasswordNoMatch", "Did not confirm new passwords correctly");
+            model.addAttribute("editProfile", new AccountEntity());
+            model.addAttribute("accountInstance", accountInstance);
             return "editProfile";
         }
 
-        if (!(emailChecker != null || userNameChecker != null) && !(accountForm.getPassword().isEmpty())) {
+
+        if (!(emailChecker != null)
+                && !(userNameChecker != null)
+                && !(accountForm.getPassword().isEmpty())
+                && !(!accountForm.getPassword().matches(accountForm.getConfirmPassword()))
+                && !(!argon2PasswordEncoder.matches(accountForm.getCurrentPassword(), accountInstance.getPassword()))
+                && !(accountForm.getConfirmPassword().isEmpty())
+                && !(accountForm.getFirstName().isEmpty())
+                && !(accountForm.getLastName().isEmpty())
+                && !(accountForm.getAge() == null)
+                && !(accountForm.getEmail().isEmpty())
+                && !(accountForm.getUserName().isEmpty())) {
+
+            String randomVerificationCode = RandomString.make(64);
+            accountInstance.setVerificationCode(randomVerificationCode);
+
             String siteURL = Utility.getSiteURL(request);
             accountInstance.setPassword(encodePassword);
             accountInstance.setEmail(accountForm.getEmail().toLowerCase());
@@ -108,7 +186,7 @@ public class WelcomeController {
             accountInstance.setUserName(accountForm.getUserName());
             accountInstance.setEnabled(false);
             accountRepo.save(accountInstance);
-            VerificationEmail(accountInstance, siteURL);
+            registrationController.sendVerificationEmail(accountInstance, siteURL);
             return "editProfileSuccess";
         }
         return "editProfile";
@@ -118,65 +196,11 @@ public class WelcomeController {
 
     @GetMapping("/verifyEditedEmail")
     public String verifyEditedEmail(@Param("code") String code, Model model) {
-        boolean verified = verify(code);
+        boolean verified = registrationController.verify(code);
         String pageTitle = verified ? "Verification Succeeded!" : "Verification Failed";
         model.addAttribute("pageTitle", pageTitle);
         return verified ? "verifySuccess" : "verifyFail";
     }
 
-    private void VerificationEmail(AccountEntity accountForm, String siteURL)
-            throws UnsupportedEncodingException, MessagingException {
-        String subject = "Please verify your registration";
-        String senderName = "DawgsvsCovid";
-        String mailContent = "<p>Dear " + accountForm.getFirstName() + ", </p>";
-        mailContent += "<p> Please click the link below to verify your email address</p>";
-        String verifyURL = siteURL + "/verify?code=" + accountForm.getVerificationCode();
-        mailContent += "<h3><a href=\"" + verifyURL + "\"> VERIFY </a></h3>";
-        mailContent += "<p>Thank you<br> The DawgsVsCovid Team</p>";
-        MimeMessage message = mailSender.createMimeMessage();
-        MimeMessageHelper helper = new MimeMessageHelper(message);
-        helper.setFrom("DawgsvsCovid@gmail.com", senderName);
-        helper.setTo(accountForm.getEmail());
-        helper.setSubject(subject);
-        helper.setText(mailContent, true);
-        mailSender.send(message);
 
-    }
-
-    public boolean verify(String verificationCode) {
-        AccountEntity accountInstance = accountRepo.findByVerificationCode(verificationCode);
-        if (accountInstance == null || accountInstance.isEnabled()) {
-            return false;
-        } else {
-            accountInstance.setEnabled(true);
-            accountRepo.save(accountInstance);
-            return true;
-        }
-    }
-
-
-//    @RequestMapping(value = "editProfile", method = RequestMethod.GET)
-//    public String showEditProfilePage(Model model, AccountEntity accountForm) {
-//        model.addAttribute("editProfile", new AccountEntity());
-//        return "editProfile";
-//    }
-//
-//
-//    @RequestMapping(value = "editProfile", method = RequestMethod.POST)
-//    public String sendEditProfilePage(@ModelAttribute("account") AccountEntity accountForm, Model model) {
-//
-//        accountForm.setEmail(accountForm.getEmail());
-//
-//        accountRepo.save(accountForm);
-//
-//        return "editProfile";
-//    }
-
-    // @RequestMapping(value = "editProfile/{email}", method = RequestMethod.GET)
-    // public String Data(@PathVariable("email") String email, Model model) {
-    // AccountEntity accountInstance = accountRepo.findByEmail(email);
-
-    // model.addAttribute("accountForm", accountInstance);
-    // return "editProfile";
-    // }
 }

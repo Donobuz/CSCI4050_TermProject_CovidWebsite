@@ -11,23 +11,12 @@
 <%--    <a href="/welcome" id="nav_link">--%>
 <%--        <img src="/images/nav_logo.PNG" alt="picture">--%>
 <%--    </a>--%>
-    <nav>
-        <ul>
-            <li><a href = > Testing Center </a> </li>
-            <li><a href = "/donation"> Donation Center </a></li>
-            <li><a href = "/request/${account.userName}" > Request </a></li>
-            <li><a href = "/edit/${account.email}"> ${account.userName} </a></li>
-        </ul>
-    </nav>
 
 </header>
 <main>
     <h1>Verification Success</h1>
-    <h2>Thank you for your support, we have successfully verified your email address.</h2>
-    <h2>You can now proceed to you login page.
-        <br>
-        <br>
-        <a href="/login" id="login_link">TAKE ME LOGIN >></a>
+    <h2>You have successfully verified your email address.</h2>
+    <h2>You can now proceed to the <a href="/login" id = "login_link">login</a> page.
     </h2>
 </main>
 </body>

@@ -80,10 +80,20 @@ public class resetPasswordController {
     public String submitResetPassword(@ModelAttribute("editProfile") AccountEntity accountForm, @Param(value = "token") String token, ModelMap model) {
         AccountEntity accountInstance = accountRepo.findByResetPasswordToken(token);
 
+        if(!accountForm.getPassword().matches(accountForm.getConfirmPassword())){
+            model.addAttribute("passwordNoMatch", "The two passwords do not match");
+            model.addAttribute("title", "Reset Your Password");
+            model.addAttribute("resetPassword", new AccountEntity());
+            return "passwordForm";
+        }
+        else{
+            updatePassword(accountInstance, accountForm.getPassword());
+            return "redirect:/login";
+        }
 //        accountInstance.setPassword(accountForm.getPassword());
 //        accountRepo.save(accountInstance);
-        updatePassword(accountInstance, accountForm.getPassword());
-        return "redirect:/login";
+
+
     }
 
 
