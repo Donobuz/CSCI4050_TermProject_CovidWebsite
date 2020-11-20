@@ -19,9 +19,6 @@
 </head>
 <body>
 <header>
-<%--    <a href="/welcome" id="nav_link">--%>
-<%--        <img src="/images/nav_logo.PNG" alt="picture">--%>
-<%--    </a>--%>
 <nav>
     <ul>
         <li><a href = > Testing Center </a> </li>
@@ -31,6 +28,7 @@
     </ul>
 </nav>
 </header>
+
 <h1>News</h1>
 
 <aside id="column1"></aside>
