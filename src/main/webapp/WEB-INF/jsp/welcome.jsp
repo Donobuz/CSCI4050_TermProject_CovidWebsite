@@ -11,6 +11,7 @@
 </head>
 
 <header>
+
     <a href="/welcome/${account.userName}" id="nav_link">
         <img src="/images/nav_logo.PNG" alt="picture">
     </a>
@@ -22,7 +23,6 @@
             <li><a href = "/edit/${account.email}"> ${account.userName} </a></li>
         </ul>
     </nav>
-
 
 </header>
 <body>

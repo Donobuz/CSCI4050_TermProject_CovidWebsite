@@ -12,16 +12,16 @@ body{
     left: 1px;
 }
 
-#navbar_nav ul{
+ul{
     list-style-type: none;
     margin: 0;
     padding: 0;
     overflow: hidden;
 }
-#navbar_nav li{
+li{
     float: right;
 }
-#navbar_nav li a
+li a
 {
     font-family: "Open Sans", sans-serif;
     font-weight: bold;

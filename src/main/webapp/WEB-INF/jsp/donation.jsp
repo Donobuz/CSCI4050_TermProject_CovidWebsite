@@ -58,7 +58,9 @@
         </c:if>
     </c:forEach>
 
+
 </table>
+
 <p style="font-size: 20px"><a style="color:black; text-align: center; margin-left:830px" href="/welcome/${account.userName}">Click here to go back to the homepage</a></p>
 </body>
 </html>
