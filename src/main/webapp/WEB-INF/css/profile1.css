@@ -1,12 +1,11 @@
-body{
-    background-image: url("../../images/verify.jpg");
-    background-size: 100% 100%;
-}
+/*body{*/
+/*    background-image: url("../../images/verify.jpg");*/
+/*    background-size: 100% 100%;*/
+/*}*/
 
 .error{
     color: red;
 }
-
 
 .grid
 {

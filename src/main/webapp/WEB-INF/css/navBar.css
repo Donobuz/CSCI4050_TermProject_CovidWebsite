@@ -1,6 +1,10 @@
 *{
     padding: 0;
     margin: 0;
+    /*background-color: #FFDFD3;*/
+}
+body{
+    background-color: #E9DCC9;
 }
 #nav_link{
     position: absolute;
@@ -8,16 +12,16 @@
     left: 1px;
 }
 
-ul{
+#navbar_nav ul{
     list-style-type: none;
     margin: 0;
     padding: 0;
     overflow: hidden;
 }
-li{
+#navbar_nav li{
     float: right;
 }
-li a
+#navbar_nav li a
 {
     font-family: "Open Sans", sans-serif;
     font-weight: bold;

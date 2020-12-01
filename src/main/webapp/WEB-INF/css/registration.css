@@ -1,8 +1,9 @@
-body{background: #fff; font-family: 'Open Sans', sans-serif;}
-
+main{
+    background-color: #F7F0E1;
+}
 .MyForm
 {
-    width: 320px;
+    width: 20%;
     padding: 40px 20px;
     box-sizing: border-box;
     position: fixed;
@@ -14,8 +15,8 @@ body{background: #fff; font-family: 'Open Sans', sans-serif;}
 h1
 {
     text-align: center;
-    color: #817ffe;
-    font-weight: normal;
+    color: #8A8FC7;
+    font-weight: bold;
     margin-bottom: 30px;
 }
 
@@ -40,7 +41,7 @@ input
 .MyInput
 {
     width: 100%;
-    background: #ecf1f4;
+    background: white;
     border: 1px solid #ecf1f4;
     border-radius: 26px;
     padding: 12px 14px;
@@ -68,7 +69,7 @@ span{
 
 button
 {
-    background: #817ffe;
+    background: #8A8FC7;
     border: 0;
     cursor: pointer;
     color: #f3ffff;
@@ -83,3 +84,7 @@ button
 button:hover{ background: #403866; transition: .6s;}
 
 ::placeholder{color: #bdbdd3;}
+
+#registration_pic img{
+    height: 100%;
+}
