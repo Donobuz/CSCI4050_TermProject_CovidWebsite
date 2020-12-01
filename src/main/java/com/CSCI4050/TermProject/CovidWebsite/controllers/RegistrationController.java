@@ -199,8 +199,12 @@ public class RegistrationController {
     @RequestMapping(value = "/news", method = RequestMethod.GET)
     public String showNewsPage(ModelMap model) { return "news"; }
 
-    @RequestMapping(value = "/testing", method = RequestMethod.GET)
-    public String showtestingPage(ModelMap model) { return "testing"; }
+    @RequestMapping(value = "/testing/{userNameParameter}", method = RequestMethod.GET)
+    public String showtestingPage(@PathVariable("userNameParameter") String userName, ModelMap model) {
+        AccountEntity accountInstance = accountRepo.findByUserName(userName);
+        model.addAttribute("account", accountInstance);
+        return "testing"; }
+
 
     @RequestMapping(value = "/profile", method = RequestMethod.GET)
     public String showProfilePage(ModelMap model) {

@@ -11,12 +11,12 @@
 </head>
 
 <header>
-    <a href="/welcome" id="nav_link">
+    <a href="/welcome/${account.userName}" id="nav_link">
         <img src="/images/nav_logo.PNG" alt="picture">
     </a>
     <nav>
         <ul>
-            <li><a href = '/testing'> Testing Center </a> </li>
+            <li><a href = '/testing/${account.userName}'> Testing Center </a> </li>
             <li><a href = "/donation"> Donation Center </a></li>
             <li><a href = "/request/${account.userName}" > Request </a></li>
             <li><a href = "/edit/${account.email}"> ${account.userName} </a></li>
