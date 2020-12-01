@@ -36,17 +36,21 @@
 <%--@elvariable id="creditCardForm" type=""--%>
 <form:form method="POST" modelAttribute="creditCardForm">
     <div class="MyForm form-group">
-        <h1>Credit Card Information</h1>
+        <h1>Payment Information</h1>
 
+        <span>${tooMuch} ${ccpaymentNumber}</span>
+        <form:input type="text" class="MyInput" id="paymentAmount" placeholder="$" path="paymentAmount"/>
+
+        <span>${ccnameEmpty}</span>
         <form:input type="text" class="MyInput" id="ccName" placeholder="Card Holder" path="ccName"/>
 
-
+        <span>${ccnumberEmpty}</span>
         <form:input type="text" class="MyInput" id="ccNumber" path="ccNumber" placeholder="Credit Card Number"/>
 
-
+        <span>${cvcEmpty}</span>
         <form:input type="text" class="MyInput" id="cc_CVC" placeholder="CVC" path="cc_CVC"/>
 
-
+        <span>${ccdateEmpty}</span>
         <form:input type="date" class="MyInput" id="ccDate" placeholder="Expiration Date" path="ccDate"/>
 
 

@@ -47,8 +47,10 @@ public class DonationController {
     public String saveCreditCard(@ModelAttribute("creditCardForm")CreditEntity creditForm, @PathVariable("id") Long id, @PathVariable("userNameParameter") String userName, Model model) {
         AccountEntity accountInstance = accountRepo.findByUserName(userName);
         RequestEntity request = requestRepo.findById(id);
+        model.addAttribute("creditCardForm", new CreditEntity());
 
 
+        int difference;
         int saltLength = 16; // salt length in bytes
         int hashLength = 32; // hash length in bytes
         int parallelism = 1; // currently not supported by Spring Security
@@ -61,13 +63,66 @@ public class DonationController {
         String encodeCC_Number = argon2PasswordEncoder.encode(creditForm.getCcNumber());
         String encodeCC_CVC = argon2PasswordEncoder.encode((creditForm.getCc_CVC()));
 
-        accountInstance.setCreditCard(creditForm);
-        accountInstance.getCreditCard().setCcNumber(encodeCC_Number);
-        accountInstance.getCreditCard().setCc_CVC(encodeCC_CVC);
-        request.setActive(false);
+//        if(request)
 
-        accountRepo.save(accountInstance);
-        return "redirect:/donation";
+
+        accountInstance.setCreditCard(creditForm);
+
+
+        if(accountInstance.getCreditCard().getCc_CVC().isEmpty()){
+            model.addAttribute("cvcEmpty", "*Required");
+
+        }
+        if(accountInstance.getCreditCard().getPaymentAmount() == null || accountInstance.getCreditCard().getPaymentAmount() == 0){
+            model.addAttribute("ccpaymentNumber", "*Required");
+        }
+        if(accountInstance.getCreditCard().getCcNumber().isEmpty()){
+            model.addAttribute("ccnumberEmpty", "*Required");
+        }
+        if(accountInstance.getCreditCard().getCcDate().isBlank()){
+            model.addAttribute("ccdateEmpty", "*Required");
+        }
+        if(accountInstance.getCreditCard().getCcName().isEmpty()){
+            model.addAttribute("ccnameEmpty", "*Required");
+            return "checkout";
+        }
+
+        difference = request.getAmount() - accountInstance.getCreditCard().getPaymentAmount();
+
+        if(difference > 0){
+            request.setAmount(difference);
+            request.setActive(true);
+            accountInstance.getCreditCard().setPaymentAmount(accountInstance.getCreditCard().getPaymentAmount());
+            accountInstance.getCreditCard().setCcNumber(encodeCC_Number);
+            accountInstance.getCreditCard().setCc_CVC(encodeCC_CVC);
+            model.addAttribute("successful", "You have successfully donated $" + accountInstance.getCreditCard().getPaymentAmount());
+            model.addAttribute("requestForm", requestRepo.findAll());
+            model.addAttribute("account", accountInstance);
+
+            accountRepo.save(accountInstance);
+            return "donation";
+
+        }
+        if(difference < 0){
+            model.addAttribute("tooMuch", "You have donated more money then requested");
+            return "checkout";
+        }
+        if(difference == 0){
+
+            request.setActive(false);
+            request.setAmount(difference);
+            accountInstance.getCreditCard().setPaymentAmount(accountInstance.getCreditCard().getPaymentAmount());
+            accountInstance.getCreditCard().setCcNumber(encodeCC_Number);
+            accountInstance.getCreditCard().setCc_CVC(encodeCC_CVC);
+            model.addAttribute("successful", "You have successfully donated $" + accountInstance.getCreditCard().getPaymentAmount());
+            model.addAttribute("requestForm", requestRepo.findAll());
+            model.addAttribute("account", accountInstance);
+            accountRepo.save(accountInstance);
+            return "donation";
+        }
+
+
+        return null;
     }
 
     // Both methods work for deleting a user out of the database

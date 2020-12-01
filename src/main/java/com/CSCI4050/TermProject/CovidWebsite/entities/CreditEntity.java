@@ -17,6 +17,8 @@ public class CreditEntity {
 
     private String ccName;
 
+    private Integer paymentAmount = 0;
+
 
     // Getter and Setters
 
@@ -50,6 +52,14 @@ public class CreditEntity {
 
     public void setCcName(String ccName) {
         this.ccName = ccName;
+    }
+
+    public Integer getPaymentAmount() {
+        return paymentAmount;
+    }
+
+    public void setPaymentAmount(Integer paymentAmount) {
+        this.paymentAmount = paymentAmount;
     }
 
 

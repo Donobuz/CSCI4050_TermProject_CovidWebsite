@@ -46,8 +46,7 @@ public class AccountEntity {
     // Getters and Setters
 
 
-    public void setId(Long id) {
-        this.id = id;
+    public void setId(Long id) { this.id = id;
     }
 
     public Long getId() {

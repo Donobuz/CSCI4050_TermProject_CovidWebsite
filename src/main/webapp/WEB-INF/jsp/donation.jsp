@@ -31,7 +31,7 @@
 <%--    </nav>--%>
 </header>
 <body>
-
+<span style="margin-left:830px; color:green">${successful}</span>
 <table id="table" data-search="true" data-toggle="table" data-sort-order="desc" class="table table-striped table-hover sortable">
     <thead>
     <tr>
@@ -42,7 +42,6 @@
         <th scope="row" data-field="donate" data-sortable="false">Donate</th>
     </tr>
     </thead>
-
     <c:forEach items="${requestForm}" var="request">
 
 
@@ -60,5 +59,6 @@
     </c:forEach>
 
 </table>
+<p style="font-size: 20px"><a style="color:black; text-align: center; margin-left:830px" href="/welcome/${account.userName}">Click here to go back to the homepage</a></p>
 </body>
 </html>
