@@ -54,6 +54,7 @@ public class RequestController {
         requestForm.setReason(requestForm.getReason());
         requestForm.setAccount(accountInstance);
         requestForm.setActive(false);
+        requestForm.setCompleted(false);
         requestForm.setDate(new Date());
 
         accountInstance.getRequestArray().add(requestForm);
@@ -93,6 +94,14 @@ public class RequestController {
         model.addAttribute("requestForm", requestRepo.findAll());
         requestInstance.setActive(false);
         requestRepo.save(requestInstance);
+        return "redirect:/requestData";
+    }
+    @RequestMapping(value = "/reject/{idParameter}", method = RequestMethod.GET)
+    public String rejectRequest(@PathVariable("idParameter") Long ID, Model model) {
+        RequestEntity requestInstance = requestRepo.findById(ID);
+
+        requestRepo.delete(requestInstance);
+        model.addAttribute("requestForm", requestRepo.findAll());
         return "redirect:/requestData";
     }
 

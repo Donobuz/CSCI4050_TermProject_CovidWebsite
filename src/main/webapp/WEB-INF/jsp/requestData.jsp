@@ -28,8 +28,10 @@
         <th scope="row" data-field="reason" data-sortable="true" >Reason</th>
         <th scope="row" data-field="date" data-sortable="true" >Date</th>
         <th scope="row" data-field="activated" data-sortable="true">Activated?</th>
+        <th scope="row" data-field="completed" data-sortable="true">Completed?</th>
         <th scope="row" data-field="activateRequest" data-sortable="true">Activate Request</th>
         <th scope="row" data-field="deactivate" data-sortable="true">Deactivate Request</th>
+        <th scope="row" data-field="reject" data-sortable="true">Reject Request</th>
     </tr>
     </thead>
 
@@ -38,12 +40,26 @@
             <td>${request.amount}</td>
             <td>${request.reason}</td>
             <td>${request.date}</td>
-            <td>${request.active}</td>
+            <c:if test="${request.active}">
+                <td>Yes</td>
+            </c:if>
+            <c:if test="${!request.active}">
+                <td>No</td>
+            </c:if>
+            <c:if test="${request.completed}">
+                <td>Yes</td>
+            </c:if>
+            <c:if test="${!request.completed}">
+                <td>No</td>
+            </c:if>
+
             <td><a href="/activate/${request.id}"><button class="btn btn-success"></button></a></td>
-            <td><a href="/deactivate/${request.id}"><button class="btn btn-danger"></button></a></td>
+            <td><a href="/deactivate/${request.id}"><button class="btn btn-warning"></button></a></td>
+            <td><a href="/reject/${request.id}"><button class="btn btn-danger"></button></a></td>
         </tr>
     </c:forEach>
 </table>
+
 
 </body>
 </html>
