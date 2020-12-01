@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<!DOCTYPE html>
 <html>
 
 <head>
@@ -105,7 +106,7 @@
                 bounds.extend(pos);
 
                 infoWindow.setPosition(pos);
-                infoWindow.setContent(${account.userName});
+                infoWindow.setContent('${account.userName}');
                 infoWindow.open(map);
                 map.setCenter(pos);
 
