@@ -26,15 +26,16 @@
 </head>
 
 <header>
-<%--    <a href="/welcome" id="nav_link">--%>
-<%--        <img src="/images/nav_logo.PNG" alt="picture">--%>
-<%--    </a>--%>
+    <a href="/welcome/${accountInstance.userName}" id="nav_link">
+        <img src="/images/nav_logo.PNG" alt="picture">
+    </a>
     <nav>
         <ul>
-            <li><a href = > Testing Center </a> </li>
-            <li><a href = "/donation"> Donation Center </a></li>
-            <li><a href = "/request/${accountInstance.userName}" > Request </a></li>
+
             <li><a href = "/edit/${accountInstance.email}"> ${accountInstance.userName} </a></li>
+            <li><a href = "/request/${accountInstance.userName}" > Request </a></li>
+            <li><a href = "/donation"> Donation Center </a></li>
+
         </ul>
     </nav>
 
