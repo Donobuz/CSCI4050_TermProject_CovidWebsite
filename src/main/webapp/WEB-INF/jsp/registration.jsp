@@ -13,57 +13,55 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
     <style><%@include file="../css/registration.css"%></style>
-    <style><%@include file="../css/navBar.css"%></style>
+    <style><%@include file="../css/main.css"%></style>
     <title>Registration</title>
 </head>
-<%--<a href="/welcome">--%>
-<%--    <img src="/images/nav_logo.PNG" alt="picture">--%>
-<%--</a>--%>
 <body>
 <header>
-<%--    <a href="/welcome" id="nav_link">--%>
-<%--        <img src="/images/nav_logo.PNG" alt="picture">--%>
-<%--    </a>--%>
-</header>
-<%--@elvariable id="accountForm" type=""--%>
-<form:form method="POST" modelAttribute="accountForm">
-    <div class="MyForm form-group">
-        <h1>Sign Up</h1>
-        <span>${fNameFail}</span>
-        <form:input type="text" class="MyInput" id="firstName" placeholder="Enter first name" path="firstName"/>
-
-        <span>${lNameFail}</span>
-        <form:input type="text" class="MyInput" id="lastName" path="lastName" placeholder="Enter last name"/>
-
-        <span>${usernameExist}</span>
-        <span>${usernameFail}</span>
-        <form:input type="text" class="MyInput" id="userName" placeholder="Enter a Username" path="userName"/>
-
-        <span>${ageFail}</span>
-        <form:input type="number" class="MyInput" id="inputAge" placeholder="Enter age" path="age"/>
-
-        <span>${emailFail}</span>
-        <span>${emailExist}</span>
-        <form:input type="email" class="MyInput" id="email" path="email" placeholder="Enter email address" />
-
-        <span>${passwordFail}</span>
-        <form:password class="MyInput" id="password" placeholder="Enter password" autocomplete="false" path="password"/>
-
-
-        <form:button type="submit" class="from-control">Submit</form:button>
-
-
+    <div class="navbar">
+        <nav>
+            <ul>
+                <li><a href = '/testing'> Testing Center </a> </li>
+                <li><a href = "/donation"> Donation Center </a></li>
+                <%--                <li><a href = "/request/${account.userName}" > Request </a></li>--%>
+                <%--                <li><a href = "/edit/${account.email}"> ${account.userName} </a></li>--%>
+            </ul>
+        </nav>
     </div>
+</header>
 
-    <div>
-
+<main>
+    <div id="registration_pic">
         <img src="images/reg1.png" alt="picture">
     </div>
+<%--@elvariable id="accountForm" type=""--%>
 
+    <form:form method="POST" modelAttribute="accountForm">
+        <div class="MyForm form-group">
+            <h1>Sign Up</h1>
+            <span>${fNameFail}</span>
+            <form:input type="text" class="MyInput" id="firstName" placeholder="Enter first name" path="firstName"/>
 
+            <span>${lNameFail}</span>
+            <form:input type="text" class="MyInput" id="lastName" path="lastName" placeholder="Enter last name"/>
 
-</form:form>
+            <span>${usernameExist}</span>
+            <span>${usernameFail}</span>
+            <form:input type="text" class="MyInput" id="userName" placeholder="Enter a Username" path="userName"/>
 
+            <span>${ageFail}</span>
+            <form:input type="number" class="MyInput" id="inputAge" placeholder="Enter age" path="age"/>
+
+            <span>${emailFail}</span>
+            <span>${emailExist}</span>
+            <form:input type="email" class="MyInput" id="email" path="email" placeholder="Enter email address" />
+
+            <span>${passwordFail}</span>
+            <form:password class="MyInput" id="password" placeholder="Enter password" autocomplete="false" path="password"/>
+            <form:button type="submit" class="from-control">Submit</form:button>
+        </div>
+    </form:form>
+</main>
 
 </body>
 </html>

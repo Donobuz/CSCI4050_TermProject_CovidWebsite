@@ -15,17 +15,39 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
     <style><%@include file="../css/login.css"%></style>
-    <style><%@include file="../css/navBar.css"%></style>
+    <style><%@include file="../css/main.css"%></style>
     <title>Login</title>
 
 </head>
 <body>
 <header>
-<%--    <a href="/welcome" id="nav_link">--%>
-<%--        <img src="/images/nav_logo.PNG" alt="picture">--%>
-<%--    </a>--%>
+    <div id="navbar">
+        <nav>
+            <ul>
+                <li><a href = '/testing'> Testing Center </a> </li>
+                <li><a href = "/donation"> Donation Center </a></li>
+                <%--                <li><a href = "/request/${account.userName}" > Request </a></li>--%>
+                <%--                <li><a href = "/edit/${account.email}"> ${account.userName} </a></li>--%>
+            </ul>
+        </nav>
+    </div>
+        <div class="area" >
+            <ul class="circles">
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+            </ul>
+        </div>
 </header>
 <%--@elvariable id="login" type=""--%>
+<div class="context">
 <form:form modelAttribute="login" >
     <div class="form-group container" id="positionOfLogin">
         <div>
@@ -53,14 +75,13 @@
             <div id="forget_password">
                 <a href="/send_Email">Forgot your password?</a>
             </div>
-            <div>
+            <div class="login_signup">
                 <p id="register_page">Need an account?  >>
                 <a href="/registration">Sign Up</a>
                 </p>
             </div>
         </div>
 </form:form>
-
-
+    </div>
 </body>
 </html>
