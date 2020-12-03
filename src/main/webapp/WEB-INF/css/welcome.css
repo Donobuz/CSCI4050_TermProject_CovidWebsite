@@ -13,9 +13,9 @@
 
 #g2
 {
-    background: #23286b;
+    background:  #403866;
     background-image: none;
-    height: 518px;
+    height: 448px;
 }
 
 
@@ -32,46 +32,11 @@
     padding: 10px;
 }
 
-.card2
-{
-    border: 3px solid #23286b;
-    border-radius: 26px;
-    margin-right: 85em;
-    margin-left: 13em;
-    margin-top: 2em;
-    margin-bottom: -30em;
-    float: right;
-    padding: 10px;
-}
-.card3
-{
-    border: 3px solid #23286b;
-    margin-right: 62em;
-    margin-left: 36em;
-    margin-top: 2em;
-    margin-bottom: 3.4em;
-    float: right;
-    padding: 10px;
-}
-.card4
-{
-    border: 3px solid #23286b;
-    float: right;
-    margin-right: 39em;
-    margin-left: 59em;
-    margin-top: -30.9em;
-    margin-bottom: -12em;
-    padding: 10px;
-}
 
 .card5
 {
     border: 3px solid #23286b;
     float: right;
-    margin-right: 15em;
-    margin-left: 83em;
-    margin-top: -30.7em;
-    margin-bottom: -12em;
     padding: 10px;
 }
 
@@ -143,43 +108,3 @@ p
 }
 .butt3:hover{ background: #403866; color: #f3ffff; transition: .6s;}
 
-.icon
-{
-    margin-bottom: 1em;
-}
-#cardt
-{
-    text-indent: -3px;
-}
-
-#ic4
-{
-    height: 40px;
-    width: 40px;
-}
-
-.pnew
-{
-    color: #f3ffff;
-    margin-top: 1.4em;
-    text-align: center;
-
-}
-#pn
-{
-    margin-top: 1em;
-
-}
-
-.sechead
-{
-    color: #f3ffff;
-    text-indent: 10px;
-    font-size: 30px;
-    font-family: 'Open Sans', sans-serif;
-}
-
-form
-{
-   margin-left: 4em;
-}

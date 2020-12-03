@@ -11,7 +11,7 @@
 {
     display: block;
     width: 250px;
-    height: 800px;
+    height: 790px;
     padding: 40px 20px;
     box-sizing: border-box;
     border-radius: 25px;
@@ -34,7 +34,9 @@
     background: #f7f8f9;
     transition: transform 0.5s;
     color: black;
-    padding: 15px;
+    padding-left: 60px;
+    padding-top: 15px;
+    padding-bottom:15px ;
 }
 .grid ul li:hover{
 
@@ -42,41 +44,23 @@
     color: #f3ffff;
 }
 .grid ul li:focus {
-    color:  #817ffe;
-}
-.grid ul span{
-
-    margin-right: 1em;
-    margin-left: 1.8em;
-;
+    color: #817ffe;
 }
 
-aside
+.aside
 {
     display: block;
     width: 600px;
-    height: 800px;
+    height: 790px;
     padding: 40px 20px;
     box-sizing: border-box;
     border-radius: 25px;
     background: #f7f8f9;
-    margin-left: 35em;
+    margin-left: 4em;
     margin-top: 3em;
 }
 
-.grid5
-{
-    display: block;
-    width: 600px;
-    height: 800px;
-    padding: 40px 20px;
-    box-sizing: border-box;
-    border-radius: 25px;
-    background: #f7f8f9;
-    margin-left: 76em;
-    margin-top: -51em;
 
-}
 
 button
 {
@@ -134,3 +118,27 @@ label{
 
 }
 
+i{
+    margin-right: 15px;
+}
+
+[data-tab-content] {
+    display: none;
+}
+
+.tab {
+    cursor: pointer;
+}
+.active[data-tab-content] {
+    display: flex;
+}
+
+.tab.active {
+    background:#817ffe;
+    color: #f3ffff;
+}
+
+.image{
+    margin-left:76em;
+    margin-top: -50em;
+}

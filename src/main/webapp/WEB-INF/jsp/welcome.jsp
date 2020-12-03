@@ -10,18 +10,20 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 </head>
 
-<header>
+<header id = 'bal'>
 
-    <a href="/welcome/${account.userName}" id="nav_link">
-        <img src="/images/nav_logo.PNG" alt="picture">
+    <a href="/welcome/${account.userName}" id="nav">
+        <img src="/images/nav3.png" alt="picture">
     </a>
     <nav>
-        <ul>
-            <li><a href = "/login"> Logout </a></li>
-            <li><a href = "/edit/${account.email}"> ${account.userName} </a></li>
+        <ul id = "nav__links">
+
+
             <li><a href = "/donation"> Donation Center </a></li>
             <li><a href = "/request/${account.userName}" > Request </a></li>
             <li><a href = '/testing/${account.userName}'> Testing Center </a> </li>
+            <li><a href = "/edit/${account.email}"> ${account.userName} </a></li>
+            <li><a href = "/login"> Logout </a></li>
 
         </ul>
     </nav>
@@ -47,46 +49,6 @@
 </div>
 
 <div class = grid id = g2>
-    <div class = card2>
-        <img class = icon src="/images/world.png" >
-        <h2 style = 'display: inline-block' class=" sechead"> Global News</h2>
-        <p class = pnew>
-            Since the beginning of the pandemic, accelerating the development of and equitable access to vaccines,
-            diagnostics and therapeutics for COVID-19 has been a priority for WHO.
-            Already, we have made remarkable progress.
-            </p>
-        &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        <form action="/news">
-            <input type="submit" class=butt3 value="View"/>
-        </form>
-    </div>
-
-    <div class = card3>
-        <img class = icon src="/images/flag.png" >
-        <h2 style = 'display: inline-block' class=" sechead"> US News</h2>
-        <p class = pnew>Since the beginning of the pandemic, accelerating the development of and equitable access to vaccines,
-            diagnostics and therapeutics for COVID-19 has been a priority for WHO.
-            Already, we have made remarkable progress.
-        </p>
-        &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        <form action="/news">
-            <input type="submit" class=butt3 value="View"/>
-        </form>
-
-    </div>
-
-    <div class = card4>
-        <img class = icon src="/images/cap.png" id = icon>
-        <h2 style = 'display: inline-block' class=" sechead" id = cardt> Georgia News</h2>
-        <p class = pnew id = pn>Since the beginning of the pandemic, accelerating the development of and equitable access to vaccines,
-            diagnostics and therapeutics for COVID-19 has been a priority for WHO.
-            Already, we have made remarkable progress.
-        </p>
-        &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        <form action="/news">
-            <input type="submit" class=butt3 value="View"/>
-        </form>
-</div>
 
     <div class = card5>
         <img class = icon src="/images/bulld.png" id = ic4>
