@@ -27,15 +27,19 @@
 </head>
 
 <header id = 'bal'>
+
     <a href="/welcome/${accountInstance.userName}" id="nav">
         <img src="/images/nav3.png" alt="picture">
     </a>
     <nav>
-        <ul id = "nav__links" >
+        <ul id = "nav__links">
 
-            <li><a href = "/edit/${accountInstance.email}"> ${accountInstance.userName} </a></li>
-            <li><a href = "/request/${accountInstance.userName}" > Request </a></li>
+
             <li><a href = "/donation/${accountInstance.userName}"> Donation Center </a></li>
+            <li><a href = "/request/${accountInstance.userName}" > Request </a></li>
+            <li><a href = '/testing/${accountInstance.userName}'> Testing Center </a> </li>
+            <li><a href = "/edit/${accountInstance.email}"> ${accountInstance.userName} </a></li>
+
 
         </ul>
     </nav>
@@ -137,7 +141,7 @@
 </div>
 
 <div class = 'image'>
-    <img src="/images/side3.png">
+    <img src="/images/side2.png">
 </div>
 
 </body>

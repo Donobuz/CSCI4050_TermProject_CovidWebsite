@@ -22,7 +22,7 @@
 
 <main>
     <div id="registration_pic">
-        <img src="images/reg1.png" alt="picture">
+        <img src="images/reg4.png" alt="picture">
     </div>
 <%--@elvariable id="accountForm" type=""--%>
 

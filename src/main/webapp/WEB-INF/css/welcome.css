@@ -11,11 +11,14 @@
     background-position: 120% 25%;
 }
 
-#g2
+.g2
 {
     background:  #403866;
     background-image: none;
-    height: 448px;
+    height: 224px;
+    width: 1920px;
+    box-sizing: border-box;
+    padding: 30px 50px;
 }
 
 
@@ -35,9 +38,10 @@
 
 .card5
 {
-    border: 3px solid #23286b;
     float: right;
     padding: 10px;
+    margin-top: -10.4em;
+    margin-right: 16em;
 }
 
 
@@ -93,18 +97,73 @@ p
 }
 
 .butt3
-{
-    border: 0;
+{   background: none;
+    border: 3px solid white;
     cursor: pointer;
-    color: #817ffe ;
-    border-radius: 26px;
+    color: #f3ffff ;
+    border-radius: 5px;
     padding: 12px 38px;
-    box-sizing: border-box;
-    margin-top: 1.5em;
-    margin-bottom: 20px;
-    font-size: 14px;
+    width: 250px;
+    height: 320px;
+    font-size: 26px;
     font-family: 'Open Sans', sans-serif;
 
 }
-.butt3:hover{ background: #403866; color: #f3ffff; transition: .6s;}
+.butt3:hover{ background: #817ffe; color: #f3ffff; transition: .6s;}
 
+.g2 .container {
+    width: 1050px;
+    border-radius: 24px;
+    margin-left: 11em;
+}
+.board {
+    column-count: 3;
+    column-gap:1rem ;
+}
+.container h2 {
+    margin: 0 0 30px;
+    color: #f3ffff;
+}
+img#flag {
+    height: 40px;
+    width: 80px;
+}
+.card {
+    background: #ccc;
+    padding: 15px ;
+    border-radius: 6px;
+    margin-bottom:20px ;
+    color: #fff;
+    width: 320px;
+    height: 150px;
+}
+.card.a {
+    background: #41a7ff;
+}
+.card.cr {
+    background: #ff3434;
+}
+.card.r {
+    background: #32b336;
+}
+.card.ca {
+    background: #d83f3f;
+}
+.card.d {
+    background: #ff0053;
+}
+.card.t {
+    background: #ffa501;
+}
+.card h5 {
+    margin: 0;
+    font-size: 2rem;
+}
+.card span {
+    font-size: 2rem;
+    font-weight: 700;
+    letter-spacing: 4px;
+}
+.card i {
+    font-size: 2rem;
+}

@@ -27,7 +27,7 @@
         <ul id = "nav__links">
 
 
-            <li><a href = "/donation"> Donation Center </a></li>
+            <li><a href = "/donation/${accountInstance.userName}"> Donation Center </a></li>
             <li><a href = "/request/${accountInstance.userName}" > Request </a></li>
             <li><a href = '/testing/${accountInstance.userName}'> Testing Center </a> </li>
             <li><a href = "/edit/${accountInstance.email}"> ${accountInstance.userName} </a></li>
@@ -40,7 +40,7 @@
 <%--@elvariable id="requestForm" type=""--%>
 <form:form method="POST" modelAttribute="requestForm">
         <div class="MyForm form-group">
-            <h1>What can we do for you?</h1>
+            <h1>Request help</h1>
 
             <form:input type="text" style="background-color: black; color: white" class="MyInput" id="amount" placeholder="Enter an amount" path="amount"/>
 
@@ -68,9 +68,9 @@
 
         </div>
 
-<%--        <div>--%>
-<%--            <img src="/images/reg1.png" alt="picture">--%>
-<%--        </div>--%>
+        <div id = 'reqimage'>
+            <img src="/images/reqw2.png" alt="picture">
+        </div>
 
 </form:form>
 

@@ -17,18 +17,24 @@
     <style><%@include file="../css/navBar.css"%></style>
     <style><%@include file="../css/donation.css"%></style>
 </head>
-<header>
-<%--    <a href="/welcome" id="nav_link">--%>
-<%--        <img src="/images/nav_logo.PNG" alt="picture">--%>
-<%--    </a>--%>
-<%--    <nav>--%>
-<%--        <ul>--%>
-<%--            <li><a href = > Testing Center </a> </li>--%>
-<%--            <li><a href = "/donation"> Donation Center </a></li>--%>
-<%--&lt;%&ndash;            <li><a href = "/request/${account.userName}" > Request </a></li>&ndash;%&gt;--%>
-<%--            <li><a href = "/edit/${account.email}"> ${account.userName} </a></li>--%>
-<%--        </ul>--%>
-<%--    </nav>--%>
+<header id = 'bal'>
+
+    <a href="/welcome/${account.userName}" id="nav">
+        <img src="/images/nav3.png" alt="picture">
+    </a>
+    <nav>
+        <ul id = "nav__links">
+
+
+            <li><a href = "/donation/${account.userName}"> Donation Center </a></li>
+            <li><a href = "/request/${account.userName}" > Request </a></li>
+            <li><a href = '/testing/${account.userName}'> Testing Center </a> </li>
+            <li><a href = "/edit/${account.email}"> ${account.userName} </a></li>
+            <li><a href = "/login"> Logout </a></li>
+
+        </ul>
+    </nav>
+
 </header>
 <body>
 <span style="margin-left:830px; color:green">${successful}</span>
@@ -61,6 +67,5 @@
 
 </table>
 
-<p style="font-size: 20px"><a style="color:black; text-align: center; margin-left:830px" href="/welcome/${account.userName}">Click here to go back to the homepage</a></p>
 </body>
 </html>

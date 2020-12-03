@@ -1,6 +1,4 @@
-main{
-    background-color: #F7F0E1;
-}
+
 .MyForm
 {
     width: 20%;
@@ -20,9 +18,9 @@ h1
     margin-bottom: 30px;
 }
 
-input
+
+.MyInput
 {
-    float: left;
     width: 100%;
     background: #ecf1f4;
     border: 1px solid #ecf1f4;
@@ -38,27 +36,6 @@ input
     transition: all 0.6s ease;
 }
 
-.MyInput
-{
-    width: 100%;
-    background: white;
-    border: 1px solid #ecf1f4;
-    border-radius: 26px;
-    padding: 12px 14px;
-    box-sizing: border-box;
-    margin-bottom: 20px;
-    font-size: 14px;
-    color: black;
-    font-family: 'Open Sans', sans-serif;
-    outline: none;
-    text-indent: 5px;
-    transition: all 0.6s ease;
-}
-
-input:hover
-{
-    padding: 14px 16px;
-}
 span{
     float: left;
     color: red;
@@ -68,8 +45,8 @@ span{
 }
 
 button
-{
-    background: #8A8FC7;
+{    width: 350px;
+    background:  #817ffe;
     border: 0;
     cursor: pointer;
     color: #f3ffff;

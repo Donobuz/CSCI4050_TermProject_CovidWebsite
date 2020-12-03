@@ -5,11 +5,7 @@
     <style><%@include file="/WEB-INF/css/registrationSuccess.css"%></style>
 </head>
 <body>
-<header id="bal">
 
-    <input type="image" src="/images/nav_logo.PNG" name="nav" id="nav" />
-
-</header>
 
 <main>
     <div>
