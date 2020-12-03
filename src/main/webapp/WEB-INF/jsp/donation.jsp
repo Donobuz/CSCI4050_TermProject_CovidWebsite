@@ -52,7 +52,7 @@
             <td>${request.amount}</td>
             <td>${request.reason}</td>
             <td>${request.date}</td>
-            <td><a href="/donate/${request.account.userName}/${request.id}"><button class="btn btn-secondary"></button></a></td>
+            <td><a href="/donate/${account.userName}/${request.id}"><button class="btn btn-secondary"></button></a></td>
         </tr>
 
         </c:if>

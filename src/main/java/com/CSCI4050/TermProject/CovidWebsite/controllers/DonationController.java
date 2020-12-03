@@ -24,9 +24,12 @@ public class DonationController {
     @Autowired
     AccountRepository accountRepo;
 
-    @RequestMapping(value = "/donation", method = RequestMethod.GET)
-    public String showDonationData(ModelMap model) {
+    @RequestMapping(value = "/donation/{userNameParameter}", method = RequestMethod.GET)
+    public String showDonationData(@PathVariable("userNameParameter") String userName, ModelMap model) {
         model.addAttribute("requestForm", requestRepo.findAll());
+        AccountEntity accountInstance = accountRepo.findByUserName(userName);
+        model.addAttribute("account", accountInstance);
+
         return "donation";
     }
 
@@ -61,7 +64,6 @@ public class DonationController {
                 memory, iterations);
 
         String encodeCC_Number = argon2PasswordEncoder.encode(creditForm.getCcNumber());
-        String encodeCC_CVC = argon2PasswordEncoder.encode((creditForm.getCc_CVC()));
 
 //        if(request)
 
@@ -94,7 +96,7 @@ public class DonationController {
             request.setActive(true);
             accountInstance.getCreditCard().setPaymentAmount(accountInstance.getCreditCard().getPaymentAmount());
             accountInstance.getCreditCard().setCcNumber(encodeCC_Number);
-            accountInstance.getCreditCard().setCc_CVC(encodeCC_CVC);
+            accountInstance.getCreditCard().setCc_CVC(creditForm.getCc_CVC());
             model.addAttribute("successful", "You have successfully donated $" + accountInstance.getCreditCard().getPaymentAmount());
             model.addAttribute("requestForm", requestRepo.findAll());
             model.addAttribute("account", accountInstance);
@@ -113,7 +115,7 @@ public class DonationController {
             request.setAmount(difference);
             accountInstance.getCreditCard().setPaymentAmount(accountInstance.getCreditCard().getPaymentAmount());
             accountInstance.getCreditCard().setCcNumber(encodeCC_Number);
-            accountInstance.getCreditCard().setCc_CVC(encodeCC_CVC);
+            accountInstance.getCreditCard().setCc_CVC(creditForm.getCc_CVC());
             model.addAttribute("successful", "You have successfully donated $" + accountInstance.getCreditCard().getPaymentAmount());
             model.addAttribute("requestForm", requestRepo.findAll());
             model.addAttribute("account", accountInstance);
