@@ -34,7 +34,7 @@
 
             <li><a href = "/edit/${accountInstance.email}"> ${accountInstance.userName} </a></li>
             <li><a href = "/request/${accountInstance.userName}" > Request </a></li>
-            <li><a href = "/donation"> Donation Center </a></li>
+            <li><a href = "/donation/${accountInstance.userName}"> Donation Center </a></li>
 
         </ul>
     </nav>

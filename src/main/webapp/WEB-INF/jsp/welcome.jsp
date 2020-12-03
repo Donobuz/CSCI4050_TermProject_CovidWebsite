@@ -19,7 +19,7 @@
         <ul>
             <li><a href = "/login"> Logout </a></li>
             <li><a href = "/edit/${account.email}"> ${account.userName} </a></li>
-            <li><a href = "/donation"> Donation Center </a></li>
+            <li><a href = "/donation/${account.userName}"> Donation Center </a></li>
             <li><a href = "/request/${account.userName}" > Request </a></li>
             <li><a href = '/testing/${account.userName}'> Testing Center </a> </li>
 
