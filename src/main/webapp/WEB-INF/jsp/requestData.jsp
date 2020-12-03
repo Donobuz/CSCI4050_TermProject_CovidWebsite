@@ -26,7 +26,7 @@
         <th scope="row" data-field="date" data-sortable="true" >Date</th>
         <th scope="row" data-field="activated" data-sortable="true">Activated?</th>
         <th scope="row" data-field="activateRequest" data-sortable="true">Activate Request</th>
-        <th scope="row" data-field="reject" data-sortable="true">Reject Request</th>
+        <th scope="row" data-field="deactivateRequest" data-sortable="true">Deactivate Request</th>
     </tr>
     </thead>
 
@@ -43,7 +43,7 @@
             </c:if>
 
             <td><a href="/activate/${request.id}"><button class="btn btn-success"></button></a></td>
-            <td><a href="/reject/${request.id}"><button class="btn btn-danger"></button></a></td>
+            <td><a href="/deactivate/${request.id}"><button class="btn btn-danger"></button></a></td>
         </tr>
     </c:forEach>
 </table>

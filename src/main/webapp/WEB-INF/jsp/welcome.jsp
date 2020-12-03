@@ -59,7 +59,7 @@
             <div class="card cr"><i class="fa fa-times-circle"></i><h5>Critical Cases</h5><span id="critical"></span></div>
             <div class="card d"><i class="fa fa-times"></i><h5>Total Deaths</h5><span id="death"></span></div>
             <div class="card r"><i class="fa fa-check-square-o"></i><h5>Recovered Cases</h5><span id="recovered"></span></div>
-            <div class="card t"><i class="fa fa-eye"></i><h5>Total Testes Done</h5><span id="tests"></span></div>
+            <div class="card t"><i class="fa fa-eye"></i><h5>Total Tests Done</h5><span id="tests"></span></div>
         </div>
     </div>
 </div>
@@ -72,15 +72,15 @@
 <%--            <input type="submit" class=butt3 value="US News"/>--%>
 <%--        </form>--%>
 
-    <a href ="/news"><button class="butt3" > <i class="fa fa-newspaper-o"></i><br> US Covid-19 <br> News</button></a>
+    <a href ="/news/${account.userName}"><button class="butt3" > <i class="fa fa-newspaper-o"></i><br> US Covid-19 <br> News</button></a>
 
     </div>
 
 </div>
 
 <script type="text/javascript">
-
-    fetch('https://corona.lmao.ninja/v2/countries/US')
+<%--    fetch(htt--%>
+    fetch('https://corona.lmao.ninja/v2/countries/France')
         .then((response) => {
             return response.json();
         })

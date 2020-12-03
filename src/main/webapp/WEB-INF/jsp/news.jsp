@@ -13,22 +13,29 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
             integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
             crossorigin="anonymous"></script>
-    <style><%@include file="../css/news.css" %></style>
+
     <style><%@include file="../css/main.css"%></style>
+    <style><%@include file="../css/news.css" %></style>
+
+
+    <style>
+        #nav img{
+            width: 170px;
+            height: 30px;
+        }
+
+    </style>
+
     <title>News</title>
 </head>
 <body>
-<header>
-    <div id="navbar">
-        <nav>
-            <ul>
-                <li><a href = '/testing'> Testing Center </a> </li>
-                <li><a href = "/donation"> Donation Center </a></li>
-                <%--                <li><a href = "/request/${account.userName}" > Request </a></li>--%>
-                <%--                <li><a href = "/edit/${account.email}"> ${account.userName} </a></li>--%>
-            </ul>
-        </nav>
-    </div>
+<header id = 'bal'>
+
+    <a href="/welcome/${account.userName}" id="nav">
+        <img src="/images/nav3.png" alt="picture">
+    </a>
+
+
 </header>
 
 <h1>News</h1>
